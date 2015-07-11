@@ -1,0 +1,5 @@
+*.swp
+.netrwhist
+vim/bundle/**
+vim/bundles/**
+vim/Trashed-Bundles/**
