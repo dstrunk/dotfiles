@@ -1,0 +1,68 @@
+if &compatible
+  set nocompatible
+end
+
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Let Vundle manage Vundle
+Plugin 'gmarik/Vundle.vim'
+
+" Define bundles via GitHub repos
+" Navigation
+Plugin 'kien/ctrlp.vim'
+Plugin 'bling/vim-airline'
+Plugin 'Yggdroot/indentLine'
+Plugin 'Valloric/YouCompleteMe'
+
+" General added vim functionality
+Plugin 'vim-scripts/ctags.vim'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
+
+" Unix
+Plugin 'tpope/vim-eunuch'
+
+" Git
+Plugin 'tpope/vim-fugitive'
+
+" Ruby and Rails
+Plugin 'tpope/vim-rake'
+Plugin 'tpope/vim-rails'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'kana/vim-textobj-user'
+Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-bundler'
+Plugin 'stefanoverna/vim-i18n'
+
+" Tmux
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'christoomey/vim-tmux-runner'
+Plugin 'jgdavey/tslime.vim'
+
+" Coffeescript
+Plugin 'kchmck/vim-coffee-script'
+
+" Clojure
+Plugin 'guns/vim-sexp'
+Plugin 'tpope/vim-sexp-mappings-for-regular-people'
+Plugin 'guns/vim-clojure-static'
+Plugin 'guns/vim-clojure-highlight'
+Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-leiningen'
+Plugin 'kien/rainbow_parentheses.vim'
+
+" Colorschemes
+Plugin 'croaky/vim-colors-github'
+Plugin 'jpo/vim-railscasts-theme'
+Plugin 'chriskempson/vim-tomorrow-theme'
+Plugin 'whatyouhide/vim-gotham'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'w0ng/vim-hybrid'
+
+call vundle#end()
+filetype plugin indent on
