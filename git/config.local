@@ -1,0 +1,9 @@
+[color]
+  ui = true
+[user]
+  name = Daniel Strunk
+  email = me@dstrunk.com
+[filter "media"]
+  required = true
+  clean = git media clean %f
+  smudge = git media smudge %f

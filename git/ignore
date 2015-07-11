@@ -1,0 +1,14 @@
+.DS_Store
+*~
+*.swp
+.sass-cache/
+/tags
+
+*.pyc
+
+.vagrant
+
+.env
+
+.project-notes
+.ctags
