@@ -1,21 +1,30 @@
 - clean: ['~']
 
 - link:
-  ~/.vim: 'vim/'
-  ~/.vim/.vimrc: 'vim/vimrc'
-  ~/.vim/.vimrc.bundles: 'vim/vimrc.bundles'
-  ~/.tmux.conf: 'tmux/tmux.conf'
-  ~/.gemrc: 'ruby/gemrc'
-  ~/.irbrc: 'ruby/irbrc'
-  ~/.railsrc: 'ruby/railsrc'
-  ~/.rspec: 'ruby/rspec'
-  ~/.gitconfig: 'git/config'
-  ~/.gitconfig.local: 'git/config.local'
-  ~/.gitignore: 'git/ignore'
-  ~/.gitmessage: 'git/message'
-  ~/.bin: 'bin/'
-  ~/.bashrc: 'bash/bashrc'
-  ~/.bashrc.local: 'bash/bashrc.local'
+    ~/.vim:
+        force: true
+        path: vim/
+    ~/.vimrc: vim/vimrc
+    ~/.vimrc.bundles: vim/vimrc.bundles
+    ~/.tmux.conf: tmux/tmux.conf
+    ~/.gemrc: ruby/gemrc
+    ~/.irbrc: ruby/irbrc
+    ~/.railsrc: ruby/railsrc
+    ~/.rspec: ruby/rspec
+    ~/.gitconfig:
+        force: true
+        path: git/config
+    ~/.gitconfig.local: git/config.local
+    ~/.gitignore: git/ignore
+    ~/.gitmessage: git/message
+    ~/.git_template: git/git_template
+    ~/.bin: bin/
+    ~/.bashrc: 
+        force: true
+        path: bash/bashrc
+    ~/.bashrc.local: bash/bashrc.local
 
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
+    - [git submodule update --init --recursive, Installing submodules]
+    - [git config --global init.templatedir '~/.git_template']
+    - rm ~/.vim/vimrc && rm ~/.vim/vimrc.bundles
