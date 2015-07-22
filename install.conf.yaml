@@ -19,7 +19,7 @@
     ~/.gitmessage: git/message
     ~/.git_template: git/git_template
     ~/.bin: bin/
-    ~/.bashrc: 
+    ~/.bashrc:
         force: true
         path: bash/bashrc
     ~/.bashrc.local: bash/bashrc.local
@@ -27,4 +27,3 @@
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
     - [git config --global init.templatedir '~/.git_template']
-    - rm ~/.vim/vimrc && rm ~/.vim/vimrc.bundles
