@@ -13,7 +13,7 @@
   ~/.gitconfig.local: 'git/config.local'
   ~/.gitignore: 'git/ignore'
   ~/.gitmessage: 'git/message'
-  ~/bin: 'bin/'
+  ~/.bin: 'bin/'
   ~/.bashrc: 'bash/bashrc'
   ~/.bashrc.local: 'bash/bashrc.local'
 
