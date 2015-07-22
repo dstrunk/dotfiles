@@ -19,6 +19,7 @@
     ~/.gitmessage: git/message
     ~/.git_template: git/git_template
     ~/.bin: bin/
+    ~/.bash_profile: bash/bash_profile
     ~/.bashrc:
         force: true
         path: bash/bashrc
@@ -26,4 +27,5 @@
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
-    - [git config --global init.templatedir '~/.git_template']
+    - git config --global init.templatedir '~/.git_template'
+    - git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
