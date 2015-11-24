@@ -43,7 +43,7 @@ set linespace=2
 set guifont=Menlo:h14
 
 " Colorscheme
-colorscheme hybrid
+" colorscheme hybrid
 
 highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A guifg=#9090D0
@@ -108,3 +108,8 @@ function! TrimWhiteSpace()
   %s/\s\+$//e
 endfunction
 autocmd BufWritePre *.rb :call TrimWhiteSpace()
+
+" For XTerm
+let g:hybrid_use_Xresources = 1
+set background=dark
+colorscheme hybrid

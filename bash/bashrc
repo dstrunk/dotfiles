@@ -1,9 +1,7 @@
 export PATH="$HOME/.bin:$PATH"
 
-# recommended by brew doctor
-export PATH="/usr/local/bin:$PATH"
+# rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - --no-rehash)"
-
-$(boot2docker shellinit 2>/dev/null)
 
 [[ -f ~/.bashrc.local ]] && source ~/.bashrc.local

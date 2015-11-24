@@ -29,26 +29,11 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 
 # Handy aliases
 alias ".."="cd .."
+alias "..."="cd ../.."
+alias "...."="cd ../../.."
+alias "~"="cd ~/"
 alias "ls"="ls -a"
-alias "git"="hub"
-
-dashme() {
-  case "$#" in
-
-  0) open dash://
-     ;;
-  1) open dash://$1
-     ;;
-  2) open dash://$1:$2
-     ;;
-  *) echo "Wrong number of arguments. Usage is 'dash \$argument1 \$argument2'"
-     echo "0) If calling dash by itself, the dash dialog will open."
-     echo "1) If calling dash with one argument, the dash dialog will open and will search for your string."
-     echo "2) If calling dash with two arguments, the dash dialog will open and will do a web search for your language and your string."
-     ;;
-  esac
-}
-alias "dash"=dashme
+# alias "git"="hub"
 
 _not_inside_tmux() { [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; }
 
@@ -59,3 +44,4 @@ ensure_tmux_is_running() {
 }
 
 ensure_tmux_is_running
+export PATH="$PATH:~/.composer/vendor/bin"
