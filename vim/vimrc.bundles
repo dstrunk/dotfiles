@@ -21,7 +21,8 @@ Plugin 'vim-scripts/ctags.vim'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
-Plugin 'msanders/snipmate.vim'
+Plugin 'sirver/ultisnips'
+Plugin 'honza/vim-snippets'
 
 " Unix
 Plugin 'tpope/vim-eunuch'

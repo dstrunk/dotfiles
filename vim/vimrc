@@ -113,3 +113,9 @@ autocmd BufWritePre *.rb :call TrimWhiteSpace()
 let g:hybrid_use_Xresources = 1
 set background=dark
 colorscheme hybrid
+
+" Add filetype on for snippets
+:filetype plugin on
+let g:UltiSnipsExpandTrigger="<C-l>"
+let g:UltiSnipsJumpForwardTrigger="<C-j>"
+let g:UltiSnipsJumpBackwardTrigger="<C-k>"
