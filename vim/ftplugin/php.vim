@@ -23,3 +23,9 @@ function! RunPHPUnitTest()
 endfunction
 
 map <leader>t :call RunPHPUnitTest()<cr>
+
+" Snippets
+:UltiSnipsAddFiletypes php
+:UltiSnipsAddFiletypes php-laravel
+:UltiSnipsAddFiletypes php-phpunit
+:UltiSnipsAddFiletypes php-symfony2

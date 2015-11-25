@@ -7,6 +7,9 @@
     ~/.vimrc: vim/vimrc
     ~/.vimrc.bundles: vim/vimrc.bundles
     ~/.vim/ftplugin/php.vim: vim/ftplugin/php.vim
+    ~/.vim/ftplugin/ruby.vim: vim/ftplugin/ruby.vim
+    ~/.vim/ftplugin/eruby.vim: vim/ftplugin/eruby.vim
+    ~/.vim/ftplugin/html.vim: vim/ftplugin/html.vim
     ~/.tmux.conf: tmux/tmux.conf
     ~/.gemrc: ruby/gemrc
     ~/.irbrc: ruby/irbrc
