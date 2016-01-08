@@ -17,9 +17,7 @@
     ~/.bash_profile: bash/bash_profile
     ~/.bashrc: bash/bashrc
     ~/.bashrc.local: bash/bashrc.local
-    ~/.bin:
-        create: true
-        path: bin/
+    ~/.bin: bin/
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
