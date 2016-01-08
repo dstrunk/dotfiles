@@ -10,6 +10,7 @@ setlocal smarttab
 " Ignore certain files for CtrlP
 set wildignore+=*/vendor/**
 set wildignore+=*/public/forum/**
+set wildignore+=*/media
 
 " Let's run PHPUnit tests
 function! RunPHPUnitTest()
@@ -29,3 +30,10 @@ map <leader>t :call RunPHPUnitTest()<cr>
 :UltiSnipsAddFiletypes php-laravel
 :UltiSnipsAddFiletypes php-phpunit
 :UltiSnipsAddFiletypes php-symfony2
+
+" autocomplete
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+let g:phpcomplete_relax_static_constraint=1
+let g:phpcomplete_complete_for_unknown_classes=1
+let g:phpcomplete_search_tags_for_variables=1
+let g:phpcomplete_parse_docblock_comments=1

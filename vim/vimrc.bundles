@@ -22,7 +22,14 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'sirver/ultisnips'
-Plugin 'honza/vim-snippets'
+
+" Add supertab for using tab with both ultisnips and youcompleteme
+Plugin 'ervandew/supertab'
+
+" Magento dev
+Plugin 'alvan/vim-closetag'
+Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'joonty/vdebug'
 
 " Unix
 Plugin 'tpope/vim-eunuch'

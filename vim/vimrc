@@ -42,9 +42,6 @@ set relativenumber
 set linespace=2
 set guifont=Menlo:h14
 
-" Colorscheme
-" colorscheme hybrid
-
 highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
@@ -107,15 +104,29 @@ autocmd BufWinLeave * call clearmatches()
 function! TrimWhiteSpace()
   %s/\s\+$//e
 endfunction
+
 autocmd BufWritePre *.rb :call TrimWhiteSpace()
+autocmd BufWritePre *.php :call TrimWhiteSpace()
 
 " For XTerm
 let g:hybrid_use_Xresources = 1
 set background=dark
 colorscheme hybrid
 
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType='<C-n>'
+
 " Add filetype on for snippets
 :filetype plugin on
-let g:UltiSnipsExpandTrigger="<C-l>"
-let g:UltiSnipsJumpForwardTrigger="<C-j>"
-let g:UltiSnipsJumpBackwardTrigger="<C-k>"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:snips_author="Daniel Strunk"
+ 
+" autocomplete tags for HTML / XML
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.xml"
+
+" Be productive
+nmap ,todo :e todo.txt<cr>

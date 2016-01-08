@@ -3,7 +3,7 @@
 [push]
   default = current
 [color]
-  ui = auto
+	ui = true
 [alias]
   aa = add --all
   ap = add --patch
@@ -23,8 +23,9 @@
   up = !git fetch origin && git rebase origin/master
 [core]
   excludesfile = ~/.gitignore
-  autocrlf = input
+	autocrlf = input
   editor = vim
+	fileMode = false
 [merge]
   ff = only
 [commit]
@@ -33,3 +34,6 @@
   prune = true
 [include]
   path = ~/.gitconfig.local
+[user]
+	name = Daniel Strunk
+	email = me@dstrunk.com
