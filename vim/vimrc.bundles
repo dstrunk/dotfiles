@@ -26,8 +26,12 @@ Plugin 'sirver/ultisnips'
 " Add supertab for using tab with both ultisnips and youcompleteme
 Plugin 'ervandew/supertab'
 
-" Magento dev
+" General markup / C like autoclosing
+Plugin 'Townk/vim-autoclose'
 Plugin 'alvan/vim-closetag'
+Plugin 'edsono/vim-matchit'
+
+" Magento dev
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'joonty/vdebug'
 
