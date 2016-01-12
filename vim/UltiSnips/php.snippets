@@ -1,4 +1,4 @@
-snippet doc_f "doc_f"
+snippet doc_f "Function DocBlock"
 /**
  * $2
  * @return ${4:void}
@@ -8,4 +8,15 @@ ${1:public }function ${2:someFunc}(${3})
 {
     ${6}
 }
+endsnippet
+
+snippet doc_p "Page-level DocBlock"
+/**
+ * ${1:Title}
+ *
+ * @category    ${2:Wcbradley}
+ * @package     ${3:Wcbradley_Theme}
+ * @copyright   Copyright (c) ${4:2016} WC Bradley Co., (http://wcbradley.com)
+ * @author      Daniel Strunk <dstrunk@wcbradley.com>
+ **/
 endsnippet
