@@ -33,7 +33,7 @@ alias "..."="cd ../.."
 alias "...."="cd ../../.."
 alias "~"="cd ~/"
 alias "ls"="ls -a"
-# alias "git"="hub"
+alias "n98-magerun"="nmr"
 
 _not_inside_tmux() { [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; }
 
