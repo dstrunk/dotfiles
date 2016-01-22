@@ -27,14 +27,6 @@ export PS1="\n\[$(tput bold)\]\[$(tput setaf 5)\]λ \[$(tput setaf 6)\]\w\[$(tpu
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
-# Handy aliases
-alias ".."="cd .."
-alias "..."="cd ../.."
-alias "...."="cd ../../.."
-alias "~"="cd ~/"
-alias "ls"="ls -a"
-alias "n98-magerun"="nmr"
-
 _not_inside_tmux() { [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; }
 
 ensure_tmux_is_running() {

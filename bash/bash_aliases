@@ -1,0 +1,16 @@
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias ~='cd ~/'
+alias ls='ls -a'
+alias nmr='n98-magerun'
+
+cdls() {
+  builtin cd "$*"
+  RESULT=$?
+  if [ "$RESULT" -eq 0 ]; then
+    ls
+  fi
+}
+
+alias cd='cdls'

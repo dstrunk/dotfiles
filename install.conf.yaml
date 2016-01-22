@@ -17,6 +17,7 @@
     ~/.bash_profile: bash/bash_profile
     ~/.bashrc: bash/bashrc
     ~/.bashrc.local: bash/bashrc.local
+    ~/.bash_aliases: bash/bash_aliases
     ~/.bin: bin/
 
 - shell:

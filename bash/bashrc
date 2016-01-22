@@ -5,3 +5,4 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - --no-rehash)"
 
 [[ -f ~/.bashrc.local ]] && source ~/.bashrc.local
+[[ -f ~/.bash_aliases ]] && source ~/.bash_aliases
