@@ -35,7 +35,8 @@ Plugin 'edsono/vim-matchit'
 " Magento dev
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'joonty/vdebug'
-Plugin 'joonty/vim-phpqa'
+" Plugin 'joonty/vim-phpqa'
+" Plugin 'stephpy/vim-php-cs-fixer'
 
 " Unix
 Plugin 'tpope/vim-eunuch'
