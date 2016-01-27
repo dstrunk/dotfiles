@@ -70,6 +70,7 @@ Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'whatyouhide/vim-gotham'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'w0ng/vim-hybrid'
+Plugin 'gosukiwi/vim-atom-dark'
 
 call vundle#end()
 filetype plugin indent on
