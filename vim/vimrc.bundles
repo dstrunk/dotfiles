@@ -14,7 +14,6 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'bling/vim-airline'
 Plugin 'Yggdroot/indentLine'
-Plugin 'Valloric/YouCompleteMe'
 
 " General added vim functionality
 Plugin 'vim-scripts/ctags.vim'
@@ -43,6 +42,7 @@ Plugin 'tpope/vim-eunuch'
 
 " Git
 Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 
 " Ruby and Rails
 Plugin 'tpope/vim-rake'
