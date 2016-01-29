@@ -27,7 +27,7 @@ Plugin 'skwp/greplace.vim'
 Plugin 'ervandew/supertab'
 
 " General markup / C like autoclosing
-Plugin 'jiangmaio/auto-pairs'
+Plugin 'jiangmiao/auto-pairs'
 Plugin 'alvan/vim-closetag'
 Plugin 'edsono/vim-matchit'
 
