@@ -125,11 +125,6 @@ let g:hybrid_use_Xresources = 1
 set background=dark
 colorscheme atom-dark
 
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType='<C-n>'
-
 " Add filetype on for snippets
 :filetype plugin on
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -141,7 +136,7 @@ let g:snips_author="Daniel Strunk"
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.xml"
 
 " Be productive
-nmap ,todo :e todo.txt<cr>
+nmap <leader>do :e todo.txt<cr>
 
 " vim-airline configuration
 let g:airline#extensions#branch#enabled = 1
@@ -173,3 +168,7 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
+
+" Git
+let g:gitgutter_sign_column_always = 1
+set updatetime=250
