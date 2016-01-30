@@ -50,3 +50,10 @@ autocmd BufWritePre *.php :call TrimWhiteSpace()
 " The second instantiates protected properties after the original property
 let @a='lyF${iprotected ;Pojjo$this-> = ;Plybbbblp'
 let @b='lyF$k?protectedoprotected ;Pjjj%O$this-> = ;Plybbbblp'
+
+" PHP CS fixer
+let g:php_cs_fixer_level = "symfony"
+let g:php_cs_fixer_config = "default"
+let g:php_cs_fixer_php_path = "~/.bin/php-cs-fixer"
+
+:autocmd BufWritePre *.php :normal PhpCsFixerFixFile()<CR>
