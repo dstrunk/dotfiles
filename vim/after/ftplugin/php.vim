@@ -56,4 +56,7 @@ let g:php_cs_fixer_level = "symfony"
 let g:php_cs_fixer_config = "default"
 let g:php_cs_fixer_php_path = "~/.bin/php-cs-fixer"
 
-:autocmd BufWritePre *.php :normal PhpCsFixerFixFile()<CR>
+augroup filetype_php
+  :autocmd!
+  :autocmd BufWritePre *.php :normal PhpCsFixerFixFile()<CR>
+augroup END
