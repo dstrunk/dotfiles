@@ -43,7 +43,7 @@ function! TrimWhiteSpace()
   %s/\s\+$//e
 endfunction
 
-autocmd BufWritePre *.php :call TrimWhiteSpace()
+autocmd! BufWritePre *.php :call TrimWhiteSpace()
 
 " Macros for constructors
 " The first instantiates a protected property within the constructor
@@ -56,7 +56,4 @@ let g:php_cs_fixer_level = "symfony"
 let g:php_cs_fixer_config = "default"
 let g:php_cs_fixer_php_path = "~/.bin/php-cs-fixer"
 
-augroup filetype_php
-  :autocmd!
-  :autocmd BufWritePre *.php :normal PhpCsFixerFixFile()<CR>
-augroup END
+nnoremap <silent><C-b> :call PhpCsFixerFixFile()<CR>
