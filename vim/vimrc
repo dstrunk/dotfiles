@@ -45,8 +45,6 @@ set guifont=Menlo:h14
 highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
-set t_Co=256
-
 " indentLine color
 let g:indentLine_color_term = 239
 
@@ -122,8 +120,12 @@ autocmd BufWritePre *.php :call TrimWhiteSpace()
 
 " For XTerm
 let g:hybrid_use_Xresources = 1
-set background=dark
-colorscheme atom-dark
+colorscheme legacy
+set t_Co=256
+
+if has("nvim")
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
 
 " Add filetype on for snippets
 :filetype plugin on

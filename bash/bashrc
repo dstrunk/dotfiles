@@ -2,6 +2,7 @@ export PATH="$HOME/.bin:$PATH"
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.rbenv/versions:$PATH"
 eval "$(rbenv init - --no-rehash)"
 
 [[ -f ~/.bashrc.local ]] && source ~/.bashrc.local
