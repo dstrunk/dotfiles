@@ -6,6 +6,7 @@
     ~/.vimrc.bundles: vim/vimrc.bundles
     ~/.tmux.conf: tmux/tmux.conf
     ~/.emacs.d: emacs/
+    ~/.mutt: mutt/
     ~/.gemrc: ruby/gemrc
     ~/.irbrc: ruby/irbrc
     ~/.railsrc: ruby/railsrc
