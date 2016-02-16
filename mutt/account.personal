@@ -1,9 +1,12 @@
+source "gpg -d ~/.mutt/passwords.gpg |"
+
+set imap_user="strundm@gmail.com"
+
+set folder=imaps://imap.gmail.com:993
+set spoolfile=imaps://imap.gmail.com/
+set postponed="imaps://imap.gmail.com/[Gmail]/Drafts"
 set from = "hello@danielstrunk.me"
 set sendmail = "msmtp -a personal"
-set spoolfile = "+personal/inbox"
-set mbox = "+personal/archive"
-set postponed = "+personal/drafts"
-set record = "+personal/sent"
 set copy = "yes"
 macro index gi "<change-folder>+personal/inbox<enter>" "go to the INBOX"
 
