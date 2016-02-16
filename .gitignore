@@ -5,3 +5,8 @@ vim/bundle/**
 vim/bundles/**
 vim/Trashed-Bundles/**
 mutt/temp
+mutt/passwords.gpg
+mutt/cache
+mutt/certificates
+emacs/.cask
+emacs/elpa
