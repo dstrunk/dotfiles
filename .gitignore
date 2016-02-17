@@ -10,3 +10,5 @@ mutt/cache
 mutt/certificates
 emacs/.cask
 emacs/elpa
+emacs/auto-save-list
+emacs/modes
