@@ -1,11 +1,11 @@
-#+TITLE: Emacs configuration (lifted from github.com/hrs/dotfiles)
+#+TITLE: Emacs configuration (lifted from github.com/dstrunk/dotfiles)
 
 * Use sensible-defaults.el
 
-Use [[https://github.com/hrs/sensible-defaults.el][sensible-defaults.el]] for basic settings.
+Use [[https://github.com/dstrunk/sensible-defaults.el][sensible-defaults.el]] for basic settings.
 
 #+BEGIN_SRC emacs-lisp
-  (load-file "~/emacs.d/sensible-defaults.el")
+  (load-file "~/.emacs.d/sensible-defaults.el")
   (sensible-defaults/use-all-settings)
   (sensible-defaults/use-all-keybindings)
 #+END_SRC
@@ -25,10 +25,126 @@ Use [[https://github.com/hrs/sensible-defaults.el][sensible-defaults.el]] for ba
 Use =cask= and =pallet= for managing packages.
 
 #+BEGIN_SRC emacs-lisp
-  (require 'cask "~/.cask/cask.el")
+  (require 'cask "/usr/local/Cellar/cask/0.7.4/cask.el")
   (cask-initialize)
   (require 'pallet)
 #+END_SRC
+
+* Utility functions
+
+Define a big ol' bunch of handy utility functions.
+
+#+BEGIN_SRC emacs-lisp
+  (defun dstrunk/view-buffer-name ()
+    "Display the filename of the current buffer."
+    (interactive)
+    (message (buffer-file-name)))
+
+  (defun dstrunk/generate-scratch-buffer ()
+    "Create and switch to a temporary scratch buffer with a random
+       name."
+    (interactive)
+    (switch-to-buffer (make-temp-name "scratch-")))
+
+  (defun dstrunk/split-window-below-and-switch ()
+    "Split the window horizontally, then switch to the new pane."
+    (interactive)
+    (split-window-below)
+    (other-window 1))
+
+  (defun dstrunk/split-window-right-and-switch ()
+    "Split the window vertically, then switch to the new pane."
+    (interactive)
+    (split-window-right)
+    (other-window 1))
+
+  (defun dstrunk/de-unicode ()
+    "Tidy up a buffer by replacing all special Unicode characters
+       (smart quotes, etc.) with their more sane cousins"
+    (interactive)
+    (let ((unicode-map '(("[\u2018\|\u2019\|\u201A\|\uFFFD]" . "'")
+                         ("[\u201c\|\u201d\|\u201e]" . "\"")
+                         ("\u2013" . "--")
+                         ("\u2014" . "---")
+                         ("\u2026" . "...")
+                         ("\u00A9" . "(c)")
+                         ("\u00AE" . "(r)")
+                         ("\u2122" . "TM")
+                         ("[\u02DC\|\u00A0]" . " "))))
+      (save-excursion
+        (loop for (key . value) in unicode-map
+              do
+              (goto-char (point-min))
+              (replace-regexp key value)))))
+
+  (defun dstrunk/beautify-json ()
+    "Pretty-print the JSON in the marked region. Currently shells
+       out to `jsonpp'--be sure that's installed!"
+    (interactive)
+    (save-excursion
+      (shell-command-on-region (mark) (point) "jsonpp" (buffer-name) t)))
+
+  (defun dstrunk/comment-or-uncomment-region-or-line ()
+    "Comments or uncomments the region or the current line if there's no active region."
+    (interactive)
+    (let (beg end)
+      (if (region-active-p)
+          (setq beg (region-beginning) end (region-end))
+        (setq beg (line-beginning-position) end (line-end-position)))
+      (comment-or-uncomment-region beg end)))
+
+  (defun dstrunk/unfill-paragraph ()
+    "Takes a multi-line paragraph and makes it into a single line of text."
+    (interactive)
+    (let ((fill-column (point-max)))
+      (fill-paragraph nil)))
+
+  (defun dstrunk/kill-current-buffer ()
+    "Kill the current buffer without prompting."
+    (interactive)
+    (kill-buffer (current-buffer)))
+
+  (defun dstrunk/visit-last-dired-file ()
+    "Open the last file in an open dired buffer."
+    (end-of-buffer)
+    (previous-line)
+    (dired-find-file))
+
+  (defun dstrunk/visit-last-migration ()
+    "Open the last file in 'db/migrate/'. Relies on projectile. Pretty sloppy."
+    (interactive)
+    (dired (expand-file-name "db/migrate" (projectile-project-root)))
+    (dstrunk/visit-last-dired-file)
+    (kill-buffer "migrate"))
+
+  (defun dstrunk/mac? ()
+    "Returns `t' if this is an Apple machine, nil otherwise."
+    (eq system-type 'darwin))
+
+  (defun dstrunk/add-auto-mode (mode &rest patterns)
+    "Add entries to `auto-mode-alist' to use `MODE' for all given file `PATTERNS'."
+    (dolist (pattern patterns)
+      (add-to-list 'auto-mode-alist (cons pattern mode))))
+
+  (defun dstrunk/find-file-as-sudo ()
+    (interactive)
+    (let ((file-name (buffer-file-name)))
+      (when file-name
+        (find-alternate-file (concat "/sudo::" file-name)))))
+
+  (defun dstrunk/insert-random-string (len)
+    "Insert a random alphanumeric string of length len."
+    (interactive)
+    (let ((mycharset "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstyvwxyz"))
+      (dotimes (i len)
+        (insert (elt mycharset (random (length mycharset)))))))
+
+  (defun dstrunk/generate-password ()
+    "Insert a good alphanumeric password of length 30."
+    (interactive)
+    (dstrunk/insert-random-string 30))
+#+END_SRC
+
 
 #+BEGIN_SRC emacs-lisp
   (when window-system
@@ -49,8 +165,8 @@ Use the =diff-hl= package to highlight changed and uncommitted lines.
 #+BEGIN_SRC emacs-lisp
   (require 'diff-hl)
 
-  (add-hook 'prog-mode-hook' 'turn-on-diff-hl-mode)
-  (add-hook 'vc-dir-mode-hook' 'turn-on-diff-hl-mode)
+  (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
+  (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode)
 #+END_SRC
 
 * Programming customizations
@@ -343,7 +459,7 @@ I'd like spell-checking running when editing Markdown.
 Associate =.md= files with Markdown.
 
 #+BEGIN_SRC emacs-lisp
-  (hrs/add-auto-mode 'markdown-mode "\\.md$")
+  (dstrunk/add-auto-mode 'markdown-mode "\\.md$")
 #+END_SRC
 
 ** Enable region case modification

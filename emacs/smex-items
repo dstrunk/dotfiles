@@ -1,0 +1,17 @@
+
+;; ----- smex-history -----
+(
+ muttrc-mode
+ php-mode
+ ag
+ cd
+ 5x5
+ arp
+ dbx
+)
+
+;; ----- smex-data -----
+(
+ (php-mode . 3)
+ (muttrc-mode . 1)
+)
