@@ -44,16 +44,21 @@ eval "$(rbenv init - --no-rehash)"
 $(boot2docker shellinit 2>/dev/null)
 
 # Use MAMP version of PHP
-PHP_VERSION=`ls /Applications/MAMP/bin/php/ | sort -n | tail -1`
-export PATH=/Applications/MAMP/bin/php/${PHP_VERSION}/bin:$PATH
+if [ -d /Applications/MAMP/ ]; then
+  PHP_VERSION=`ls /Applications/MAMP/bin/php/ | sort -n | tail -1`
+  export PATH=/Applications/MAMP/bin/php/${PHP_VERSION}/bin:$PATH
+fi
 
 # Export MAMP MySQL executables as functions
 # Makes them usable from within shell scripts (unlike an alias)
-mysql() {
-    /Applications/MAMP/Library/bin/mysql "$@"
-}
-mysqladmin() {
-    /Applications/MAMP/Library/bin/mysqladmin "$@"
-}
-export -f mysql
-export -f mysqladmin
+if [ -d /Applications/MAMP/ ]; then
+  mysql() {
+      /Applications/MAMP/Library/bin/mysql "$@"
+  }
+  mysqladmin() {
+      /Applications/MAMP/Library/bin/mysqladmin "$@"
+  }
+
+  export -f mysql
+  export -f mysqladmin
+fi

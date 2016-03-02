@@ -35,8 +35,6 @@ Plugin 'edsono/vim-matchit'
 " Magento dev
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'joonty/vdebug'
-" Plugin 'joonty/vim-phpqa'
-Plugin 'stephpy/vim-php-cs-fixer'
 
 " Unix
 Plugin 'tpope/vim-eunuch'
@@ -54,6 +52,9 @@ Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-bundler'
+
+" Elixir and Phoenix
+Plugin 'elixir-lang/vim-elixir'
 
 " Tmux
 Plugin 'christoomey/vim-tmux-navigator'
