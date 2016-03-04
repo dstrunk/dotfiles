@@ -69,10 +69,10 @@ Plugin 'croaky/vim-colors-github'
 Plugin 'jpo/vim-railscasts-theme'
 Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'whatyouhide/vim-gotham'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'w0ng/vim-hybrid'
 Plugin 'gosukiwi/vim-atom-dark'
 Plugin 'daylerees/colour-schemes', { 'rtp': 'vim/' }
+Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()
 filetype plugin indent on

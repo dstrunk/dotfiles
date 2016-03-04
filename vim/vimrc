@@ -116,11 +116,9 @@ endfunction
 autocmd BufWritePre *.rb :call TrimWhiteSpace()
 autocmd BufWritePre *.php :call TrimWhiteSpace()
 
-" For XTerm
-colorscheme legacy
-" set t_Co=256
-
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+" Colors
+set background=dark
+colorscheme solarized
 
 " Add filetype on for snippets
 :filetype plugin on
@@ -158,13 +156,13 @@ let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
 " airline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
+" let g:airline_left_sep = ''
+" let g:airline_left_alt_sep = ''
+" let g:airline_right_sep = ''
+" let g:airline_right_alt_sep = ''
+" let g:airline_symbols.branch = ''
+" let g:airline_symbols.readonly = ''
+" let g:airline_symbols.linenr = ''
 
 " Git
 let g:gitgutter_sign_column_always = 1
