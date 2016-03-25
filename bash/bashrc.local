@@ -1,3 +1,8 @@
+# Start Xfce on login
+if [ "$(tty)" = "/dev/tty1" -o "$(tty)" = "/dev/vc/1" ]; then
+  startxfce4
+fi
+
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
 
