@@ -25,3 +25,5 @@
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
     - git config --global init.templatedir '~/.git_template'
+    - git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    - vim +PluginInstall +qall
