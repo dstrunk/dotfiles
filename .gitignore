@@ -14,5 +14,5 @@ emacs/elpa
 emacs/auto-save-list
 emacs/modes
 emacs/ac-comphist.dat
-emacs/configuration.el
+emacs/config.el
 emacs/smex-items
