@@ -15,3 +15,4 @@ cdls() {
 }
 
 alias cd='cdls'
+alias g='git'
