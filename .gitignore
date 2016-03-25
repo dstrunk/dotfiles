@@ -1,6 +1,7 @@
 .DS_Store
 *.swp
 .netrwhist
+.emacs.d/
 vim/bundle/**
 vim/bundles/**
 vim/Trashed-Bundles/**
@@ -12,3 +13,6 @@ emacs/.cask
 emacs/elpa
 emacs/auto-save-list
 emacs/modes
+emacs/ac-comphist.dat
+emacs/configuration.el
+emacs/smex-items
