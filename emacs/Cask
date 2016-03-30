@@ -1,12 +1,14 @@
 (source gnu)
 (source melpa)
 
+;; Packages
 (depends-on "ag")
 (depends-on "evil")
 (depends-on "evil-surround")
 (depends-on "magit")
 (depends-on "solarized-theme")
 
+;; Modes
 (depends-on "coffee-mode")
 (depends-on "dockerfile-mode")
 (depends-on "elixir-mode")
