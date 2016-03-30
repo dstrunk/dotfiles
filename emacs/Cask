@@ -6,6 +6,7 @@
 (depends-on "evil")
 (depends-on "evil-surround")
 (depends-on "magit")
+(depends-on "projectile")
 (depends-on "solarized-theme")
 
 ;; Modes
