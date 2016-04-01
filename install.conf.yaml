@@ -20,6 +20,7 @@
     ~/.bashrc: bash/bashrc
     ~/.bashrc.local: bash/bashrc.local
     ~/.bash_aliases: bash/bash_aliases
+    ~/.bash_exports: bash/bash_exports
     ~/.bin: bin/
 
 - shell:

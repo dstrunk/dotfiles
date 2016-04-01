@@ -1,0 +1,16 @@
+# General exports
+export PATH="$HOME/.bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="/home/dstrunk/.cask/bin:$PATH"
+
+# rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.rbenv/versions:$PATH"
+eval "$(rbenv init - --no-rehash)"
+
+ensure_tmux_is_running
+export PATH="$PATH:~/.composer/vendor/bin"
+
+export PATH="$HOME/.bin:$PATH"
+eval "$(rbenv init - --no-rehash)"
+

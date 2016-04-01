@@ -40,12 +40,6 @@ ensure_tmux_is_running() {
   fi
 }
 
-ensure_tmux_is_running
-export PATH="$PATH:~/.composer/vendor/bin"
-
-export PATH="$HOME/.bin:$PATH"
-eval "$(rbenv init - --no-rehash)"
-
 $(boot2docker shellinit 2>/dev/null)
 
 # Use MAMP version of PHP

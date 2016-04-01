@@ -1,10 +1,3 @@
-export PATH="$HOME/.bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.rbenv/versions:$PATH"
-eval "$(rbenv init - --no-rehash)"
-
+[[ -f ~/.bash_exports ]] && source ~/.bash_exports
 [[ -f ~/.bashrc.local ]] && source ~/.bashrc.local
 [[ -f ~/.bash_aliases ]] && source ~/.bash_aliases
