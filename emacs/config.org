@@ -24,8 +24,157 @@ Enable =surround= everywhere.
   (global-evil-surround-mode 1)
 #+END_SRC
 
-Lastly, bind =C-p= to fuzzy-finding files in the current project.
+Bind =C-p= to fuzzy-finding files in the current project.
 
 #+BEGIN_SRC emacs-lisp
   (define-key evil-normal-state-map (kbd "C-p") 'projectile-find-file)
+#+END_SRC
+
+* Utility functions
+
+A big ol' bunch of utility functions, setup by our good friend Harry.
+
+#+BEGIN_SRC emacs-lisp
+  (defun hrs/view-buffer-name ()
+    "Display the filename of the current buffer."
+    (interactive)
+    (message (buffer-file-name)))
+
+  (defun hrs/generate-scratch-buffer ()
+    "Create and switch to a temporary scratch buffer with a random
+       name."
+    (interactive)
+    (switch-to-buffer (make-temp-name "scratch-")))
+
+  (defun hrs/split-window-below-and-switch ()
+    "Split the window horizontally, then switch to the new pane."
+    (interactive)
+    (split-window-below)
+    (other-window 1))
+
+  (defun hrs/split-window-right-and-switch ()
+    "Split the window vertically, then switch to the new pane."
+    (interactive)
+    (split-window-right)
+    (other-window 1))
+
+  (defun hrs/de-unicode ()
+    "Tidy up a buffer by replacing all special Unicode characters
+       (smart quotes, etc.) with their more sane cousins"
+    (interactive)
+    (let ((unicode-map '(("[\u2018\|\u2019\|\u201A\|\uFFFD]" . "'")
+                         ("[\u201c\|\u201d\|\u201e]" . "\"")
+                         ("\u2013" . "--")
+                         ("\u2014" . "---")
+                         ("\u2026" . "...")
+                         ("\u00A9" . "(c)")
+                         ("\u00AE" . "(r)")
+                         ("\u2122" . "TM")
+                         ("[\u02DC\|\u00A0]" . " "))))
+      (save-excursion
+        (loop for (key . value) in unicode-map
+              do
+              (goto-char (point-min))
+              (replace-regexp key value)))))
+
+  (defun hrs/beautify-json ()
+    "Pretty-print the JSON in the marked region. Currently shells
+       out to `jsonpp'--be sure that's installed!"
+    (interactive)
+    (save-excursion
+      (shell-command-on-region (mark) (point) "jsonpp" (buffer-name) t)))
+
+  (defun hrs/comment-or-uncomment-region-or-line ()
+    "Comments or uncomments the region or the current line if there's no active region."
+    (interactive)
+    (let (beg end)
+      (if (region-active-p)
+          (setq beg (region-beginning) end (region-end))
+        (setq beg (line-beginning-position) end (line-end-position)))
+      (comment-or-uncomment-region beg end)))
+
+  (defun hrs/unfill-paragraph ()
+    "Takes a multi-line paragraph and makes it into a single line of text."
+    (interactive)
+    (let ((fill-column (point-max)))
+      (fill-paragraph nil)))
+
+  (defun hrs/kill-current-buffer ()
+    "Kill the current buffer without prompting."
+    (interactive)
+    (kill-buffer (current-buffer)))
+
+  (defun hrs/visit-last-dired-file ()
+    "Open the last file in an open dired buffer."
+    (end-of-buffer)
+    (previous-line)
+    (dired-find-file))
+
+  (defun hrs/visit-last-migration ()
+    "Open the last file in 'db/migrate/'. Relies on projectile. Pretty sloppy."
+    (interactive)
+    (dired (expand-file-name "db/migrate" (projectile-project-root)))
+    (hrs/visit-last-dired-file)
+    (kill-buffer "migrate"))
+
+  (defun hrs/mac? ()
+    "Returns `t' if this is an Apple machine, nil otherwise."
+    (eq system-type 'darwin))
+
+  (defun hrs/add-auto-mode (mode &rest patterns)
+    "Add entries to `auto-mode-alist' to use `MODE' for all given file `PATTERNS'."
+    (dolist (pattern patterns)
+      (add-to-list 'auto-mode-alist (cons pattern mode))))
+
+  (defun hrs/find-file-as-sudo ()
+    (interactive)
+    (let ((file-name (buffer-file-name)))
+      (when file-name
+        (find-alternate-file (concat "/sudo::" file-name)))))
+
+  (defun hrs/insert-random-string (len)
+    "Insert a random alphanumeric string of length len."
+    (interactive)
+    (let ((mycharset "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstyvwxyz"))
+      (dotimes (i len)
+        (insert (elt mycharset (random (length mycharset)))))))
+
+  (defun hrs/generate-password ()
+    "Insert a good alphanumeric password of length 30."
+    (interactive)
+    (hrs/insert-random-string 30))
+#+END_SRC
+
+*UI Preferences
+** Disable window chrome
+
+Get that crap outta here...
+
+#+BEGIN_SRC emacs-lisp
+	(tool-bar-mode 0)
+	(menu-bar-mode 0)
+	(when window-system
+		(scroll-bar-mode -1))
+#+END_SRC
+
+** Solarized dark theme
+
+#+BEGIN_SRC emacs-lisp
+	(when window-system
+		(setq solarized-use-variable-pitch nil)
+		(setq solarized-height-plus-1 1.0)
+		(setq solarized-height-plus-2 1.0)
+		(setq solarized-height-plus-3 1.0)
+		(setq solarized-height-plus-4 1.0)
+		(setq solarized-high-contrast-mode-line t)
+		(load-theme 'solarized-dark t))
+#+END_SRC
+
+** Highlight the current line
+
+=global-hl-line-mode= to softly highlight the background color of the line containing point.
+
+#+BEGIN_SRC emacs-lisp
+  (when window-system
+    (global-hl-line-mode))
 #+END_SRC
