@@ -1,5 +1,15 @@
 #+TITLE: Emacs configuration
 
+* Use sensible-defaults.el
+
+Use [[https://github.com/hrs/sensible-defaults.el][sensible-defaults.el]] for basic settings.
+
+#+BEGIN_SRC emacs-lisp
+  (load-file "~/.emacs.d/sensible-defaults.el/sensible-defaults.el")
+  (sensible-defaults/use-all-settings)
+  (sensible-defaults/use-all-keybindings)
+#+END_SRC
+
 * Package management
 
 Use =cask= and =pallet= for managing packages.
