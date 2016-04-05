@@ -188,3 +188,45 @@ Get that crap outta here...
   (when window-system
     (global-hl-line-mode))
 #+END_SRC
+
+** Highlight uncommitted changes
+
+Use the =diff-hl= package to highlight changed and uncommitted lines when programming.
+
+#+BEGIN_SRC emacs-lisp
+  (require 'diff-hl)
+
+  (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
+  (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode)
+#+END_SRC
+
+* Programming customizations
+
+** CSS and Sass
+
+Indent 2 spaces.
+
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'css-mode-hook
+            (lambda()
+              (setq css-indent-offset 2)))
+#+END_SRC
+
+Don't compile the current file on every save.
+
+#+BEGIN_SRC emacs-lisp
+  (setq scss-compile-at-save nil)
+#+END_SRC
+
+* JavaScript and CoffeeScript
+
+Indent 2 spaces.
+
+#+BEGIN_SRC emacs-lisp
+  (setq js-indent-level 2)
+
+  (add-hook 'coffee-mode-hook
+            (lambda()
+              (yas-minor-mode 1)
+              (setq coffee-tab-width 2)))
+#+END_SRC

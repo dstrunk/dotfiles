@@ -3,6 +3,7 @@
 
 ;; Packages
 (depends-on "ag")
+(depends-on "diff-hl")
 (depends-on "evil")
 (depends-on "evil-surround")
 (depends-on "magit")
@@ -29,3 +30,4 @@
 (depends-on "web-mode")
 (depends-on "yaml-mode")
 (depends-on "yard-mode")
+(depends-on "yasnippet")
