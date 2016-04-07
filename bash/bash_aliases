@@ -5,7 +5,6 @@ alias .....='cd ../../../..'
 alias ~='cd ~/'
 alias ls='ls -a'
 alias mr='n98-magerun'
-alias emacs='emacs -nw'
 
 cdls() {
   builtin cd "$*"
