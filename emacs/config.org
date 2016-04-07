@@ -202,6 +202,14 @@ Use the =diff-hl= package to highlight changed and uncommitted lines when progra
 
 * Programming customizations
 
+** General
+
+Enable =smartparens=.
+
+#+BEGIN_SRC emacs-lisp
+  (require 'smartparens-config)
+#+END_SRC
+
 ** CSS and Sass
 
 Indent 2 spaces.
@@ -218,7 +226,7 @@ Don't compile the current file on every save.
   (setq scss-compile-at-save nil)
 #+END_SRC
 
-* JavaScript and CoffeeScript
+** JavaScript and CoffeeScript
 
 Indent 2 spaces.
 
@@ -229,4 +237,300 @@ Indent 2 spaces.
             (lambda()
               (yas-minor-mode 1)
               (setq coffee-tab-width 2)))
+#+END_SRC
+
+** Lisps
+
+I don't write in many lisps, but dabbling in Clojure and working in elisp is enough to warrant these. Use =paredit-mode= to balance parentheses, and =rainbow-delimiters= to color match parentheses.
+
+#+BEGIN_SRC emacs-lisp
+  (setq lispy-mode-hooks
+        '(clojure-mode-hook
+          emacs-lisp-mode-hook
+          lisp-mode-hook
+          scheme-mode-hook))
+
+  (dolist (hook lispy-mode-hooks)
+    (add-hook hook (lambda()
+                    (setq show-paren-style 'expression)
+                    (paredit-mode)
+                    (rainbow-delimiters-mode))))
+#+END_SRC
+
+If writing Emacs lisp, use =eldoc-mode= to display documentation.
+
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
+#+END_SRC
+
+** Elixir
+
+Use =smartparens= to autocomplete blocks.
+
+#+BEGIN_SRC emacs-lisp
+  (sp-with-modes '(elixir-mode)
+  (sp-local-pair "fn" "end"
+         :when '(("SPC" "RET"))
+         :actions '(insert navigate))
+  (sp-local-pair "do" "end"
+         :when '(("SPC" "RET"))
+         :post-handlers '(sp-ruby-def-post-handler)
+         :actions '(insert navigate)))
+#+END_SRC
+
+** =web-mode=
+
+Indent everything with 2 spaces.
+
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'web-mode-hook
+            (lambda ()
+              (setq web-mode-markup-indent-offset 2)))
+#+END_SRC
+
+Use =web-mode= with embedded Ruby files, regular HTML, PHP, Elixir and Magento template files.
+
+
+#+BEGIN_SRC emacs-lisp
+  (hrs/add-auto-mode
+    'web-mode
+    "\\.erb$"
+    "\\.html$"
+    "\\.php$"
+    "\\.rhtml$"
+    "\\.phtml$"
+    "\\.eex$")
+#+END_SRC
+
+* Publishing and task management with Org-mode
+
+** Display preferences
+
+Use syntax highlighting in source blocks while editing.
+
+#+BEGIN_SRC emacs-lisp
+  (setq org-src-fontify-natively t)
+#+END_SRC
+
+Make TAB act as if it were issued in a buffer of the language's major mode.
+
+#+BEGIN_SRC emacs-lisp
+  (setq org-src-tab-acts-natively t)
+#+END_SRC
+
+** Task management
+
+Store org files in =~/org=, maintain an inbox in Dropbox, define the location of an index file (main todo list), and archive finished tasks in =~/org/archive.org=.
+
+#+BEGIN_SRC emacs-lisp
+  (setq org-directory "~/org")
+
+  (defun org-file-path (filename)
+    "Return the absolute address of an org file, given its relative name."
+    (concat (file-name-as-directory org-directory) filename))
+
+  (setq org-inbox-file "~/Dropbox/inbox.org")
+  (setq org-index-file (org-file-path "index.org"))
+  (setq org-archive-location
+        (concat (org-file-path "archive.org") "::* From %s"))
+#+END_SRC
+
+All todos are stored in =~/org/index.org=, so agenda should be derived from here.
+
+#+BEGIN_SRC emacs-lisp
+  (setq org-agenda-files (list org-index-file))
+#+END_SRC
+
+Hitting =C-c C-x C-s= will mark a todo as done and move it to the appropriate place in the archive.
+
+#+BEGIN_SRC emacs-lisp
+  (defun mark-done-and-archive ()
+    "Mark the state of an org-mode item as DONE and archive it."
+    (interactive)
+    (org-todo 'done)
+    (org-archive-subtree))
+
+  (define-key global-map "\C-c\C-x\C-s" 'mark-done-and-archive)
+#+END_SRC
+
+Record the time a todo was archived.
+
+#+BEGIN_SRC emacs-lisp
+  (setq org-log-done 'time)
+#+END_SRC
+
+* =dired=
+
+Load up the required =dired= extensions.
+
+#+BEGIN_SRC emacs-lisp
+  (require 'dired-x)
+  (require 'dired+)
+  (require 'dired-open)
+#+END_SRC
+
+Open media with the appropriate programs.
+
+#+BEGIN_SRC emacs-lisp
+  (setq dired-open-extensions
+        '(("pdf" . "evince")
+          ("mkv" . "vlc")
+          ("mp4" . "vlc")
+          ("avi" . "vlc")))
+#+END_SRC
+
+Pass some switches to =ls= when =dired= gets a list of files:
+
+- =l=: use the long listing format.
+- =h=: use human-readable sizes.
+- =v=: sort numbers naturally.
+- =A=: almost all. Doesn't include "=.=" or "=..=".
+
+#+BEGIN_SRC emacs-lisp
+  (setq-default dired-listing-switches "-lhvA")
+#+END_SRC
+
+Use "j" and "k" to move around in =dired=.
+
+#+BEGIN_SRC emacs-lisp
+  (evil-define-key 'normal dired-mode-map (kbd "j") 'dired-next-line)
+  (evil-define-key 'normal dired-mode-map (kbd "k") 'dired-previous-line)
+#+END_SRC
+
+Kill buffers of files/directories deleted in =dired=.
+
+#+BEGIN_SRC emacs-lisp
+  (setq dired-clean-up-buffers-too t)
+#+END_SRC
+
+Always copy directories recursively instead of asking everytime.
+
+#+BEGIN_SRC emacs-lisp
+  (setq dired-recursive-copies 'always)
+#+END_SRC
+
+Ask before recursively /deleting/ a directory, though.
+
+#+BEGIN_SRC emacs-lisp
+  (setq dired-recursive-deletes 'top)
+#+END_SRC
+
+* Editing settings
+
+** Always kill current buffer
+
+Assume I want to kill the current buffer when hitting =C-x k=.
+
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "C-x k") 'hrs/kill-current-buffer)
+#+END_SRC
+
+** Look for executables in =~/.bin=.
+
+#+BEGIN_SRC emacs-lisp
+  (setq exec-path (append exec-path '("$HOME/.bin")))
+#+END_SRC
+
+** Use =company-mode= everywhere.
+
+Company mode is a text completion mode ("company" stands for "complete anything").
+
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'after-init-hook 'global-company-mode)
+#+END_SRC
+
+** Always indent with spaces
+
+#+BEGIN_SRC emacs-lisp
+  (setq-default indent-tabs-mode nil)
+#+END_SRC
+
+** Configure =yasnippet=
+
+Keep snippets in =~/.emacs.d/snippets/text-mode=, and always keep enabled.
+
+#+BEGIN_SRC emacs-lisp
+  (setq yas-snippet-dirs '("~/.emacs.d/snippets/text-mode"))
+  (yas-global-mode 1)
+#+END_SRC
+
+Don't automatically indent snippets inserted.
+
+#+BEGIN_SRC emacs-lisp
+  (setq yas/indent-line nil)
+#+END_SRC
+
+** Configure =ido=
+
+#+BEGIN_SRC emacs-lisp
+  (setq ido-enable-flex-matching t)
+  (setq ido-everywhere t)
+  (ido-mode 1)
+  (ido-ubiquitous)
+  (flx-ido-mode 1) ; faster matching
+  (setq ido-create-new-buffer 'always)
+  (ido-vertical-mode 1)
+  (setq ido-vertical-define-keys 'C-n-and-C-p-only)
+#+END_SRC
+
+** Use =smex= to handle =M-x= with =ido=
+
+#+BEGIN_SRC emacs-lisp
+  (smex-initialize)
+
+  (global-set-key (kbd "M-x") 'smex)
+  (global-set-key (kbd "M-X") 'smex-major-mode-commands)
+#+END_SRC
+
+** Editing with markdown
+
+Run spellcheck when editing markdown.
+
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'markdown-mode-hook 'flyspell-mode)
+#+END_SRC
+
+Associate =.md= files with markdown.
+
+#+BEGIN_SRC emacs-lisp
+  (hrs/add-auto-mode 'markdown-mode "\\.md$")
+#+END_SRC
+
+** Use =projectile= everywhere
+
+#+BEGIN_SRC emacs-lisp
+  (projectile-global-mode)
+#+END_SRC
+
+** Add some engines for =engine-mode=
+
+#+BEGIN_SRC emacs-lisp
+  (require 'engine-mode)
+
+  (defengine amazon
+    "http://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=%s"
+    :keybinding "a")
+
+  (defengine github
+    "https://github.com/search?ref=simplesearch&q=%s"
+    :keybinding "g")
+
+  (defengine google
+    "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s")
+
+  (defengine google-images
+    "http://www.google.com/images?hl=en&source=hp&biw=1440&bih=795&gbv=2&aq=f&aqi=&aql=&oq=&q=%s")
+
+  (defengine google-maps
+    "http://maps.google.com/maps?q=%s"
+    :keybinding "m")
+
+  (defengine stack-overflow
+    "https://stackoverflow.com/search?q=%s"
+    :keybinding "s")
+
+  (defengine youtube
+    "http://www.youtube.com/results?aq=f&oq=&search_query=%s")
+
+  (engine-mode t)
 #+END_SRC

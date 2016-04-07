@@ -1,0 +1,46 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/dstrunk/Code/Elixir/Phoenix/blog_phoenix/web/" . "controllers/")
+ ("/home/dstrunk/Code/Elixir/Phoenix/blog_phoenix/" . "web/")
+ ("/home/dstrunk/Code/Elixir/Phoenix/" . "blog_phoenix/")
+ ("/home/dstrunk/Code/Elixir/" . "Phoenix/")
+ ("/home/dstrunk/Code/" . "Elixir/")
+ ("/home/dstrunk/" . "Code/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/dstrunk/Code/Elixir/Phoenix/blog_phoenix/web/controllers/"
+ "/home/dstrunk/Code/Elixir/Phoenix/blog_phoenix/config/"
+ "/home/dstrunk/Code/Elixir/Phoenix/blog_phoenix/"
+ "/home/dstrunk/Code/Elixir/Phoenix/"
+)
+
+;; ----- ido-work-file-list -----
+(
+
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/dstrunk/Code/Elixir/Phoenix/blog_phoenix/web/controllers/" (22277 42006 736512 253000) "../" "#page_controller.ex#" "./" "page_controller.ex")
+
+ ("/home/dstrunk/Code/Elixir/Phoenix/blog_phoenix/web/" (22256 43321 207709 457000) "router.ex" "../" "channels/" "views/" "static/" "./" "gettext.ex" "web.ex" "templates/" "models/" "controllers/")
+
+ ("/home/dstrunk/Code/Elixir/Phoenix/blog_phoenix/config/" (22256 43320 914376 132000) "../" "config.exs" "prod.secret.exs" "test.exs" "./" "dev.exs" "prod.exs")
+
+ ("/home/dstrunk/Code/Elixir/Phoenix/blog_phoenix/" (22273 50241 779938 597000) "config/" "_build/" "../" ".git/" "mix.lock" "priv/" "test/" "package.json" "mix.exs" ".gitignore" "brunch-config.js" "#README.md#" "web/" "./" "README.md" "deps/" "node_modules/" "lib/")
+
+ ("/home/dstrunk/Code/Elixir/Phoenix/" (22256 43320 904376 133000) "../" "blog_phoenix/" "./")
+
+ ("/home/dstrunk/Code/Elixir/" (22256 43206 801046 324000) "../" "testapps/" "Phoenix/" "scraper/" "./")
+
+ ("/home/dstrunk/Code/" (22254 63923 370118 590000) "config/" "../" "Ruby/" "PHP/" "Elixir/" "./")
+
+ ("/home/dstrunk/" (22276 33238 936593 427000) ".bash_profile" "Pictures/" ".mutt/" ".macromedia/" ".bash_logout" ".xfce4-session.verbose-log.last" "Code/" ".hex/" "Desktop/" ".mozilla/" ".vim/" "Downloads/" ".bin/" ".git_template/" "../" ".local/" ".gitmessage" "Dropbox/" ".rspec" ".xinitrc" ".thumbnails/" ".steampath" ".bash_exports" ".wicd/" ".purple/" ".tmux.conf" ".cache/" ".gitconfig.local" ".gitconfig" "Documents/" ".irbrc" ".dropbox/" ".ssh/" ".rnd" ".cask/" ".gitignore" ".vimrc.bundles" ".vimrc" ".Xmodmap" ".railsrc" ".steampid" ".irssi/" ".adobe/" ".npm/" ".thunderbird/" ".Xauthority" ".config/" "./" ".xfce4-session.verbose-log" ".bash_aliases" ".node_modules/" ".pki/" ".bashrc" ".npmrc" ".ICEauthority" ".gnupg/" ".emacs.d/" ".composer/" ".gemrc" ".lastpass/" ".gstreamer-0.10/" ".viminfo" ".bashrc.local" ".steam/" ".dropbox-dist/" ".bash_history" ".mix/" ".rbenv/")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
