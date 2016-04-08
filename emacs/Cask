@@ -3,6 +3,7 @@
 
 ;; Packages
 (depends-on "ag")
+(depends-on "alchemist")
 (depends-on "company")
 (depends-on "diff-hl")
 (depends-on "dired+")

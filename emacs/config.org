@@ -207,6 +207,7 @@ Use the =diff-hl= package to highlight changed and uncommitted lines when progra
 Enable =smartparens=.
 
 #+BEGIN_SRC emacs-lisp
+  (smartparens-global-mode t)
   (require 'smartparens-config)
 #+END_SRC
 
@@ -265,16 +266,31 @@ If writing Emacs lisp, use =eldoc-mode= to display documentation.
 
 ** Elixir
 
+- Require =elixir-mode=.
+- Require =alchemist=.
+
+#+BEGIN_SRC emacs-lisp
+  (require 'elixir-mode)
+  (require 'alchemist)
+#+END_SRC
+
 Use =smartparens= to autocomplete blocks.
 
 #+BEGIN_SRC emacs-lisp
+  (defun dstrunk/elixir-do-end-action (id action context)
+    (when (eq action 'insert)
+      (newline-and-indent)
+      (previous-line)
+      (indent-according-to-mode)))
+
   (sp-with-modes '(elixir-mode)
-  (sp-local-pair "fn" "end"
-         :when '(("SPC" "RET"))
-         :actions '(insert navigate))
   (sp-local-pair "do" "end"
          :when '(("SPC" "RET"))
-         :post-handlers '(sp-ruby-def-post-handler)
+         :post-handlers '(:add dstrunk/elixir-do-end-action)
+         :actions '(insert navigate))
+  (sp-local-pair "->" "end"
+         :when '(("SPC" "RET"))
+         :post-handlers '(:add dstrunk/elixir-do-end-action)
          :actions '(insert navigate)))
 #+END_SRC
 
