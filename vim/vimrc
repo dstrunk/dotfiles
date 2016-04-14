@@ -66,6 +66,15 @@ autocmd VimResized * :wincmd =
 nnoremap <Leader>- :wincmd _<cr>:wincmd \|<cr>
 nnoremap <Leader>= :wincmd =<cr>
 
+" Automatically create directories if they don't exist
+augroup Mkdir
+  autocmd!
+  autocmd BufWritePre *
+    \ if !isdirectory(expand("<afile>:p:h")) |
+        \ call mkdir(expand("<afile>:p:h"), "p") |
+    \ endif
+augroup END
+
 " Vim + TMux <3
 " RSpec vim tmux mappings
 let g:rspec_command = "VtrSendCommandToRunner! bundle exec rspec {spec}"
