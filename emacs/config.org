@@ -40,7 +40,7 @@ Bind =C-p= to fuzzy-finding files in the current project.
   (define-key evil-normal-state-map (kbd "C-p") 'projectile-find-file)
 #+END_SRC
 
-Navigate splits a little more easily
+Easily move between splits when in normal state.
 
 #+BEGIN_SRC emacs-lisp
   (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
