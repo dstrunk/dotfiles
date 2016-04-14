@@ -6,7 +6,6 @@
     ~/.vimrc.bundles: vim/vimrc.bundles
     ~/.tmux.conf: tmux/tmux.conf
     ~/.emacs.d: emacs/
-    ~/.mutt: mutt/
     ~/.gemrc: ruby/gemrc
     ~/.irbrc: ruby/irbrc
     ~/.railsrc: ruby/railsrc
@@ -24,7 +23,7 @@
     ~/.bin: bin/
 
 - shell:
-    - git submodule update --init --recursive, Installing submodules
+    - git submodule update --init --recursive
     - git config --global init.templatedir '~/.git_template'
-    - git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    - git -C ~/.vim/bundle/Vundle.vim pull || git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     - vim +PluginInstall +qall
