@@ -110,6 +110,9 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
+" CtrlP ignore files
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
+
 " CtrlP + Magento <3
 let g:ctrlp_max_files = 100000
 
