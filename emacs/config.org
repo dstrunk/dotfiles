@@ -227,8 +227,8 @@ Use the =diff-hl= package to highlight changed and uncommitted lines when progra
 #+BEGIN_SRC emacs-lisp
   (require 'diff-hl)
 
-  (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
-  (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode)
+  (global-diff-hl-mode)
+  (diff-hl-flydiff-mode)
 #+END_SRC
 
 * Programming customizations
@@ -364,7 +364,7 @@ Indent everything with 2 spaces.
               (setq web-mode-markup-indent-offset 2)))
 #+END_SRC
 
-Use =web-mode= with embedded Ruby files, regular HTML, PHP, Elixir and Magento template files.
+Use =web-mode= with embedded Ruby files, regular HTML, Elixir and Magento template files.
 
 #+BEGIN_SRC emacs-lisp
   (hrs/add-auto-mode
