@@ -376,6 +376,15 @@ Use =web-mode= with embedded Ruby files, regular HTML, Elixir and Magento templa
     "\\.eex$")
 #+END_SRC
 
+** =magit=
+
+Use =magit= for git things
+
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "C-x g") 'magit-status)
+  (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
+#+END_SRC
+
 * Publishing and task management with Org-mode
 
 ** Display preferences
