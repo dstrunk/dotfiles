@@ -383,6 +383,7 @@ Use =magit= for git things
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "C-x g") 'magit-status)
   (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
+  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
 #+END_SRC
 
 * Publishing and task management with Org-mode
