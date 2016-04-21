@@ -18,3 +18,4 @@ emacs/config.el
 emacs/smex-items
 emacs/ido.last
 emacs/projectile-bookmarks.eld
+emacs/eshell

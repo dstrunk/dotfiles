@@ -49,6 +49,28 @@ Easily move between splits when in normal state.
   (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
 #+END_SRC
 
+Better terminal workflow
+
+#+BEGIN_SRC emacs-lisp
+	(defun emacsredux/visit-term-buffer ()
+  "Create or visit a terminal buffer."
+  (interactive)
+  (if (not (get-buffer "*ansi-term*"))
+      (progn
+        (split-window-sensibly (selected-window))
+        (other-window 1)
+        (ansi-term (getenv "SHELL")))
+    (switch-to-buffer-other-window "*ansi-term*")))
+
+	(global-set-key (kbd "C-c t") 'emacsredux/visit-term-buffer)
+#+END_SRC
+
+Add line numbers
+
+#+BEGIN_SRC emacs-lisp
+	(global-linum-mode 1)
+#+END_SRC
+
 * Utility functions
 
 A big ol' bunch of utility functions, setup by our good friend Harry.
@@ -220,6 +242,21 @@ Enable =smartparens=.
   (require 'smartparens-config)
 #+END_SRC
 
+When using =smartparens=, if I hit enter I expect to be indented on a new line with the closing paren below my cursor. The below function is to be used in various modes to make life easier. This is detailed here: https://github.com/Fuco1/smartparens/issues/80
+
+```lisp
+	(sp-local-pair 'c++-mode "{" nil :post-handlers '((dstrunk/create-newline-and-enter-sexp "RET")))
+```
+
+#+BEGIN_SRC emacs-lisp
+  (defun dstrunk/create-newline-and-enter-sexp (&rest _ignored)
+		"Open a new brace or bracket expression, with relevant newlines and indent. "
+ 		(newline)
+ 		(indent-according-to-mode)
+ 		(forward-line -1)
+ 		(indent-according-to-mode))
+#+END_SRC
+
 ** CSS and Sass
 
 Indent 2 spaces.
@@ -303,6 +340,20 @@ Use =smartparens= to autocomplete blocks.
          :actions '(insert navigate)))
 #+END_SRC
 
+** PHP
+
+Enable =php-mode= whenever opening a php file.
+
+#+BEGIN_SRC emacs-lisp
+	(require 'php-mode)
+#+END_SRC
+
+Auto-indent and newline brackets
+
+#+BEGIN_SRC emacs-lisp
+	(sp-local-pair 'php-mode "{" nil :post-handlers '((dstrunk/create-newline-and-enter-sexp "RET")))
+#+END_SRC
+
 ** =web-mode=
 
 Indent everything with 2 spaces.
@@ -315,13 +366,11 @@ Indent everything with 2 spaces.
 
 Use =web-mode= with embedded Ruby files, regular HTML, PHP, Elixir and Magento template files.
 
-
 #+BEGIN_SRC emacs-lisp
   (hrs/add-auto-mode
     'web-mode
     "\\.erb$"
     "\\.html$"
-    "\\.php$"
     "\\.rhtml$"
     "\\.phtml$"
     "\\.eex$")
