@@ -380,6 +380,18 @@ Use =web-mode= with embedded Ruby files, regular HTML, Elixir and Magento templa
     "\\.eex$")
 #+END_SRC
 
+Use =emmet-mode= for markup modes. Also setup some defaults:
+
+- position cursor between first empty quotes after expanding.
+- use emmet with react-js's JSX
+
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'sgml-mode-hook 'emmet-mode)
+  (add-hook 'css-mode-hook 'emmet-mode)
+  (setq emmet-move-cursor-between-quotes t)
+  (setq emmet-expand-jsx-className? t)
+#+END_SRC
+
 ** =magit=
 
 Use =magit= for git things
