@@ -49,7 +49,7 @@ Easily move between splits when in normal state.
   (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
 #+END_SRC
 
-Better terminal workflow
+* Better terminal workflow
 
 #+BEGIN_SRC emacs-lisp
 	(defun emacsredux/visit-term-buffer ()
@@ -65,7 +65,7 @@ Better terminal workflow
 	(global-set-key (kbd "C-c t") 'emacsredux/visit-term-buffer)
 #+END_SRC
 
-Add line numbers
+* Add line numbers
 
 #+BEGIN_SRC emacs-lisp
 	(global-linum-mode 1)
