@@ -186,7 +186,7 @@ A big ol' bunch of utility functions, setup by our good friend Harry.
     (hrs/insert-random-string 30))
 #+END_SRC
 
-*UI Preferences
+* UI Preferences
 ** Disable window chrome
 
 Get that crap outta here...
@@ -259,12 +259,14 @@ When using =smartparens=, if I hit enter I expect to be indented on a new line w
 
 ** CSS and Sass
 
-Indent 2 spaces.
+Indent 2 spaces and put my pointer in the right place.
 
 #+BEGIN_SRC emacs-lisp
   (add-hook 'css-mode-hook
             (lambda()
               (setq css-indent-offset 2)))
+
+	(sp-local-pair 'css-mode "{" nil :post-handlers '((dstrunk/create-newline-and-enter-sexp "RET")))
 #+END_SRC
 
 Don't compile the current file on every save.
@@ -284,6 +286,9 @@ Indent 2 spaces.
             (lambda()
               (yas-minor-mode 1)
               (setq coffee-tab-width 2)))
+
+	(sp-local-pair 'coffee-mode "{" nil :post-handlers '((dstrunk/create-newline-and-enter-sexp "RET")))
+	(sp-local-pair 'js-mode "{" nil :post-handlers '((dstrunk/create-newline-and-enter-sexp "RET")))
 #+END_SRC
 
 ** Lisps
@@ -320,7 +325,7 @@ If writing Emacs lisp, use =eldoc-mode= to display documentation.
   (require 'alchemist)
 #+END_SRC
 
-Use =smartparens= to autocomplete blocks.
+Use =smartparens= to autocomplete blocks and ensure my pointer is correctly positioned.
 
 #+BEGIN_SRC emacs-lisp
   (defun dstrunk/elixir-do-end-action (id action context)
@@ -333,11 +338,10 @@ Use =smartparens= to autocomplete blocks.
   (sp-local-pair "do" "end"
          :when '(("SPC" "RET"))
          :post-handlers '(:add dstrunk/elixir-do-end-action)
-         :actions '(insert navigate))
-  (sp-local-pair "->" "end"
-         :when '(("SPC" "RET"))
-         :post-handlers '(:add dstrunk/elixir-do-end-action)
          :actions '(insert navigate)))
+
+  (sp-local-pair 'elixir-mode "{" nil :post-handlers '((dstrunk/create-newline-and-enter-sexp "RET")))
+  (sp-local-pair 'elixir-mode "[" nil :post-handlers '((dstrunk/create-newline-and-enter-sexp "RET")))
 #+END_SRC
 
 ** PHP
