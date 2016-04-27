@@ -66,6 +66,10 @@ autocmd VimResized * :wincmd =
 nnoremap <Leader>- :wincmd _<cr>:wincmd \|<cr>
 nnoremap <Leader>= :wincmd =<cr>
 
+" Ensure folded lines are preserved on save
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
+
 " Automatically create directories if they don't exist
 augroup Mkdir
   autocmd!

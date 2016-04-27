@@ -231,6 +231,14 @@ Use the =diff-hl= package to highlight changed and uncommitted lines when progra
   (diff-hl-flydiff-mode)
 #+END_SRC
 
+** Highlight indents
+
+#+BEGIN_SRC emacs-lisp
+  (require 'indent-guide)
+  (indent-guide-global-mode)
+  (setq indent-guide-recursive t)
+#+END_SRC
+
 * Programming customizations
 
 ** General
