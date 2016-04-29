@@ -150,7 +150,7 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:snips_author="Daniel Strunk"
- 
+
 " autocomplete tags for HTML / XML
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.xml"
 
