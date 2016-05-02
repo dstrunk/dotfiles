@@ -408,6 +408,15 @@ Use =magit= for git things
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
 #+END_SRC
 
+** Bash
+
+Ensure my Emacs PATH looks like my terminal (OS X only)
+
+#+BEGIN_SRC emacs-lisp
+  (when (memq window-system '(mac ns))
+    (exec-path-from-shell-initialize))
+#+END_SRC
+
 * Publishing and task management with Org-mode
 
 ** Display preferences
