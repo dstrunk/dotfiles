@@ -34,6 +34,12 @@ Enable =surround= everywhere.
   (global-evil-surround-mode 1)
 #+END_SRC
 
+Enable =commentary=.
+
+#+BEGIN_SRC emacs-lisp
+  (evil-commentary-mode)
+#+END_SRC
+
 Bind =C-p= to fuzzy-finding files in the current project.
 
 #+BEGIN_SRC emacs-lisp

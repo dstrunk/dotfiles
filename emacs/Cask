@@ -11,6 +11,7 @@
 (depends-on "dired-open")
 (depends-on "evil")
 (depends-on "evil-surround")
+(depends-on "evil-commentary")
 (depends-on "flx-ido")
 (depends-on "ido-ubiquitous")
 (depends-on "indent-guide")
