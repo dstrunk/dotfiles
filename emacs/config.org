@@ -204,17 +204,12 @@ Get that crap outta here...
 		(scroll-bar-mode -1))
 #+END_SRC
 
-** Solarized dark theme
+** Theme
 
 #+BEGIN_SRC emacs-lisp
-	(when window-system
-		(setq solarized-use-variable-pitch nil)
-		(setq solarized-height-plus-1 1.0)
-		(setq solarized-height-plus-2 1.0)
-		(setq solarized-height-plus-3 1.0)
-		(setq solarized-height-plus-4 1.0)
-		(setq solarized-high-contrast-mode-line t)
-		(load-theme 'solarized-dark t))
+  (when window-system
+    (require 'sublime-themes)
+    (load-theme 'granger t))
 #+END_SRC
 
 ** Highlight the current line
@@ -223,7 +218,8 @@ Get that crap outta here...
 
 #+BEGIN_SRC emacs-lisp
   (when window-system
-    (global-hl-line-mode))
+    (global-hl-line-mode)
+    (set-face-background hl-line-face "gray13"))
 #+END_SRC
 
 ** Highlight uncommitted changes

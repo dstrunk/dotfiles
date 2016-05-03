@@ -25,6 +25,7 @@
 (depends-on "smex")
 (depends-on "solarized-theme")
 (depends-on "smartparens")
+(depends-on "sublime-themes")
 (depends-on "yasnippet")
 
 ;; Modes
