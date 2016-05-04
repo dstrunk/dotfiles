@@ -188,6 +188,13 @@ let g:airline_symbols.whitespace = 'Ξ'
 " let g:airline_symbols.readonly = ''
 " let g:airline_symbols.linenr = ''
 
-" Git
+" Git + Fugitive <3
 let g:gitgutter_sign_column_always = 1
 set updatetime=250
+
+" Shortcuts for Fugitive
+nmap <leader>gs :Gstatus<cr>
+nmap <leader>gc :Gcommit<cr>
+nmap <leader>ga :Gwrite<cr>
+nmap <leader>gl :Glog<cr>
+nmap <leader>gd :Gdiff<cr>
