@@ -208,8 +208,47 @@ Get that crap outta here...
 
 #+BEGIN_SRC emacs-lisp
   (when window-system
-    (require 'sublime-themes)
-    (load-theme 'granger t))
+    (load-theme 'spacemacs-dark t))
+#+END_SRC
+
+Add Spacemacs's mode-line
+
+#+BEGIN_SRC emacs-lisp
+  (require 'spaceline-config)
+  (spaceline-spacemacs-theme)
+#+END_SRC
+
+** Diminished mode
+
+#+BEGIN_SRC emacs-lisp
+(defmacro diminish-minor-mode (filename mode &optional abbrev)
+  `(eval-after-load (symbol-name ,filename)
+     '(diminish ,mode ,abbrev)))
+
+(defmacro diminish-major-mode (mode-hook abbrev)
+  `(add-hook ,mode-hook
+             (lambda () (setq mode-name ,abbrev))))
+
+(diminish-minor-mode 'abbrev 'abbrev-mode)
+(diminish-minor-mode 'company 'company-mode)
+(diminish-minor-mode 'eldoc 'eldoc-mode)
+(diminish-minor-mode 'flycheck 'flycheck-mode)
+(diminish-minor-mode 'flyspell 'flyspell-mode)
+(diminish-minor-mode 'global-whitespace 'global-whitespace-mode)
+(diminish-minor-mode 'projectile 'projectile-mode)
+(diminish-minor-mode 'ruby-end 'ruby-end-mode)
+(diminish-minor-mode 'subword 'subword-mode)
+(diminish-minor-mode 'undo-tree 'undo-tree-mode)
+(diminish-minor-mode 'yard-mode 'yard-mode)
+(diminish-minor-mode 'yasnippet 'yas-minor-mode)
+(diminish-minor-mode 'wrap-region 'wrap-region-mode)
+
+(diminish-minor-mode 'paredit 'paredit-mode " π")
+
+(diminish-major-mode 'emacs-lisp-mode-hook "el")
+(diminish-major-mode 'haskell-mode-hook "λ=")
+(diminish-major-mode 'lisp-interaction-mode-hook "λ")
+(diminish-major-mode 'python-mode-hook "Py")
 #+END_SRC
 
 ** Highlight the current line
@@ -431,7 +470,7 @@ Make TAB act as if it were issued in a buffer of the language's major mode.
 
 ** Task management
 
-Store org files in =~/org=, maintain an inbox in Dropbox, define the location of an index file (main todo list), and archive finished tasks in =~/org/archive.org=.
+Store org files in =~/org=, maintain an inbox in Dropbox, define the location of an index file (main todo list), and archive finished tasks in =~/org/archive.org=. For help on everything to do with =org-mode=, check out http://orgmode.org/.
 
 #+BEGIN_SRC emacs-lisp
   (setq org-directory "~/org")
@@ -441,15 +480,15 @@ Store org files in =~/org=, maintain an inbox in Dropbox, define the location of
     (concat (file-name-as-directory org-directory) filename))
 
   (setq org-inbox-file "~/Dropbox/inbox.org")
-  (setq org-index-file (org-file-path "index.org"))
+  (setq org-todo-file (org-file-path "todo.org"))
   (setq org-archive-location
         (concat (org-file-path "archive.org") "::* From %s"))
 #+END_SRC
 
-All todos are stored in =~/org/index.org=, so agenda should be derived from here.
+All todos are stored in =~/org/todo.org=, so agenda should be derived from here.
 
 #+BEGIN_SRC emacs-lisp
-  (setq org-agenda-files (list org-index-file))
+  (setq org-agenda-files (list org-todo-file))
 #+END_SRC
 
 Hitting =C-c C-x C-s= will mark a todo as done and move it to the appropriate place in the archive.
@@ -468,6 +507,26 @@ Record the time a todo was archived.
 
 #+BEGIN_SRC emacs-lisp
   (setq org-log-done 'time)
+#+END_SRC
+
+Set a default target for notes, and define a global key for capturing new material.
+
+#+BEGIN_SRC emacs-lisp
+  (setq org-default-notes-file (concat org-directory "/notes.org"))
+  (define-key global-map "\C-cc" 'org-capture)
+#+END_SRC
+
+Capture templates for various things:
+
+- Todos
+- Journal entries
+
+#+BEGIN_SRC emacs-lisp
+  (setq org-capture-templates
+    '(("t" "Todo" entry (file+headline org-todo-file "Tasks")
+          "* TODO %?\n %i\n  %a")
+      ("j" "Journal" entry (file+datetree (org-file-path "journal.org"))
+          "* %?\nEntered on %U\n  %i\n  %a")))
 #+END_SRC
 
 * =dired=
@@ -611,37 +670,4 @@ Associate =.md= files with markdown.
 
 #+BEGIN_SRC emacs-lisp
   (projectile-global-mode)
-#+END_SRC
-
-** Add some engines for =engine-mode=
-
-#+BEGIN_SRC emacs-lisp
-  (require 'engine-mode)
-
-  (defengine amazon
-    "http://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=%s"
-    :keybinding "a")
-
-  (defengine github
-    "https://github.com/search?ref=simplesearch&q=%s"
-    :keybinding "g")
-
-  (defengine google
-    "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s")
-
-  (defengine google-images
-    "http://www.google.com/images?hl=en&source=hp&biw=1440&bih=795&gbv=2&aq=f&aqi=&aql=&oq=&q=%s")
-
-  (defengine google-maps
-    "http://maps.google.com/maps?q=%s"
-    :keybinding "m")
-
-  (defengine stack-overflow
-    "https://stackoverflow.com/search?q=%s"
-    :keybinding "s")
-
-  (defengine youtube
-    "http://www.youtube.com/results?aq=f&oq=&search_query=%s")
-
-  (engine-mode t)
 #+END_SRC

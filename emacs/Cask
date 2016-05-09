@@ -6,6 +6,7 @@
 (depends-on "alchemist")
 (depends-on "company")
 (depends-on "diff-hl")
+(depends-on "diminish")
 (depends-on "dired+")
 (depends-on "dired-details")
 (depends-on "dired-open")
@@ -25,7 +26,8 @@
 (depends-on "smex")
 (depends-on "solarized-theme")
 (depends-on "smartparens")
-(depends-on "sublime-themes")
+(depends-on "spacemacs-theme")
+(depends-on "spaceline")
 (depends-on "yasnippet")
 
 ;; Modes
@@ -33,7 +35,6 @@
 (depends-on "dockerfile-mode")
 (depends-on "elixir-mode")
 (depends-on "emmet-mode")
-(depends-on "engine-mode")
 (depends-on "gitconfig-mode")
 (depends-on "gitignore-mode")
 (depends-on "haml-mode")
