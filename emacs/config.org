@@ -216,6 +216,7 @@ Add Spacemacs's mode-line
 #+BEGIN_SRC emacs-lisp
   (require 'spaceline-config)
   (spaceline-spacemacs-theme)
+  (setq ns-use-srgb-colorspace nil)
 #+END_SRC
 
 ** Diminished mode
@@ -526,7 +527,19 @@ Capture templates for various things:
     '(("t" "Todo" entry (file+headline org-todo-file "Tasks")
           "* TODO %?\n %i\n  %a")
       ("j" "Journal" entry (file+datetree (org-file-path "journal.org"))
-          "* %?\nEntered on %U\n  %i\n  %a")))
+          "* %?\n\nEntered on %U\n  %i\n  %a")))
+#+END_SRC
+
+For journal entries, I'd like to use =olivetti=.
+
+#+BEGIN_SRC emacs-lisp
+  (defun dstrunk/journal-settings ()
+    (when (string-match (file-name-nondirectory (buffer-file-name)) "journal.org")
+     (linum-mode -1)
+     (olivetti-mode)
+     (flyspell-mode 1)))
+
+	(add-hook 'find-file-hook 'dstrunk/journal-settings)
 #+END_SRC
 
 * =dired=
@@ -654,10 +667,14 @@ Don't automatically indent snippets inserted.
 
 ** Editing with markdown
 
-Run spellcheck when editing markdown.
+Run spellcheck when editing markdown, and use =olivetti= for a nicer editing experience.
 
 #+BEGIN_SRC emacs-lisp
-  (add-hook 'markdown-mode-hook 'flyspell-mode)
+	(add-hook 'markdown-mode-hook
+						'(lambda()
+						   (linum-mode -1)
+						   (olivetti-mode)
+							 (flyspell-mode 1)))
 #+END_SRC
 
 Associate =.md= files with markdown.

@@ -18,6 +18,7 @@
 (depends-on "ido-ubiquitous")
 (depends-on "indent-guide")
 (depends-on "magit")
+(depends-on "olivetti")
 (depends-on "pallet")
 (depends-on "paredit")
 (depends-on "projectile")
