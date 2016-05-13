@@ -58,10 +58,10 @@ Easily move between splits when in normal state.
 Resize windows easier
 
 #+BEGIN_SRC emacs-lisp
-  (global-set-key (kbd "S-C-h") 'shrink-window-horizontally)
-  (global-set-key (kbd "S-C-j") 'shrink-window)
-  (global-set-key (kbd "S-C-k") 'enlarge-window)
-  (global-set-key (kbd "S-C-l") 'enlarge-window-horizontally)
+  (global-set-key (kbd "S-C-h") 'enlarge-window-horizontally)
+  (global-set-key (kbd "S-C-j") 'enlarge-window)
+  (global-set-key (kbd "S-C-k") 'shrink-window)
+  (global-set-key (kbd "S-C-l") 'shrink-window-horizontally)
 #+END_SRC
 
 * Better terminal workflow
