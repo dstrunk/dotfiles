@@ -55,6 +55,15 @@ Easily move between splits when in normal state.
   (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
 #+END_SRC
 
+Resize windows easier
+
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "S-C-h") 'shrink-window-horizontally)
+  (global-set-key (kbd "S-C-j") 'shrink-window)
+  (global-set-key (kbd "S-C-k") 'enlarge-window)
+  (global-set-key (kbd "S-C-l") 'enlarge-window-horizontally)
+#+END_SRC
+
 * Better terminal workflow
 
 #+BEGIN_SRC emacs-lisp
