@@ -14,6 +14,9 @@ export PATH="$PATH:~/.composer/vendor/bin"
 export PATH="$HOME/.bin:$PATH"
 eval "$(rbenv init - --no-rehash)"
 
+# Allow npm executables from development dependencies
+export PATH="$PATH:./node_modules/.bin"
+
 # Postgres app for OS X
 if [ -d /Applications/Postgres.app/ ]; then
   export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
