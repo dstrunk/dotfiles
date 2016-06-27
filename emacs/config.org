@@ -411,10 +411,18 @@ Use =smartparens= to autocomplete blocks and ensure my pointer is correctly posi
 
 **** Elm
 
+To get full autocompletion for Elm, you'll also need to install =elm-oracle= via npm:
+
+#+BEGIN_SRC bash
+npm install -g elm-oracle
+#+END_SRC
+
 #+BEGIN_SRC emacs-lisp
 	(require 'elm-mode)
 	(add-hook 'elm-mode-hook #'elm-oracle-setup-completion)
-	(add-to-list 'company-backends 'company-elm)
+	(add-hook 'elm-mode-hook
+						(lambda()
+							(setq company-backends '(company-elm))))
 #+END_SRC
 
 ** Lisps
