@@ -29,12 +29,14 @@
 (depends-on "smartparens")
 (depends-on "spacemacs-theme")
 (depends-on "spaceline")
+(depends-on "tide")
 (depends-on "yasnippet")
 
 ;; Modes
 (depends-on "coffee-mode")
 (depends-on "dockerfile-mode")
 (depends-on "elixir-mode")
+(depends-on "elm-mode")
 (depends-on "emmet-mode")
 (depends-on "gitconfig-mode")
 (depends-on "gitignore-mode")
