@@ -5,6 +5,7 @@
 vim/bundle/**
 vim/bundles/**
 vim/Trashed-Bundles/**
+vim/view/**
 mutt/temp
 mutt/passwords.gpg
 mutt/cache

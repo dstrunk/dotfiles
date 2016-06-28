@@ -563,25 +563,28 @@ Make TAB act as if it were issued in a buffer of the language's major mode.
 
 ** Task management
 
-Store org files in =~/org=, maintain an inbox in Dropbox, define the location of an index file (main todo list), and archive finished tasks in =~/org/archive.org=. For help on everything to do with =org-mode=, check out http://orgmode.org/.
+This is a hell of a good =org-mode= config: https://github.com/howardabrams/dot-files/blob/master/emacs-org.org. I will probably borrow more tricks from this configuration later, but for now am only adding the things that I understand / will need.
+
+Store org files in =~/Dropbox/org=, maintain an inbox in Dropbox, define the location of an index file (main todo list), and archive finished tasks in =~/Dropbox/org/archive.org=. For help on everything to do with =org-mode=, check out http://orgmode.org/.
 
 #+BEGIN_SRC emacs-lisp
-  (setq org-directory "~/org")
+  (setq org-directory "~/Dropbox/org/")
 
   (defun org-file-path (filename)
     "Return the absolute address of an org file, given its relative name."
     (concat (file-name-as-directory org-directory) filename))
 
-  (setq org-inbox-file "~/Dropbox/inbox.org")
+  (setq org-inbox-file (org-file-path "inbox.org"))
   (setq org-todo-file (org-file-path "todo.org"))
   (setq org-archive-location
         (concat (org-file-path "archive.org") "::* From %s"))
 #+END_SRC
 
-All todos are stored in =~/org/todo.org=, so agenda should be derived from here.
+All todos are stored in =~/Dropbox/org/todo.org=, so agenda should be derived from here.
 
 #+BEGIN_SRC emacs-lisp
-  (setq org-agenda-files (list org-todo-file))
+  (setq org-agenda-files (list "~/Dropbox/org"
+                                "~/Dropbox/org/journal"))
 #+END_SRC
 
 Hitting =C-c C-x C-s= will mark a todo as done and move it to the appropriate place in the archive.
@@ -607,6 +610,7 @@ Set a default target for notes, and define a global key for capturing new materi
 #+BEGIN_SRC emacs-lisp
   (setq org-default-notes-file (concat org-directory "/notes.org"))
   (define-key global-map "\C-cc" 'org-capture)
+	(define-key global-map "\C-ca" 'org-agenda)
 #+END_SRC
 
 Capture templates for various things:
@@ -617,16 +621,39 @@ Capture templates for various things:
 #+BEGIN_SRC emacs-lisp
   (setq org-capture-templates
     '(("t" "Todo" entry (file+headline org-todo-file "Tasks")
-          "* TODO %?\n %i\n  %a")
-      ("j" "Journal" entry (file+datetree (org-file-path "journal.org"))
-          "* %?\n\nEntered on %U\n  %i\n  %a")))
+          "* TODO %?\n %i\n  %a")))
 #+END_SRC
+
+Add default TODO keywords, and make their fonts pretty
+
+#+BEGIN_SRC emacs-lisp
+(setq org-todo-keywords '((sequence "TODO(t!)" "DOING(g!)" "|" "DONE(d@/!)")
+										      (sequence "|" "CANCELLED(c@/!)")))
+
+(font-lock-add-keywords              ; A bit silly but my headers are now
+   'org-mode `(("^\\*+ \\(TODO\\) "  ; shorter, and that is nice cancelled
+                (1 (progn (compose-region (match-beginning 1) (match-end 1) "⚑")
+                          nil)))
+               ("^\\*+ \\(DOING\\) "
+                (1 (progn (compose-region (match-beginning 1) (match-end 1) "⚐")
+                          nil)))
+               ("^\\*+ \\(CANCELLED\\) "
+                (1 (progn (compose-region (match-beginning 1) (match-end 1) "✘")
+                          nil)))
+               ("^\\*+ \\(DONE\\) "
+                (1 (progn (compose-region (match-beginning 1) (match-end 1) "✔")
+                          nil)))))
+
+#+END_SRC
+
+** Journaling
 
 For journal entries, I'd like to use =olivetti=.
 
 #+BEGIN_SRC emacs-lisp
   (defun dstrunk/journal-settings ()
-    (when (string-match (file-name-nondirectory (buffer-file-name)) "journal.org")
+    (when (string-match (and (stringp buffer-file-name)
+														 (string-match "journal" buffer-file-name)))
      (linum-mode -1)
      (olivetti-mode)
      (flyspell-mode 1)))
