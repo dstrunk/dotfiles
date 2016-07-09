@@ -21,6 +21,7 @@
 (depends-on "ido-ubiquitous")
 (depends-on "indent-guide")
 (depends-on "magit")
+(depends-on "multi-term")
 (depends-on "olivetti")
 (depends-on "pallet")
 (depends-on "paredit")

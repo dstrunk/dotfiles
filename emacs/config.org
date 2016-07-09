@@ -66,6 +66,36 @@ Resize windows easier
 
 * Better terminal workflow
 
+Use =multi-term= for managing multiple terminal emulators in emacs (instead of =ansi-term= or the like), and use a login shell.
+
+#+BEGIN_SRC emacs-lisp
+(setq multi-term-program "/bin/bash")
+(setq multi-term-program-switches "--login")
+#+END_SRC
+
+Setup a bunch of hooks to =term-mode=:
+
+- Links (URLs, etc) should be clickable.
+- Bind yanking to =C-y= and middle-click to paste.
+- Bind =M-o= to quickly change windows.
+- Don't perform =yasnippet= when tab-completing.
+
+#+BEGIN_SRC emacs-lisp
+(defun hrs/term-paste (&optional string)
+  (interactive)
+  (process-send-string
+   (get-buffer-process (current-buffer))
+   (if string string (current-kill 0))))
+
+(add-hook 'term-mode-hook
+          (lambda ()
+            (goto-address-mode)
+            (define-key term-raw-map (kbd "C-y") 'hrs/term-paste)
+            (define-key term-raw-map (kbd "<mouse-2>") 'hrs/term-paste)
+            (define-key term-raw-map (kbd "M-o") 'other-window)
+            (setq yas-dont-activate t)))
+#+END_SRC
+
 #+BEGIN_SRC emacs-lisp
 	(defun emacsredux/visit-term-buffer ()
   "Create or visit a terminal buffer."
@@ -280,6 +310,25 @@ Use the =diff-hl= package to highlight changed and uncommitted lines when progra
 
   (global-diff-hl-mode)
   (diff-hl-flydiff-mode)
+#+END_SRC
+
+* Editing preferences
+** Switch windows when splitting
+
+When splitting a window, I invariably want to switch to the new window. This
+makes that automatic.
+
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "C-x 2") 'hrs/split-window-below-and-switch)
+  (global-set-key (kbd "C-x 3") 'hrs/split-window-right-and-switch)
+#+END_SRC
+* Custom keybindings
+
+Just a few things... mostly borrowed from https://github.com/hrs/dotfiles
+
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "C-s s") 'multi-term)
+(global-set-key (kbd "M-o") 'other-window)
 #+END_SRC
 
 * Programming customizations
