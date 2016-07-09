@@ -1,6 +1,6 @@
-# Start Xfce on login
+# Start X on login
 if [ "$(tty)" = "/dev/tty1" -o "$(tty)" = "/dev/vc/1" ]; then
-  startxfce4
+  startx
 fi
 
 # Case-insensitive globbing (used in pathname expansion)

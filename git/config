@@ -39,3 +39,5 @@
 [user]
   name = Daniel Strunk
   email = me@dstrunk.com
+[http]
+	sslVerify = false

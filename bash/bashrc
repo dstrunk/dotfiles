@@ -1,3 +1,5 @@
 [[ -f ~/.bashrc.local ]] && source ~/.bashrc.local
 [[ -f ~/.bash_exports ]] && source ~/.bash_exports
 [[ -f ~/.bash_aliases ]] && source ~/.bash_aliases
+
+[[ -z DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx

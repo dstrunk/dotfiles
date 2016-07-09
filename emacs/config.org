@@ -286,6 +286,17 @@ Use the =diff-hl= package to highlight changed and uncommitted lines when progra
 
 ** General
 
+Ensure proper PATH if not started from a shell.
+
+#+BEGIN_SRC emacs-lisp
+(defadvice rspec-compile (around rspec-compile-around)
+  "Use BASH shell for running the specs because of ZSH issues."
+  (let ((shell-file-name "/bin/bash"))
+    ad-do-it))
+
+(ad-activate 'rspec-compile)
+#+END_SRC
+
 Enable =smartparens=.
 
 #+BEGIN_SRC emacs-lisp
@@ -478,6 +489,57 @@ Use =smartparens= to autocomplete blocks and ensure my pointer is correctly posi
   (sp-local-pair 'elixir-mode "[" nil :post-handlers '((dstrunk/create-newline-and-enter-sexp "RET")))
 #+END_SRC
 
+** Ruby and Rails
+Set a default ruby version for things like =rspec=.
+
+#+BEGIN_SRC emacs-lisp
+(global-rbenv-mode)
+(or (rbenv-use-corresponding) (rbenv-use-global))
+#+END_SRC
+
+Some defaults for Ruby:
+
+- Don't insert an encoding comment
+- enable =yas=, =rspec=, =yard=, =flycheck=, and =projectile-rails=
+- RSpec tests run in a random order with colored output
+
+#+BEGIN_SRC emacs-lisp
+(setq rspec-use-bundler-when-possible nil)
+
+(add-hook 'ruby-mode-hook
+          (lambda ()
+            (setq ruby-insert-encoding-magic-comment nil)
+            (yas-minor-mode)
+            (rspec-mode)
+            (yard-mode)
+            (flycheck-mode)
+            (local-set-key "\r" 'newline-and-indent)
+            (setq rspec-command-options "--color --order random")
+            (projectile-rails-mode)))
+#+END_SRC
+
+Associate =ruby-mode= with the usual suspects: Gemfiles, gemspecs, Rakefiles, and Vagrantfiles.
+
+#+BEGIN_SRC emacs-lisp
+(hrs/add-auto-mode
+  'ruby-mode
+  "\\Gemfile$"
+  "\\.rake$"
+  "\\.gemspec$"
+  "\\Guardfile$"
+  "\\Rakefile$"
+  "\\Vagrantfile$"
+  "\\Vagrantfile.local$")
+#+END_SRC
+
+When running RSpec tests, scroll to the first error.
+
+#+BEGIN_SRC emacs-lisp
+(add-hook 'rspec-compilation-mode-hook
+          (lambda ()
+            (make-local-variable 'compilation-scroll-output)
+            (setq compilation-scroll-output 'first-error)))
+#+END_SRC
 ** PHP
 
 Enable =php-mode= whenever opening a php file.
@@ -534,6 +596,8 @@ Use =magit= for git things
   (global-set-key (kbd "C-x g") 'magit-status)
   (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
+
+  (setq git-commit-fill-column 80)
 #+END_SRC
 
 ** Bash
@@ -576,6 +640,7 @@ Store org files in =~/Dropbox/org=, maintain an inbox in Dropbox, define the loc
 
   (setq org-inbox-file (org-file-path "inbox.org"))
   (setq org-todo-file (org-file-path "todo.org"))
+  (setq org-journal-dir (org-file-path "journal/"))
   (setq org-archive-location
         (concat (org-file-path "archive.org") "::* From %s"))
 #+END_SRC
@@ -651,14 +716,13 @@ Add default TODO keywords, and make their fonts pretty
 For journal entries, I'd like to use =olivetti=.
 
 #+BEGIN_SRC emacs-lisp
-  (defun dstrunk/journal-settings ()
-    (when (string-match (and (stringp buffer-file-name)
-														 (string-match "journal" buffer-file-name)))
-     (linum-mode -1)
-     (olivetti-mode)
-     (flyspell-mode 1)))
+(dir-locals-set-class-variables 'org-journal-settings
+  '((nil . ((org-mode . t)
+            (linum-mode . -1)
+            (olivetti-mode . t)
+            (flyspell-mode . 1)))))
 
-	(add-hook 'find-file-hook 'dstrunk/journal-settings)
+(dir-locals-set-directory-class org-journal-dir 'org-journal-settings)
 #+END_SRC
 
 * =dired=

@@ -3,16 +3,13 @@ export PATH="$HOME/.bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cask/bin:$PATH"
 
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.rbenv/versions:$PATH"
-eval "$(rbenv init - --no-rehash)"
-
 ensure_tmux_is_running
 export PATH="$PATH:~/.composer/vendor/bin"
 
 export PATH="$HOME/.bin:$PATH"
-eval "$(rbenv init - --no-rehash)"
+
+# Change npm default directory
+export PATH="$PATH:~/.npm-global/bin"
 
 # Allow npm executables from development dependencies
 export PATH="$PATH:./node_modules/.bin"
@@ -22,3 +19,7 @@ if [ -d /Applications/Postgres.app/ ]; then
   export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 fi
 
+# rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.rbenv/versions:$PATH"
+eval "$(rbenv init - --no-rehash)"
