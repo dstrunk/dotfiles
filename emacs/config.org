@@ -327,7 +327,7 @@ makes that automatic.
 Just a few things... mostly borrowed from https://github.com/hrs/dotfiles
 
 #+BEGIN_SRC emacs-lisp
-(global-set-key (kbd "C-s s") 'multi-term)
+(global-set-key (kbd "C-c s") 'multi-term)
 (global-set-key (kbd "M-o") 'other-window)
 #+END_SRC
 
