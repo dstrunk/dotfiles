@@ -5,7 +5,9 @@ alias .....='cd ../../../..'
 alias ~='cd ~/'
 alias ls='ls -a'
 alias mr='n98-magerun'
-# alias git='hub'
+if hub; then
+  alias git='hub'
+fi
 
 cdls() {
   builtin cd "$*"

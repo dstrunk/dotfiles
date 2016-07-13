@@ -622,6 +622,7 @@ Use =web-mode= with embedded Ruby files, regular HTML, Elixir and Magento templa
     "\\.html$"
     "\\.rhtml$"
     "\\.phtml$"
+    "\\.blade$"
     "\\.eex$")
 #+END_SRC
 
@@ -765,13 +766,13 @@ Add default TODO keywords, and make their fonts pretty
 For journal entries, I'd like to use =olivetti=.
 
 #+BEGIN_SRC emacs-lisp
-(dir-locals-set-class-variables 'org-journal-settings
-  '((nil . ((org-mode . t)
-            (linum-mode . -1)
-            (olivetti-mode . t)
-            (flyspell-mode . 1)))))
+  (dir-locals-set-class-variables 'org-journal-settings
+    '((org-journal-mode . ((org-mode t)
+                           (linum-mode -1)
+                           (olivetti-mode)
+                           (flyspell-mode 1)))))
 
-(dir-locals-set-directory-class org-journal-dir 'org-journal-settings)
+  (dir-locals-set-directory-class org-journal-dir 'org-journal-settings)
 #+END_SRC
 
 * =dired=
