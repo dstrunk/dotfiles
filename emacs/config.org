@@ -767,11 +767,16 @@ For journal entries, I'd like to use =olivetti=.
 
 #+BEGIN_SRC emacs-lisp
   (dir-locals-set-class-variables 'org-journal-settings
-    '((org-journal-mode . ((org-mode t)
-                           (linum-mode -1)
-                           (olivetti-mode)
-                           (flyspell-mode 1)))))
+    '((nil . ((mode . org-journal)))))
 
+	(defun dstrunk/org-journal-hook ()
+     (add-hook 'after-change-major-mode-hook
+       (lambda ()
+         (linum-mode -1)
+         (olivetti-mode)
+         (flyspell-mode 1))))
+
+  (add-hook 'org-journal-mode-hook 'dstrunk/org-journal-hook)
   (dir-locals-set-directory-class org-journal-dir 'org-journal-settings)
 #+END_SRC
 

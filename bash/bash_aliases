@@ -5,7 +5,7 @@ alias .....='cd ../../../..'
 alias ~='cd ~/'
 alias ls='ls -a'
 alias mr='n98-magerun'
-if hub; then
+if hub > /dev/null; then
   alias git='hub'
 fi
 
