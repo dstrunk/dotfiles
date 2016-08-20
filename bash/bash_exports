@@ -3,7 +3,7 @@ export PATH="$HOME/.bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cask/bin:$PATH"
 
-ensure_tmux_is_running
+# ensure_tmux_is_running
 export PATH="$PATH:~/.composer/vendor/bin"
 
 export PATH="$HOME/.bin:$PATH"

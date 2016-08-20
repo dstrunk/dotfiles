@@ -8,14 +8,11 @@ alias mr='n98-magerun'
 if hub > /dev/null; then
   alias git='hub'
 fi
-
-cdls() {
-  builtin cd "$*"
-  RESULT=$?
-  if [ "$RESULT" -eq 0 ]; then
-    ls
-  fi
-}
-
-alias cd='cdls'
 alias g='git'
+
+# folder aliases
+magento=~/Code/PHP/Magento/
+bp=~/Code/PHP/Magento/badlandspacks.com/
+zbq=~/Code/PHP/Magento/zebcobrands/
+okj=~/Code/PHP/Magento/html/
+vm=~/Utilities/VMs/vm/

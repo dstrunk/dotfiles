@@ -61,3 +61,12 @@ if [ -d /Applications/MAMP/ ]; then
   export -f mysql
   export -f mysqladmin
 fi
+
+# Generate random characters
+rand() { 
+  if [ -n "$1" ]; then
+    LC_ALL=C; cat /dev/urandom | tr -dc 'a-z0-9' | fold -w $1 | head -n 1
+  else
+    LC_ALL=C; cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 32 | head -n 1
+  fi
+}

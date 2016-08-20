@@ -20,6 +20,8 @@
     ~/.bashrc.local: bash/bashrc.local
     ~/.bash_aliases: bash/bash_aliases
     ~/.bash_exports: bash/bash_exports
+    ~/.oh-my-zsh/custom/00-exports.zsh: bash/bash_exports
+    ~/.oh-my-zsh/custom/01-aliases.zsh: bash/bash_aliases
     ~/.bin: bin/
 
 - shell:
@@ -27,3 +29,4 @@
     - git config --global init.templatedir '~/.git_template'
     - git -C ~/.vim/bundle/Vundle.vim pull || git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     - vim +PluginInstall +qall
+    - sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" 
