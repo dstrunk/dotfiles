@@ -9,6 +9,7 @@
   fileMode = false
 [merge]
   ff = only
+	conflictstyle = diff3
 [commit]
   template = ~/.gitmessage
 [fetch]

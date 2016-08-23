@@ -346,7 +346,7 @@ Ensure proper PATH if not started from a shell.
 (ad-activate 'rspec-compile)
 #+END_SRC
 
-Enable =smartparens=.
+Enable =smartparens=, and fix some clashing that will occur with =smartparens= and =web-mode=.
 
 #+BEGIN_SRC emacs-lisp
   (smartparens-global-mode t)
@@ -355,9 +355,9 @@ Enable =smartparens=.
 
 When using =smartparens=, if I hit enter I expect to be indented on a new line with the closing paren below my cursor. The below function is to be used in various modes to make life easier. This is detailed here: https://github.com/Fuco1/smartparens/issues/80
 
-```lisp
+#+BEGIN_SRC emacs-lisp
 	(sp-local-pair 'c++-mode "{" nil :post-handlers '((dstrunk/create-newline-and-enter-sexp "RET")))
-```
+#+END_SRC
 
 #+BEGIN_SRC emacs-lisp
   (defun dstrunk/create-newline-and-enter-sexp (&rest _ignored)
@@ -509,6 +509,24 @@ If writing Emacs lisp, use =eldoc-mode= to display documentation.
   (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
 #+END_SRC
 
+Configure =smartparens= via https://github.com/Fuco1/smartprens/issues/286
+
+#+BEGIN_SRC emacs-lisp
+(sp-with-modes sp--lisp-modes
+  ;; disable ', it's the quote character!
+  (sp-local-pair "'" nil :actions nil)
+  ;; also only use the pseudo-quote inside strings where it serve as
+  ;; hyperlink.
+  (sp-local-pair "`" "'" :when '(sp-in-string-p sp-in-comment-p))
+  (sp-local-pair "`" nil
+                 :skip-match (lambda (ms mb me)
+                               (cond
+                                ((equal ms "'")
+                                 (or (sp--org-skip-markup ms mb me)
+                                     (not (sp-point-in-string-or-comment))))
+                                (t (not (sp-point-in-string-or-comment)))))))
+#+END_SRC
+
 ** Elixir
 
 - Require =elixir-mode=.
@@ -536,6 +554,20 @@ Use =smartparens= to autocomplete blocks and ensure my pointer is correctly posi
 
   (sp-local-pair 'elixir-mode "{" nil :post-handlers '((dstrunk/create-newline-and-enter-sexp "RET")))
   (sp-local-pair 'elixir-mode "[" nil :post-handlers '((dstrunk/create-newline-and-enter-sexp "RET")))
+#+END_SRC
+
+Per http://emacs.stackexchange.com/questions/15188/smartparens-and-web-mode-conflict-to-add-extra-angular-bracket,
+turn off auto-pairing for =web-mode= and enable paring for `<` and `%` in smartparens.
+#+BEGIN_SRC emacs-lisp
+(sp-pair "%" "%" :wrap "C-%")
+(sp-pair "<" ">" :wrap "C->")
+(sp-pair "?php" "?" :wrap "C-?")
+(sp-pair "?=" "?" :wrap "C-?")
+
+(setq web-mode-enable-auto-pairing nil
+      sp-cancel-autoskip-on-backward-movement nil)
+
+(setq debug-on-error t)
 #+END_SRC
 
 ** Ruby and Rails
@@ -675,6 +707,14 @@ Make TAB act as if it were issued in a buffer of the language's major mode.
   (setq org-src-tab-acts-natively t)
 #+END_SRC
 
+Wrap at 80 characters, like every good program should.
+
+#+BEGIN_SRC emacs-lisp
+(add-hook 'org-mode-hook #'(lambda()
+  (visual-line-mode)
+  (org-indent-mode)))
+#+END_SRC
+
 ** Task management
 
 This is a hell of a good =org-mode= config: https://github.com/howardabrams/dot-files/blob/master/emacs-org.org. I will probably borrow more tricks from this configuration later, but for now am only adding the things that I understand / will need.
@@ -769,12 +809,12 @@ For journal entries, I'd like to use =olivetti=.
   (dir-locals-set-class-variables 'org-journal-settings
     '((nil . ((mode . org-journal)))))
 
-	(defun dstrunk/org-journal-hook ()
-     (add-hook 'after-change-major-mode-hook
-       (lambda ()
-         (linum-mode -1)
-         (olivetti-mode)
-         (flyspell-mode 1))))
+  (defun dstrunk/org-journal-hook ()
+    (add-hook 'after-change-major-mode-hook
+      (lambda ()
+        (linum-mode -1)
+        (olivetti-mode)
+        (flyspell-mode 1))))
 
   (add-hook 'org-journal-mode-hook 'dstrunk/org-journal-hook)
   (dir-locals-set-directory-class org-journal-dir 'org-journal-settings)
