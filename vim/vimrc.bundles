@@ -58,6 +58,8 @@ Plugin 'tpope/vim-bundler'
 
 " Elixir and Phoenix
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'slashmili/alchemist.vim'
+Plugin 'janko-m/vim-test'
 
 " Tmux
 Plugin 'christoomey/vim-tmux-navigator'
