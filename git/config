@@ -16,3 +16,5 @@
   prune = true
 [include]
   path = ~/.gitconfig.local
+[user]
+	email = daniel@strunk.me

@@ -2,7 +2,7 @@
   ui = true
 [user]
   name = Daniel Strunk
-  email = me@dstrunk.com
+  email = daniel@strunk.me
 [filter "media"]
   required = true
   clean = git media clean %f
