@@ -91,6 +91,7 @@ let g:rspec_command = "VtrSendCommandToRunner! bundle exec rspec {spec}"
 "
 " New config - try test suites for RSpec, ExUnit, etc.
 " Everything /I/ need (for now, anyway).
+let test#strategy = "vtr"
 nmap <silent> <Leader>t :TestNearest<CR>
 nmap <silent> <Leader>T :TestFile<CR>
 nmap <silent> <Leader>a :TestSuite<CR>
