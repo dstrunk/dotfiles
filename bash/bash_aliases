@@ -10,6 +10,14 @@ if hub > /dev/null; then
 fi
 alias g='git'
 
+git() {
+  if [ "$1" = commit ]; then
+    shift
+    set -- commit -S "$@"
+  fi
+  command git "$@" 
+}
+
 # folder aliases
 magento=~/Code/PHP/Magento/
 bp=~/Code/PHP/Magento/badlandspacks.com/
