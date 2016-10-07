@@ -23,6 +23,7 @@
     ~/.oh-my-zsh/custom/00-exports.zsh: bash/bash_exports
     ~/.oh-my-zsh/custom/01-aliases.zsh: bash/bash_aliases
     ~/.bin: bin/
+    ~/.ctags: ctags/ctags
 
 - shell:
     - git submodule update --init --recursive

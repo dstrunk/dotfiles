@@ -16,7 +16,6 @@ Plugin 'bling/vim-airline'
 Plugin 'Yggdroot/indentLine'
 
 " General added vim functionality
-Plugin 'vim-scripts/gtags.vim'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
@@ -32,12 +31,11 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'alvan/vim-closetag'
 Plugin 'edsono/vim-matchit'
 
-" Magento dev
+" PHP dev
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'joonty/vdebug'
 Plugin 'stephpy/vim-php-cs-fixer'
 Plugin 'StanAngeloff/php.vim'
-Plugin 'mjoey/vim-magento'
 
 " Unix
 Plugin 'tpope/vim-eunuch'

@@ -153,10 +153,9 @@ let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|sv
 " CtrlP + Magento <3
 let g:ctrlp_max_files = 100000
 
-let g:vimMagentoAuthor = "Daniel Strunk <dstrunk@wcbradley.com>"
-let g:vimMagentoCopyright = "Copyright 2016"
-let g:vimMagentoLicense = "GPL 3.0 <http:///www.gnu.org/licenses/gpl-3.0.en.html>"
-let g:vimMagentoSignature = 0
+" ctags <3
+nnoremap <C-o> :CtrlPTag<cr>
+
 
 " Whitespace things
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -187,9 +186,6 @@ let g:snips_author="Daniel Strunk"
 " autocomplete tags for HTML / XML
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.xml"
 
-" Be productive
-nmap <leader>do :e todo.txt<cr>
-
 " vim-airline configuration
 let g:airline#extensions#branch#enabled = 1
 let g:airline_powerline_fonts = 1
@@ -199,27 +195,27 @@ if !exists('g:airline_symbols')
 endif
 
 " unicode symbols
-" let g:airline_left_sep = '»'
-" let g:airline_left_sep = '▶'
-" let g:airline_right_sep = '«'
-" let g:airline_right_sep = '◀'
-" let g:airline_symbols.linenr = '␊'
-" let g:airline_symbols.linenr = '␤'
-" let g:airline_symbols.linenr = '¶'
-" let g:airline_symbols.branch = '⎇'
-" let g:airline_symbols.paste = 'ρ'
-" let g:airline_symbols.paste = 'Þ'
-" let g:airline_symbols.paste = '∥'
-" let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
 
 " airline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
+" let g:airline_left_sep = ''
+" let g:airline_left_alt_sep = ''
+" let g:airline_right_sep = ''
+" let g:airline_right_alt_sep = ''
+" let g:airline_symbols.branch = ''
+" let g:airline_symbols.readonly = ''
+" let g:airline_symbols.linenr = ''
 
 " Git + Fugitive <3
 let g:gitgutter_sign_column_always = 1
