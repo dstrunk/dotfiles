@@ -20,8 +20,10 @@
     ~/.bashrc.local: bash/bashrc.local
     ~/.bash_aliases: bash/bash_aliases
     ~/.bash_exports: bash/bash_exports
+    ~/.zshrc: zsh/zshrc
     ~/.oh-my-zsh/custom/00-exports.zsh: bash/bash_exports
     ~/.oh-my-zsh/custom/01-aliases.zsh: bash/bash_aliases
+    ~/.oh-my-zsh/custom/themes/agnoster.zsh-theme: zsh/themes/agnoster.zsh-theme
     ~/.bin: bin/
     ~/.ctags: ctags/ctags
 
