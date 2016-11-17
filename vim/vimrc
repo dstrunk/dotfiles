@@ -227,3 +227,7 @@ nmap <leader>gc :Gcommit<cr>
 nmap <leader>ga :Gwrite<cr>
 nmap <leader>gl :Glog<cr>
 nmap <leader>gd :Gdiff<cr>
+
+" Fix JSON not showing quotes
+" https://github.com/Yggdroot/indentLine/issues/140
+let g:vim_json_syntax_conceal = 0
