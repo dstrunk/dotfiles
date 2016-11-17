@@ -23,6 +23,7 @@ Plugin 'tpope/vim-projectionist'
 Plugin 'sirver/ultisnips'
 Plugin 'skwp/greplace.vim'
 Plugin 'elzr/vim-json'
+Plugin 'ludovicchabant/vim-gutentags'
 
 " Add supertab for using tab with both ultisnips and youcompleteme
 Plugin 'ervandew/supertab'
