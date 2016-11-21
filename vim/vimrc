@@ -231,3 +231,7 @@ nmap <leader>gd :Gdiff<cr>
 " Fix JSON not showing quotes
 " https://github.com/Yggdroot/indentLine/issues/140
 let g:vim_json_syntax_conceal = 0
+
+" Be dumb
+nmap <leader>ny :Nyancat<cr>
+nmap <leader>ny2 :Nyancat2<cr>
