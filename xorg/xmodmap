@@ -1,0 +1,8 @@
+clear control
+clear mod1
+clear lock
+keycode 37 = Alt_L Meta_L
+keycode 64 = Control_L
+keycode 66 = Control_L Caps_Lock NoSymbol NoSymbol
+add control = Caps_Lock Control_L Control_R
+add mod1 = Alt_L Meta_L

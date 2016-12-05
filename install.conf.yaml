@@ -26,10 +26,11 @@
     ~/.oh-my-zsh/custom/themes/agnoster.zsh-theme: zsh/themes/agnoster.zsh-theme
     ~/.bin: bin/
     ~/.ctags: ctags/ctags
+    ~/.Xmodmap: xorg/xmodmap
+    ~/.xinitrc: xord/xinitrc
 
 - shell:
     - git submodule update --init --recursive
     - git config --global init.templatedir '~/.git_template'
     - git -C ~/.vim/bundle/Vundle.vim pull || git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     - vim +PluginInstall +qall
-    - sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" 
