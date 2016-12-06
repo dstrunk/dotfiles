@@ -27,7 +27,7 @@
     ~/.bin: bin/
     ~/.ctags: ctags/ctags
     ~/.Xmodmap: xorg/xmodmap
-    ~/.xinitrc: xord/xinitrc
+    ~/.xinitrc: xorg/xinitrc
 
 - shell:
     - git submodule update --init --recursive
