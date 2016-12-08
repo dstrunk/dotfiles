@@ -31,6 +31,8 @@
 
 - shell:
     - git submodule update --init --recursive
-    - git config --global init.templatedir '~/.git_template'
-    - git -C ~/.vim/bundle/Vundle.vim pull || git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    - vim +PluginInstall +qall
+    - git config --global init.templatedir '$HOME/.git_template'
+    - git -C $HOME/.vim/bundle/Vundle.vim pull || git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
+    - vim - +PluginInstall +qall
+    - . $(pwd)/powerline/fonts/install.sh
+    - rm -rf $HOME/.asdf && git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.2.0

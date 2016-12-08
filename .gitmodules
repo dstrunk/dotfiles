@@ -7,3 +7,6 @@
 [submodule "emacs/sensible-defaults.el"]
 	path = emacs/sensible-defaults.el
 	url = https://github.com/hrs/sensible-defaults.el
+[submodule "powerline/fonts"]
+	path = powerline/fonts
+	url = git@github.com:powerline/fonts.git

@@ -174,7 +174,6 @@ autocmd BufWritePre *.php :call TrimWhiteSpace()
 
 " Colors
 set background=dark
-colorscheme solarized
 
 " Add filetype on for snippets
 :filetype plugin on

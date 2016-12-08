@@ -19,7 +19,8 @@ if [ -d /Applications/Postgres.app/ ]; then
   export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 fi
 
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.rbenv/versions:$PATH"
-eval "$(rbenv init - --no-rehash)"
+# Use `asdf` to manage language versions:
+# https://github.com/asdf-vm/asdf
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
+
