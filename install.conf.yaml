@@ -28,6 +28,7 @@
     ~/.ctags: ctags/ctags
     ~/.Xmodmap: xorg/xmodmap
     ~/.xinitrc: xorg/xinitrc
+    ~/.asdfrc: asdf/asdfrc
 
 - shell:
     - git submodule update --init --recursive

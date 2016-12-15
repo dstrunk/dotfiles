@@ -12,9 +12,12 @@
 	conflictstyle = diff3
 [commit]
   template = ~/.gitmessage
+	gpgsign = true
 [fetch]
   prune = true
 [include]
   path = ~/.gitconfig.local
 [user]
 	email = daniel@strunk.me
+[gpg]
+	program = gpg
