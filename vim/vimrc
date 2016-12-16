@@ -29,6 +29,16 @@ set expandtab
 
 " Make it obvious where 80 characters is
 set textwidth=80
+
+" Colors
+" 1 - red
+" 2 - green
+" 3 - yellow
+" 4 - blue
+" 5 - magenta
+" 6 - cyan
+" 7 - white
+highlight ColorColumn ctermbg=6
 set colorcolumn=+1
 
 " Numbers
