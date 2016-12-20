@@ -1,5 +1,5 @@
 [init]
-	templatedir = $HOME/.git_template
+	templatedir = ~/.git_template
 [push]
   default = current
 [core]
