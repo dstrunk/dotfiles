@@ -157,6 +157,13 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 nnoremap \ :Ag<SPACE>
 
+" Ack.vim
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+cnoreabbrev Ack Ack!
+nnoremap <Leader>s :Ack!<Space>
+
 " CtrlP ignore files
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
 
