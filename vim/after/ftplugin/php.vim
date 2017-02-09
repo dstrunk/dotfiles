@@ -6,6 +6,8 @@ setlocal expandtab
 setlocal autoindent
 setlocal copyindent
 setlocal smarttab
+setlocal iskeyword+=-
+setlocal iskeyword+=_
 
 " Ignore certain files for CtrlP
 set wildignore+=*/vendor/**
