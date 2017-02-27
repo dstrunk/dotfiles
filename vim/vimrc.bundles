@@ -26,6 +26,7 @@ Plugin 'skwp/greplace.vim'
 Plugin 'elzr/vim-json'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'mileszs/ack.vim'
+Plugin 'rizzatti/dash.vim'
 
 " Add supertab for using tab with both ultisnips and youcompleteme
 Plugin 'ervandew/supertab'

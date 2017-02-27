@@ -251,3 +251,6 @@ let g:vim_json_syntax_conceal = 0
 " Be dumb
 nmap <leader>ny :Nyancat<cr>
 nmap <leader>ny2 :Nyancat2<cr>
+
+" macOS + Dash
+nmap <silent> <leader>d <Plug>DashSearch
