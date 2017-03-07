@@ -19,9 +19,16 @@ git() {
 }
 
 # folder aliases
+code=~/Code/
+vm=~/Utilities/VMs/vm/
+elixir=~/Code/Elixir/
+ruby=~/Code/Ruby/
+php=~/Code/PHP/
 magento=~/Code/PHP/Magento/
+
+# Sites
+cb=~/Code/PHP/Magento/shop.charbroil.com/
 bp=~/Code/PHP/Magento/badlandspacks.com/
 zbq=~/Code/PHP/Magento/zebcobrands/
 zbw=~/Code/PHP/Magento/ZBCMS/
-okj=~/Code/PHP/Magento/html/
-vm=~/Utilities/VMs/vm/
+okj=~/Code/PHP/Magento/html/public/
