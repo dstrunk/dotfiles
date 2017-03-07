@@ -254,3 +254,6 @@ nmap <leader>ny2 :Nyancat2<cr>
 
 " macOS + Dash
 nmap <silent> <leader>d <Plug>DashSearch
+
+ " NerdTree for extra large projects
+ nmap <C-n> :NERDTreeToggle<cr>
