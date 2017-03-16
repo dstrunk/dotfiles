@@ -24,6 +24,7 @@
     ~/.oh-my-zsh/custom/00-exports.zsh: bash/bash_exports
     ~/.oh-my-zsh/custom/01-aliases.zsh: bash/bash_aliases
     ~/.oh-my-zsh/custom/themes/agnoster.zsh-theme: zsh/themes/agnoster.zsh-theme
+    ~/.oh-my-zsh/custom/02-ssh.zsh: zsh/custom/ssh
     ~/.bin: bin/
     ~/.ctags: ctags/ctags
     ~/.Xmodmap: xorg/xmodmap
