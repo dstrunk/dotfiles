@@ -41,6 +41,7 @@ Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'joonty/vdebug'
 Plugin 'stephpy/vim-php-cs-fixer'
 Plugin 'StanAngeloff/php.vim'
+Plugin 'arnaud-lb/vim-php-namespace'
 
 " Unix
 Plugin 'tpope/vim-eunuch'

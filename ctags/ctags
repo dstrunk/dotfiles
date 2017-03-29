@@ -6,13 +6,14 @@
 --exclude=node_modules
 --exclude=coverage
 --exclude=vendor
+--exclude=vendors
 --exclude=*.min.js
 --exclude=*.min.css
 --exclude=*.map
 --exclude=.backup
 --exclude=.sass-cache
---exclude=vendors
 
+--regex-php=/^[ \t]*trait[ \t]+([a-z0_9_]+)/\1/t,traits/i
 
 --langdef=Elixir
 --langmap=Elixir:.ex.exs
@@ -28,7 +29,7 @@
 --regex-Elixir=/^[ \t]*Record\.defrecord[ \t]+:([a-zA-Z0-9_]+)/\1/r,records,records (defrecord...)/
 --regex-Elixir=/^[ \t]*test[ \t]+\"([a-z_][a-zA-Z0-9_?! ]*)\"*/\1/t,tests,tests (test ...)/
 
---langdef=css
+--langdef=css:css
 --langmap=css:.css
 --langmap=css:+.styl
 --langmap=css:+.less

@@ -1,28 +1,32 @@
-snippet doc_f "Function DocBlock"
-/**
- * $2
- * @return ${4:void}
- * @author ${5:`!v g:snips_author`}
- **/
-${1:public} function ${2:someFunc}(${3})
+snippet __c "Constructor"
+public function __construct(${1})
 {
-    ${6}
 }
 endsnippet
 
-snippet doc_p "Page-level DocBlock"
-/**
- * ${1:Title}
- *
- * @category    ${2:Wcbradley}
- * @package     ${3:Wcbradley_Theme}
- * @copyright   Copyright (c) ${4:2016} WC Bradley Co., (http://wcbradley.com)
- * @author      Daniel Strunk <dstrunk@wcbradley.com>
- **/
+snippet _c "Magento constructor"
+public function _construct(${1})
+{
+}
 endsnippet
 
-snippet _c "Constructor"
-public function __construct(${1})
+snippet testcase "Laravel test class"
+<?php
+
+use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
+
+class ${1:Example}Test extends TestCase
 {
+    ${0}
+}
+endsnippet
+
+snippet test "Laravel test function"
+/** @test */
+function ${1:the_one_where}()
+{
+    ${0}
 }
 endsnippet

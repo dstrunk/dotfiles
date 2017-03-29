@@ -193,7 +193,7 @@ autocmd BufWritePre *.php :call TrimWhiteSpace()
 set background=dark
 
 " Add filetype on for snippets
-:filetype plugin on
+filetype plugin on
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
@@ -257,3 +257,6 @@ nmap <silent> <leader>d <Plug>DashSearch
 
  " NerdTree for extra large projects
  nmap <C-n> :NERDTreeToggle<cr>
+
+ " Tags
+ set tags+=tags

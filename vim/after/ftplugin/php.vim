@@ -59,3 +59,30 @@ let g:php_cs_fixer_config = "default"
 let g:php_cs_fixer_php_path = "~/.bin/php-cs-fixer"
 
 nnoremap <silent><C-b> :call PhpCsFixerFixFile()<CR>
+
+" <3 PHP namespaces
+set tags+=.git/tags
+
+if exists('*IPhpInsertUse')
+	finish
+endif
+function! IPhpInsertUse()
+    call PhpInsertUse()
+    call feedkeys('a', 'n')
+endfunction
+inoremap <Leader>n <Esc>:call IPhpInsertUse()<CR>
+noremap <Leader>n :call PhpInsertUse()<CR>
+
+if exists('*IPhpExpandClass')
+	finish
+endif
+function! IPhpExpandClass()
+    call PhpExpandClass()
+    call feedkeys('a', 'n')
+endfunction
+inoremap <Leader>nf <Esc>:call IPhpExpandClass()<CR>
+noremap <Leader>nf :call PhpExpandClass()<CR>
+
+" Sort PHP use statements
+" http://stackoverflow.com/questions/11531073/how-do-you-sort-a-range-of-lines-by-length
+vmap <Leader>su ! awk '{ print length(), $0 \| "sort -n \| cut -d\\  -f2-" }'<cr>
