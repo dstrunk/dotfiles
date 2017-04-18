@@ -3,3 +3,5 @@
 [[ -f ~/.bash_aliases ]] && source ~/.bash_aliases
 
 [[ -z DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

@@ -14,19 +14,6 @@ set wildignore+=*/vendor/**
 set wildignore+=*/public/forum/**
 set wildignore+=*/media
 
-" Let's run PHPUnit tests
-function! RunPHPUnitTest()
-  cd %:p:h
-  let result = system("phpunit " . bufname("%"))
-  split __PHPUnit_Result__
-  normal! ggdG
-  setlocal buftype=nofile
-  call VtrSendCommandToRunner! append(0, split(result, '\v\n'))
-  cd -
-endfunction
-
-map <leader>t :call RunPHPUnitTest()<cr>
-
 " Snippets
 :UltiSnipsAddFiletypes php
 :UltiSnipsAddFiletypes php-laravel
