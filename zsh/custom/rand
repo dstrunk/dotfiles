@@ -1,0 +1,8 @@
+# Generate random characters
+rand() { 
+  if [ -n "$1" ]; then
+    LC_CTYPE=C; cat /dev/urandom | tr -dc 'a-z0-9' | fold -w $1 | head -n 1
+  else
+    LC_CTYPE=C; cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 32 | head -n 1
+  fi
+}
