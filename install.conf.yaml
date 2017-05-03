@@ -39,3 +39,4 @@
     - vim - +PluginInstall +qall
     - . $(pwd)/powerline/fonts/install.sh
     - rm -rf $HOME/.asdf && git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.2.0
+    - sudo sed -i '/XKBOPTIONS="/c\XKBOPTIONS="ctrl:nocaps,ctrl:swap_lalt_lctl,altwin:meta_alt"' /etc/default/keyboard
