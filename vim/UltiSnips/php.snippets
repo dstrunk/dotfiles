@@ -1,32 +1,36 @@
 snippet __c "Constructor"
 public function __construct(${1})
 {
+	${2}
 }
 endsnippet
 
 snippet _c "Magento constructor"
 public function _construct(${1})
 {
+	${2}
 }
 endsnippet
 
-snippet testcase "Laravel test class"
+snippet testcase "TestCase"
 <?php
+
+namespace Tests\\${1:Feature};
 
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class ${1:Example}Test extends TestCase
+class ${2:Class}Test extends TestCase
 {
-    ${0}
+	${3}
 }
 endsnippet
 
-snippet test "Laravel test function"
+snippet test "Test"
 /** @test */
-function ${1:the_one_where}()
+public function ${1:the_one_where}()
 {
-    ${0}
+	${2:// Code here}
 }
 endsnippet

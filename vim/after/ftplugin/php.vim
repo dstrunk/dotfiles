@@ -34,12 +34,6 @@ endfunction
 
 autocmd! BufWritePre *.php :call TrimWhiteSpace()
 
-" Macros for constructors
-" The first instantiates a protected property within the constructor
-" The second instantiates protected properties after the original property
-let @a='lyF${iprotected ;Pojjo$this-> = ;Plybbbblp'
-let @b='lyF$k?protectedoprotected ;Pjjj%O$this-> = ;Plybbbblp'
-
 " PHP CS fixer
 let g:php_cs_fixer_level = "symfony"
 let g:php_cs_fixer_config = "default"
