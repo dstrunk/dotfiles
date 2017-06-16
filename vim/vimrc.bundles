@@ -35,6 +35,7 @@ Plugin 'ervandew/supertab'
 " General markup / C like autoclosing
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'alvan/vim-closetag'
+Plugin 'mattn/emmet-vim'
 
 " PHP dev
 Plugin 'shawncplus/phpcomplete.vim'
