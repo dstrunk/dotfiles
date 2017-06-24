@@ -74,7 +74,9 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 let g:airline_theme='one'
 colorscheme one
 set background=dark
+let g:one_allow_italics=1
 highlight NonText ctermbg=NONE
+highlight Comment cterm=italic
 
 " Numbers
 set number
