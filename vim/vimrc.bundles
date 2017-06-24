@@ -28,6 +28,7 @@ Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'mileszs/ack.vim'
 Plugin 'rizzatti/dash.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'tmhedberg/matchit'
 
 " Add supertab for using tab with both ultisnips and youcompleteme
 Plugin 'ervandew/supertab'
