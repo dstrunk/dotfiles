@@ -201,12 +201,12 @@ nnoremap <Leader>s :Ack!<Space>
 " CtrlP ignore files
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
 
-" CtrlP + Magento <3
-let g:ctrlp_max_files = 100000
-
 " ctags <3
+let g:gutentags_cache_dir='~/.tags_cache'
 nnoremap <C-o> :CtrlPTag<cr>
 
+" Neomake
+autocmd! BufWritePost * Neomake
 
 " Whitespace things
 highlight ExtraWhitespace ctermbg=red guibg=red

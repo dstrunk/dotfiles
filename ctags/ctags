@@ -29,7 +29,7 @@
 --regex-Elixir=/^[ \t]*Record\.defrecord[ \t]+:([a-zA-Z0-9_]+)/\1/r,records,records (defrecord...)/
 --regex-Elixir=/^[ \t]*test[ \t]+\"([a-z_][a-zA-Z0-9_?! ]*)\"*/\1/t,tests,tests (test ...)/
 
---langdef=css:css
+--langdef=css
 --langmap=css:.css
 --langmap=css:+.styl
 --langmap=css:+.less

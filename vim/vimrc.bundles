@@ -29,6 +29,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'rizzatti/dash.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tmhedberg/matchit'
+Plugin 'sheerun/vim-polyglot'
 
 " Add supertab for using tab with both ultisnips and youcompleteme
 Plugin 'ervandew/supertab'
@@ -67,6 +68,7 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'slashmili/alchemist.vim'
 Plugin 'janko-m/vim-test'
 Plugin 'andyl/vim-textobj-elixir'
+Plugin 'neomake/neomake'
 
 " Tmux
 Plugin 'christoomey/vim-tmux-navigator'
