@@ -19,6 +19,7 @@
   path = ~/.gitconfig.local
 [user]
 	email = daniel@strunk.me
+	name = Daniel Strunk
 [gpg]
 	program = gpg
 [filter "lfs"]
