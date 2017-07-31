@@ -1,93 +1,89 @@
-if &compatible
-  set nocompatible
-end
+packadd minpac
+call minpac#init()
 
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" Let Vundle manage Vundle
-Plugin 'gmarik/Vundle.vim'
+" Let minpac manage itself
+call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 " Define bundles via GitHub repos
 " Navigation
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'bling/vim-airline'
-Plugin 'Yggdroot/indentLine'
-Plugin 'koron/nyancat-vim'
+call minpac#add('ctrlpvim/ctrlp.vim')
+call minpac#add('bling/vim-airline')
+call minpac#add('Yggdroot/indentLine')
+call minpac#add('koron/nyancat-vim')
+call minpac#add('christoomey/vim-system-copy')
 
 " General added vim functionality
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-projectionist'
-Plugin 'sirver/ultisnips'
-Plugin 'skwp/greplace.vim'
-Plugin 'elzr/vim-json'
-Plugin 'ludovicchabant/vim-gutentags'
-Plugin 'mileszs/ack.vim'
-Plugin 'rizzatti/dash.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tmhedberg/matchit'
-Plugin 'sheerun/vim-polyglot'
+call minpac#add('tpope/vim-repeat')
+call minpac#add('tpope/vim-surround')
+call minpac#add('tpope/vim-commentary')
+call minpac#add('tpope/vim-projectionist')
+call minpac#add('sirver/ultisnips')
+call minpac#add('skwp/greplace.vim')
+call minpac#add('elzr/vim-json')
+call minpac#add('ludovicchabant/vim-gutentags')
+call minpac#add('mileszs/ack.vim')
+call minpac#add('rizzatti/dash.vim')
+call minpac#add('scrooloose/nerdtree')
+call minpac#add('tmhedberg/matchit')
+call minpac#add('sheerun/vim-polyglot')
 
 " Add supertab for using tab with both ultisnips and youcompleteme
-Plugin 'ervandew/supertab'
+call minpac#add('ervandew/supertab')
 
 " General markup / C like autoclosing
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'alvan/vim-closetag'
-Plugin 'mattn/emmet-vim'
+call minpac#add('jiangmiao/auto-pairs')
+call minpac#add('alvan/vim-closetag')
+call minpac#add('mattn/emmet-vim')
 
 " PHP dev
-Plugin 'shawncplus/phpcomplete.vim'
-Plugin 'joonty/vdebug'
-Plugin 'stephpy/vim-php-cs-fixer'
-Plugin 'StanAngeloff/php.vim'
-Plugin 'arnaud-lb/vim-php-namespace'
+call minpac#add('shawncplus/phpcomplete.vim')
+call minpac#add('joonty/vdebug')
+call minpac#add('stephpy/vim-php-cs-fixer')
+call minpac#add('StanAngeloff/php.vim')
+call minpac#add('arnaud-lb/vim-php-namespace')
 
 " Unix
-Plugin 'tpope/vim-eunuch'
+call minpac#add('tpope/vim-eunuch')
 
 " Git
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
+call minpac#add('tpope/vim-fugitive')
+call minpac#add('airblade/vim-gitgutter')
 
 " Ruby and Rails
-Plugin 'tpope/vim-rake'
-Plugin 'tpope/vim-rails'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'kana/vim-textobj-user'
-Plugin 'nelstrom/vim-textobj-rubyblock'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-bundler'
+call minpac#add('tpope/vim-rake')
+call minpac#add('tpope/vim-rails')
+call minpac#add('vim-ruby/vim-ruby')
+call minpac#add('thoughtbot/vim-rspec')
+call minpac#add('kana/vim-textobj-user')
+call minpac#add('nelstrom/vim-textobj-rubyblock')
+call minpac#add('tpope/vim-endwise')
+call minpac#add('tpope/vim-bundler')
 
 " Elixir and Phoenix
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'slashmili/alchemist.vim'
-Plugin 'janko-m/vim-test'
-Plugin 'andyl/vim-textobj-elixir'
-Plugin 'neomake/neomake'
+call minpac#add('elixir-lang/vim-elixir')
+call minpac#add('slashmili/alchemist.vim')
+call minpac#add('janko-m/vim-test')
+call minpac#add('andyl/vim-textobj-elixir')
+call minpac#add('neomake/neomake')
 
 " Tmux
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'christoomey/vim-tmux-runner'
-Plugin 'jgdavey/tslime.vim'
+call minpac#add('christoomey/vim-tmux-navigator')
+call minpac#add('christoomey/vim-tmux-runner')
+call minpac#add('jgdavey/tslime.vim')
 
 " Coffeescript
-Plugin 'kchmck/vim-coffee-script'
+call minpac#add('kchmck/vim-coffee-script')
 
 " Colorschemes
-Plugin 'croaky/vim-colors-github'
-Plugin 'jpo/vim-railscasts-theme'
-Plugin 'chriskempson/vim-tomorrow-theme'
-Plugin 'whatyouhide/vim-gotham'
-Plugin 'w0ng/vim-hybrid'
-Plugin 'gosukiwi/vim-atom-dark'
-Plugin 'daylerees/colour-schemes', { 'rtp': 'vim/' }
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'rakr/vim-one'
+call minpac#add('croaky/vim-colors-github')
+call minpac#add('jpo/vim-railscasts-theme')
+call minpac#add('chriskempson/vim-tomorrow-theme')
+call minpac#add('whatyouhide/vim-gotham')
+call minpac#add('w0ng/vim-hybrid')
+call minpac#add('gosukiwi/vim-atom-dark')
+call minpac#add('daylerees/colour-schemes', { 'rtp': 'vim/' })
+call minpac#add('altercation/vim-colors-solarized')
+call minpac#add('rakr/vim-one')
 
-call vundle#end()
-filetype plugin indent on
+command! PackUpdate call minpac#update()
+command! PackClean call minpac#clean()

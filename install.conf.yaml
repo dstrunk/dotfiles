@@ -35,8 +35,8 @@
 - shell:
     - git submodule update --init --recursive
     - git config --global init.templatedir '~/.git_template'
-    - git -C $HOME/.vim/bundle/Vundle.vim pull || git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
-    - vim - +PluginInstall +qall
+    - mkdir -p $HOME/.vim/pack/minpac/opt
+    - git -C $HOME/.vim/pack/minpac/opt/minpac pull || git clone https://github.com/k-takata/minpac.git $HOME/.vim/pack/minpac/opt/minpac
     - . $(pwd)/powerline/fonts/install.sh
     - rm -rf $HOME/.asdf && git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.2.0
     - sudo sed -i '/XKBOPTIONS="/c\XKBOPTIONS="ctrl:nocaps,ctrl:swap_lalt_lctl,altwin:meta_alt"' /etc/default/keyboard
