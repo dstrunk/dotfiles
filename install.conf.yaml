@@ -3,6 +3,7 @@
 - link:
     ~/.vim: vim/
     ~/.vimrc: vim/vimrc
+    ~/.ideavimrc: vim/ideavimrc
     ~/.vimrc.bundles: vim/vimrc.bundles
     ~/.tmux.conf: tmux/tmux.conf
     ~/.emacs.d: emacs/
