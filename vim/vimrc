@@ -84,9 +84,6 @@ set relativenumber
 set linespace=2
 set guifont=Menlo:h14
 
-" indentLine color
-let g:indentLine_color_term = 239
-
 " Embrace the vim
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
@@ -193,6 +190,7 @@ let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|sv
 
 " ctags <3
 let g:gutentags_cache_dir='~/.tags_cache'
+let g:gutentags_add_default_project_roots=0
 nnoremap <C-o> :CtrlPTag<cr>
 
 " Neomake
@@ -252,7 +250,7 @@ let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.whitespace = 'Ξ'
 
 " Git + Fugitive <3
-let g:gitgutter_sign_column_always = 1
+set signcolumn=yes
 set updatetime=250
 
 " Shortcuts for Fugitive
@@ -261,10 +259,6 @@ nmap <leader>gc :Gcommit<cr>
 nmap <leader>ga :Gwrite<cr>
 nmap <leader>gl :Glog<cr>
 nmap <leader>gd :Gdiff<cr>
-
-" Fix JSON not showing quotes
-" https://github.com/Yggdroot/indentLine/issues/140
-let g:vim_json_syntax_conceal = 0
 
 " Be dumb
 nmap <leader>ny :Nyancat<cr>

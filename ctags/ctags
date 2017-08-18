@@ -5,14 +5,13 @@
 --exclude=bower_components
 --exclude=node_modules
 --exclude=coverage
---exclude=vendor
---exclude=vendors
 --exclude=*.min.js
 --exclude=*.min.css
 --exclude=*.map
 --exclude=.backup
 --exclude=.sass-cache
 
+--php-kinds=+cfit-va
 --regex-php=/^[ \t]*trait[ \t]+([a-z0_9_]+)/\1/t,traits/i
 
 --langdef=Elixir
