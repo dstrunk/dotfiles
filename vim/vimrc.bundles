@@ -38,6 +38,7 @@ call minpac#add('mattn/emmet-vim')
 call minpac#add('shawncplus/phpcomplete.vim')
 call minpac#add('joonty/vdebug')
 call minpac#add('stephpy/vim-php-cs-fixer')
+call minpac#add('2072/PHP-Indenting-for-VIm')
 call minpac#add('StanAngeloff/php.vim')
 call minpac#add('arnaud-lb/vim-php-namespace')
 

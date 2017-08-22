@@ -51,7 +51,6 @@ function! IPhpInsertUse()
     call PhpInsertUse()
     call feedkeys('a', 'n')
 endfunction
-inoremap <Leader>n <Esc>:call IPhpInsertUse()<CR>
 noremap <Leader>n :call PhpInsertUse()<CR>
 
 if exists('*IPhpExpandClass')
@@ -61,7 +60,6 @@ function! IPhpExpandClass()
     call PhpExpandClass()
     call feedkeys('a', 'n')
 endfunction
-inoremap <Leader>nf <Esc>:call IPhpExpandClass()<CR>
 noremap <Leader>nf :call PhpExpandClass()<CR>
 
 " Sort PHP use statements
