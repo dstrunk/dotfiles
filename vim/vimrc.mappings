@@ -1,0 +1,53 @@
+" Embrace the vim
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
+
+" Move a line up or down
+nnoremap <Leader>k :m .-2<CR>
+nnoremap <Leader>j :m .+1<CR>
+inoremap <Leader>k <Esc>:m.+1<CR>gi
+inoremap <Leader>j <Esc>:m .-2<CR>gi
+vnoremap <Leader>k :m '>+1<CR>gv
+vnoremap <Leader>j :m '<-2<CR>gv
+
+" Zoom a vim pane, <C-w> to re-balance
+nnoremap <Leader>- :wincmd _<cr>:wincmd \|<cr>
+nnoremap <Leader>= :wincmd =<cr>
+
+" Search for the word under the cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+" Use ag arguments
+" bind '\' to grep shortcut
+" command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+nnoremap \ :Ag<SPACE>
+
+" Ensure folded lines are preserved on save
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
+
+" Automatically create directories if they don't exist
+augroup Mkdir
+  autocmd!
+  autocmd BufWritePre *
+    \ if !isdirectory(expand("<afile>:p:h")) |
+        \ call mkdir(expand("<afile>:p:h"), "p") |
+    \ endif
+augroup END
+
+" Neomake
+autocmd! BufWritePost * Neomake
+
+" Whitespace things
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd BufWinEnter * match ExtraWhitespace /\s+$/
+autocmd BufWinLeave * call clearmatches()
+
+function! TrimWhiteSpace()
+  %s/\s\+$//e
+endfunction

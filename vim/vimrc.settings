@@ -1,0 +1,26 @@
+let mapleader=','      " Let's set a mapleader
+set nocompatible       " Use Vim, not Vi
+set backspace=2        " Backspace deletes like most programs in insert mode
+set nobackup
+set nowritebackup
+set noswapfile
+set history=50
+set ruler              " show cursor position all the time
+set showcmd            " display incomplete commands
+set incsearch          " do incremental searching
+set laststatus=2       " Always display status line
+set autowrite          " Automatically :write before running commands
+set textwidth=80       " Make it obvious where 80 characters is
+set number             " Show line numbers
+set numberwidth=5      " Give numbers breathing room
+set relativenumber     " Count line numbers based on cursor position
+set scrolloff=999      " Keep cursor in the middle of the screen
+set linespace=2        " Gimme some leading
+set guifont=Menlo:h14  " Give me a good font
+set splitbelow         " Split new panes below
+set splitright         " Split new panes to right
+ set tags+=tags        " Tags
+syntax on              " Syntax highlighting
+filetype on            " Enable filetype detection
+filetype indent on     " Enable filetype-specific indenting
+filetype plugin on     " Enable filetype-specific plugins

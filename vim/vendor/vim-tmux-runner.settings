@@ -1,0 +1,14 @@
+let g:rspec_command = "VtrSendCommandToRunner! bundle exec rspec {spec}"
+map <Leader>fr :VtrFocusRunner<CR>
+
+" Vim tmux integration
+nmap <C-f> :VtrSendLinesToRunner<cr>
+vmap <C-f> :VtrSendLinesToRunner<cr>
+
+nmap <leader>osr :VtrOpenRunner { 'orientation': 'h', 'percentage': 50 }<cr>
+nmap <leader>opr :VtrOpenRunner { 'orientation': 'h', 'percentage': 50, 'cmd': 'pry' }<cr>
+
+nnoremap <leader>sd :VtrSendCtrlD<cr>
+nnoremap <leader>sq :VtrSendCommandToRunner q<cr>
+nnoremap <leader>sl :VtrSendCommandToRunner <cr>
+nnoremap <leader>scu :VtrSendCommandToRunner <cr>
