@@ -10,7 +10,6 @@ setlocal iskeyword+=-
 setlocal iskeyword+=_
 
 " Ignore certain files for CtrlP
-set wildignore+=*/vendor/**
 set wildignore+=*/public/forum/**
 set wildignore+=*/media
 

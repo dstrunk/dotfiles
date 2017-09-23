@@ -8,14 +8,15 @@ call minpac#add('k-takata/minpac', {'type': 'opt'})
 call minpac#add('ctrlpvim/ctrlp.vim')             " Navigate functions or files
 call minpac#add('bling/vim-airline')              " Nice bottom menu
 call minpac#add('christoomey/vim-system-copy')    " Use system copy paste
-call minpac#add('tpope/vim-repeat')               " @TODO evaluate Enhanced repeat support for functions
+call minpac#add('tpope/vim-repeat')               " Enhanced repeat support for functions
+call minpac#add('vim-scripts/visualrepeat')       " Repeat support for visual mode
 call minpac#add('tpope/vim-surround')             " Add text object for surrounding text
 call minpac#add('tpope/vim-commentary')           " Add text objects for commenting code
 call minpac#add('sirver/ultisnips')               " Snippets
-call minpac#add('ludovicchabant/vim-gutentags')   " @TODO configure Manage tag files
-call minpac#add('mileszs/ack.vim')                " @TODO evaluate Search and replace using `ack`
+call minpac#add('ludovicchabant/vim-gutentags')   " Manage tag files
+call minpac#add('mileszs/ack.vim')                " Search and replace using `ack`
 call minpac#add('rizzatti/dash.vim')              " macOS Dash documentation support
-call minpac#add('tmhedberg/matchit')              " @TODO evaluate Extended % matching
+call minpac#add('tmhedberg/matchit')              " Extended % matching
 call minpac#add('sheerun/vim-polyglot')           " Actively maintained language support
 call minpac#add('neomake/neomake')                " Run async programs using job-control
 call minpac#add('kana/vim-textobj-user')          " Add text objects for block structures
@@ -26,7 +27,7 @@ call minpac#add('alvan/vim-closetag')             " Autoclose (X)HTML tags
 call minpac#add('mattn/emmet-vim')                " Emmet HTML auto generation
 call minpac#add('shawncplus/phpcomplete.vim')     " Improved PHP omnicompletion and features
 call minpac#add('joonty/vdebug')                  " Multilanguage debugger for XDebug, et al.
-call minpac#add('stephpy/vim-php-cs-fixer')       " @TODO evaluate PHP auto syntax higlighting
+call minpac#add('stephpy/vim-php-cs-fixer')       " PHP auto syntax higlighting
 call minpac#add('StanAngeloff/php.vim')           " Up-to-date PHP syntax (better than native vim)
 call minpac#add('arnaud-lb/vim-php-namespace')    " Automatically adds PHP `use` statements
 call minpac#add('tpope/vim-eunuch')               " Vim sugar for UNIX shell commands
@@ -35,7 +36,7 @@ call minpac#add('airblade/vim-gitgutter')         " Show the git diff in the sym
 call minpac#add('tpope/vim-rake')                 " Lightweight Rake support for Ruby
 call minpac#add('tpope/vim-rails')                " Vim Rails support for jumping between files, etc.
 call minpac#add('nelstrom/vim-textobj-rubyblock') " Add text object for Ruby blocks
-call minpac#add('tpope/vim-endwise')              " @TODO evaluate Automatically add closings for methods
+call minpac#add('tpope/vim-endwise')              " Automatically add closings for methods
 call minpac#add('tpope/vim-bundler')              " Lightweight Bundler support for Ruby
 call minpac#add('elixir-lang/vim-elixir')         " Better language support (more than polyglot)
 call minpac#add('slashmili/alchemist.vim')        " Enhanced Elixir integration for Vim

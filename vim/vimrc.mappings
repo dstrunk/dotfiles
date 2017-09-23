@@ -4,13 +4,13 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-" Move a line up or down
-nnoremap <Leader>k :m .-2<CR>
-nnoremap <Leader>j :m .+1<CR>
-inoremap <Leader>k <Esc>:m.+1<CR>gi
-inoremap <Leader>j <Esc>:m .-2<CR>gi
-vnoremap <Leader>k :m '>+1<CR>gv
-vnoremap <Leader>j :m '<-2<CR>gv
+" Move a line up or down in normal mode
+nmap <silent> <Plug>NormalMoveLineUp :m .-2<CR>
+  \ :call repeat#set("\<Plug>NormalMoveLineUp")<CR>
+nmap <Leader>k <Plug>NormalMoveLineUp
+nmap <silent> <Plug>NormalMoveLineDown :m .+1<CR>
+  \ :call repeat#set("\<Plug>NormalMoveLineDown")<CR>
+nmap <Leader>j <Plug>NormalMoveLineDown
 
 " Zoom a vim pane, <C-w> to re-balance
 nnoremap <Leader>- :wincmd _<cr>:wincmd \|<cr>
@@ -18,6 +18,9 @@ nnoremap <Leader>= :wincmd =<cr>
 
 " Search for the word under the cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+" Clear search results until the next search
+nnoremap <C-c><C-c> :noh<CR>
 
 " Use ag arguments
 " bind '\' to grep shortcut
@@ -36,9 +39,6 @@ augroup Mkdir
         \ call mkdir(expand("<afile>:p:h"), "p") |
     \ endif
 augroup END
-
-" Neomake
-autocmd! BufWritePost * Neomake
 
 " Whitespace things
 highlight ExtraWhitespace ctermbg=red guibg=red
