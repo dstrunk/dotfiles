@@ -20,7 +20,7 @@ set guifont=Menlo:h14  " Give me a good font
 set splitbelow         " Split new panes below
 set splitright         " Split new panes to right
 set hlsearch           " Highlight search
- set tags+=tags        " Tags
+set tags+=tags,.git/tags,tags.vendors
 syntax on              " Syntax highlighting
 filetype on            " Enable filetype detection
 filetype indent on     " Enable filetype-specific indenting
