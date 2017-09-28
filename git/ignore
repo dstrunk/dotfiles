@@ -107,3 +107,11 @@ tags
 .tags
 tags.temp
 tags.lock
+
+# JavaScript modules
+node_modules/
+
+# Magento personal ignores (1 and 2)
+app/code/local/Danielstrunk/
+app/etc/modules/Danielstrunk_Commercebug.xml
+app/code/Danielstrunk/

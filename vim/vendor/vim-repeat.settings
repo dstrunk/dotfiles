@@ -1,0 +1,5 @@
+" Repeat line up or down
+nnoremap <silent> <Plug>MoveLineUp <Leader>k :m .-2<cr>
+  \ :call repeat#set("\<Plug>MoveLineUp", v:count)<cr>
+nnoremap <silent> <Plug>MoveLineDown <Leader>j :m .+1<cr>
+  \ :call repeat#set("\<Plug>MoveLineDown", v:count)<cr>

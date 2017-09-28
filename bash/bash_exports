@@ -3,6 +3,9 @@ export PATH="$HOME/.bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cask/bin:$PATH"
 
+# Homebrew's sbin
+export PATH="/usr/local/sbin:$PATH"
+
 # ensure_tmux_is_running
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"

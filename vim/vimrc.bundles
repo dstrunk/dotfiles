@@ -43,6 +43,7 @@ call minpac#add('slashmili/alchemist.vim')        " Enhanced Elixir integration 
 call minpac#add('andyl/vim-textobj-elixir')       " Add text object for Elixir blocks
 call minpac#add('christoomey/vim-tmux-navigator') " Navigate tmux and vim seamlessly
 call minpac#add('christoomey/vim-tmux-runner')    " Send vim lines to tmux panes
+call minpac#add('koron/nyancat-vim')              " Nyancat - v important
 
 " Colorschemes
 call minpac#add('croaky/vim-colors-github')
