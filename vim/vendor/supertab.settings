@@ -1,1 +1,2 @@
 let g:SuperTabNoCompleteAfter = ['^', ',', '\s', '"', "'"]
+let g:SuperTabDefaultCompletionType = '<C-p>'

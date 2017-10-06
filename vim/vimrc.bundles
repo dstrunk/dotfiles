@@ -13,7 +13,8 @@ call minpac#add('vim-scripts/visualrepeat')       " Repeat support for visual mo
 call minpac#add('tpope/vim-surround')             " Add text object for surrounding text
 call minpac#add('tpope/vim-commentary')           " Add text objects for commenting code
 call minpac#add('sirver/ultisnips')               " Snippets
-call minpac#add('ludovicchabant/vim-gutentags')   " Manage tag files
+call minpac#add('Valloric/YouCompleteMe')         " YouCompleteMe for code hints
+call minpac#add('ludovicchabant/vim-gutentags')   " Gutentags for tag management
 call minpac#add('mileszs/ack.vim')                " Search and replace using `ack`
 call minpac#add('rizzatti/dash.vim')              " macOS Dash documentation support
 call minpac#add('tmhedberg/matchit')              " Extended % matching

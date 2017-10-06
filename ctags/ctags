@@ -1,6 +1,6 @@
 --sort=yes
---tag-relative
---recurse
+--tag-relative=yes
+--recurse=yes
 --exclude=.git
 --exclude=bower_components
 --exclude=node_modules
@@ -12,7 +12,6 @@
 --exclude=.sass-cache
 
 --php-kinds=+cfit-va
---regex-php=/^[ \t]*trait[ \t]+([a-z0_9_]+)/\1/t,traits/i
 
 --langdef=Elixir
 --langmap=Elixir:.ex.exs

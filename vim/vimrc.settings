@@ -11,6 +11,8 @@ set incsearch          " do incremental searching
 set laststatus=2       " Always display status line
 set autowrite          " Automatically :write before running commands
 set textwidth=80       " Make it obvious where 80 characters is
+set fo=cq              " Don't autoformat text wrapping; see <http://blog.ezyang.com/2010/03/vim-textwidth/>
+set wm=0               " Don't wrap based on terminal size
 set number             " Show line numbers
 set numberwidth=5      " Give numbers breathing room
 set relativenumber     " Count line numbers based on cursor position
@@ -21,6 +23,7 @@ set splitbelow         " Split new panes below
 set splitright         " Split new panes to right
 set hlsearch           " Highlight search
 set tags+=tags,.git/tags,tags.vendors
+
 syntax on              " Syntax highlighting
 filetype on            " Enable filetype detection
 filetype indent on     " Enable filetype-specific indenting

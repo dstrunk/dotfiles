@@ -22,6 +22,9 @@ if [ -d /Applications/Postgres.app/ ]; then
   export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 fi
 
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # Use `asdf` to manage language versions:
 # https://github.com/asdf-vm/asdf
 . $HOME/.asdf/asdf.sh
