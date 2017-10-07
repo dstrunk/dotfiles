@@ -11,8 +11,6 @@
 --exclude=.backup
 --exclude=.sass-cache
 
---php-kinds=+cfit-va
-
 --langdef=Elixir
 --langmap=Elixir:.ex.exs
 --regex-Elixir=/^[ \t]*def(p?)[ \t]+([a-z_][a-zA-Z0-9_?!]*)/\2/f,functions,functions (def ...)/
