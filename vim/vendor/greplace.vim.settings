@@ -1,0 +1,2 @@
+set grepprg=rg
+let g:grep_cmd_opts = '--line-number --no-heading'

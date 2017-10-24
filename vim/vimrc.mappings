@@ -22,11 +22,6 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " Clear search results until the next search
 nnoremap <C-c><C-c> :noh<CR>
 
-" Use ag arguments
-" bind '\' to grep shortcut
-" command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-nnoremap \ :Ag<SPACE>
-
 " Ensure folded lines are preserved on save
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview

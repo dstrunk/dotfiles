@@ -44,17 +44,15 @@ call minpac#add('andyl/vim-textobj-elixir')       " Add text object for Elixir b
 call minpac#add('christoomey/vim-tmux-navigator') " Navigate tmux and vim seamlessly
 call minpac#add('christoomey/vim-tmux-runner')    " Send vim lines to tmux panes
 call minpac#add('koron/nyancat-vim')              " Nyancat - v important
+call minpac#add('skwp/greplace.vim')              " Global search and replace
 
 " Colorschemes
-call minpac#add('croaky/vim-colors-github')
-call minpac#add('jpo/vim-railscasts-theme')
-call minpac#add('chriskempson/vim-tomorrow-theme')
-call minpac#add('whatyouhide/vim-gotham')
-call minpac#add('w0ng/vim-hybrid')
-call minpac#add('gosukiwi/vim-atom-dark')
-call minpac#add('daylerees/colour-schemes', { 'rtp': 'vim/' })
-call minpac#add('altercation/vim-colors-solarized')
-call minpac#add('rakr/vim-one')
+call minpac#add('acarapetis/vim-colors-github')                " GitHub light theme
+call minpac#add('whatyouhide/vim-gotham')                      " Cool dark blue theme
+call minpac#add('daylerees/colour-schemes', { 'rtp': 'vim/' }) " Dayle Rees colorschemes
+call minpac#add('altercation/vim-colors-solarized')            " Solarized light and dark
+call minpac#add('rakr/vim-one')                                " Atom colorscheme
+call minpac#add('morhetz/gruvbox')                             " @current
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()

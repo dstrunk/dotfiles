@@ -1,7 +1,18 @@
 " Ack.vim
-if executable('ag')
+
+" Attempt to use ripgrep when available
+" Else, use ag if available
+if executable('rg')
+  let g:ackprg = 'rg --vimgrep'
+elseif executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+
+" Don't open the first file in search in the buffer
 cnoreabbrev Ack Ack!
+
+" <Leader>s for general search
+" <Leader>sw to search for the word under the cursor
 nnoremap <Leader>s :Ack!<Space>
+nnoremap <Leader>sw :Ack! "\b<C-R><C-W>\b"<CR>:cw<CR>
 

@@ -2,6 +2,8 @@ autoconf
 automake
 bison27
 bison@2.7
+cmake
+cscope
 curl
 dirmngr
 dnsmasq
@@ -31,9 +33,11 @@ libusb-compat
 libxml2
 libyaml
 lzo
+macvim
 mariadb
 mcrypt
 mhash
+mono
 nginx
 node
 openssl
