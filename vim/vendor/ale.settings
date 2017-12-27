@@ -1,0 +1,7 @@
+" stylelint - CSS / SCSS / Less  <npm install -g stylelint>
+" eslint    - JavaScript         <npm install -g eslint>
+" prettier  - JSON / GraphQL     <npm install -g prettier>
+" phpcs     - PHP                <composer global require "squizlabs/php_codesniffer=*">
+
+let g:ale_sign_column_always = 1
+let g:airline#extensions#ale#enabled = 1

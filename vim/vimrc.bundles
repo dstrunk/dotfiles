@@ -18,7 +18,7 @@ call minpac#add('mileszs/ack.vim')                " Search and replace using `ac
 call minpac#add('rizzatti/dash.vim')              " macOS Dash documentation support
 call minpac#add('tmhedberg/matchit')              " Extended % matching
 call minpac#add('sheerun/vim-polyglot')           " Actively maintained language support
-call minpac#add('neomake/neomake')                " Run async programs using job-control
+call minpac#add('w0rp/ale')                       " Async lint engine
 call minpac#add('kana/vim-textobj-user')          " Add text objects for block structures
 call minpac#add('janko-m/vim-test')               " General use TDD across languages
 call minpac#add('ervandew/supertab')              " Use tab for autocompletion; supports both UltiSnips and YouCompleteMe
