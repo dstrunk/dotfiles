@@ -11,6 +11,10 @@
 --exclude=.backup
 --exclude=.sass-cache
 
+--PHP-kinds=+cfit-va
+--PHP-kinds=cfi -f .git/tags.vendors vendor
+--PHP-kinds=cfi -f .git/tags app
+
 --langdef=Elixir
 --langmap=Elixir:.ex.exs
 --regex-Elixir=/^[ \t]*def(p?)[ \t]+([a-z_][a-zA-Z0-9_?!]*)/\2/f,functions,functions (def ...)/

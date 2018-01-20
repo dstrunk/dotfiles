@@ -34,7 +34,7 @@ endfunction
 autocmd! BufWritePre *.php :call TrimWhiteSpace()
 
 " <3 PHP namespaces
-set tags+=.git/tags
+set tags+=.git/tags,.git/tags.vendors
 
 " Sort PHP use statements
 " http://stackoverflow.com/questions/11531073/how-do-you-sort-a-range-of-lines-by-length
