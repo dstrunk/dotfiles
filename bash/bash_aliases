@@ -4,11 +4,12 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ~='cd ~/'
 alias ls='ls -a'
-alias mr='n98-magerun'
-if hub > /dev/null; then
-  alias git='hub'
-fi
+alias n98='n98-magerun'
 alias g='git'
+
+# hub
+# brew install hub
+eval "$(hub alias -s)"
 
 git() {
   if [ "$1" = commit ]; then
@@ -20,15 +21,8 @@ git() {
 
 # folder aliases
 code=~/Code/
-vm=~/Utilities/VMs/vm/
 elixir=~/Code/Elixir/
 ruby=~/Code/Ruby/
 php=~/Code/PHP/
+laravel=~/Code/PHP/Laravel/
 magento=~/Code/PHP/Magento/
-
-# Sites
-cb=~/Code/PHP/Magento/shop.charbroil.com/
-bp=~/Code/PHP/Magento/badlandspacks.com/
-zbq=~/Code/PHP/Magento/zebcobrands/
-zbw=~/Code/PHP/Magento/ZBCMS/
-okj=~/Code/PHP/Magento/html/public/

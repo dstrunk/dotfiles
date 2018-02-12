@@ -56,33 +56,33 @@ interface ${1:Class}
 endsnippet
 
 snippet pubf "Public Function"
+
 public function ${1:method}(${2})
 {
 	$0
 }
-
 endsnippet
 
 snippet prof "Protected Function"
+
 protected function ${1:method}(${2})
 {
 	$0
 }
-
 endsnippet
 
 snippet prif "Private Function"
+
 private function ${1:method}(${2})
 {
 	$0
 }
-
 endsnippet
 
 snippet belm "Belongs to many"
 public function ${1:relationship}()
 {
-	return \$this->belongsToMany(${1/^(.+)s$/\u$1:/g}::class${2:, '${3:table}'});
+	return \$this->belongsToMany(${1/^(.+)s$/\u$1/g}::class${2:, '${3:table}'});
 }
 
 endsnippet
@@ -90,7 +90,7 @@ endsnippet
 snippet belt "Belongs to"
 public function ${1:relationship}()
 {
-	return \$this->belongsTo(${1/^(.+)$/\u$1:/g}::class);
+	return \$this->belongsTo(${1/^(.+)$/\u$1/g}::class);
 }
 
 endsnippet
@@ -106,7 +106,7 @@ endsnippet
 snippet haso "Has one"
 public function ${1:relationship}()
 {
-	return \$this->hasOne(${1/^(.+)$/\u$1:/g}::class);
+	return \$this->hasOne(${1/^(.+)$/\u$1/g}::class);
 }
 
 endsnippet

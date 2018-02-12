@@ -104,6 +104,7 @@ sftp-config.json
 
 # ctags
 tags
+tags.vendors
 .tags
 tags.temp
 tags.lock
