@@ -1,0 +1,72 @@
+snippet resources "Controller resources" b
+public function index()
+{
+}
+
+public function create()
+{
+}
+
+public function store()
+{
+}
+
+public function show($id)
+{
+}
+
+public function edit($id)
+{
+}
+
+public function update($id)
+{
+}
+
+public function destory($id)
+{
+}
+endsnippet
+
+snippet belm "Belongs to many" b
+public function ${1:relationship}()
+{
+    return \$this->belongsToMany(${1/^(.+)s$/\u$1/g}::class${2:, '${3:table}'});
+}
+
+endsnippet
+
+snippet belt "Belongs to" b
+
+public function ${1:relationship}()
+{
+    return \$this->belongsTo(${1/^(.+)$/\u$1/g}::class);
+}
+
+endsnippet
+
+snippet hasm "Has many" b
+
+public function ${1:relationship}()
+{
+    return \$this->hasMany(${1/^(.+)s$/\u$1/g}::class);
+}
+
+endsnippet
+
+snippet haso "Has one" b
+
+public function ${1:relationship}()
+{
+    return \$this->hasOne(${1/^(.+)$/\u$1/g}::class);
+}
+
+endsnippet
+
+snippet hasmt "Has many through" b
+
+public function ${1:relationship}()
+{
+    return \$this->hasManyThrough(${1/^(.+)s$/\u$1/g}::class, ${2}::class);
+}
+endsnippet

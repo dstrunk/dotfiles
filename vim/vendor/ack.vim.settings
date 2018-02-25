@@ -4,8 +4,6 @@
 " Else, use ag if available
 if executable('rg')
   let g:ackprg = 'rg --vimgrep'
-elseif executable('ag')
-  let g:ackprg = 'ag --vimgrep'
 endif
 
 " Don't open the first file in search in the buffer

@@ -18,11 +18,3 @@ git() {
   fi
   command git "$@" 
 }
-
-# folder aliases
-code=~/Code/
-elixir=~/Code/Elixir/
-ruby=~/Code/Ruby/
-php=~/Code/PHP/
-laravel=~/Code/PHP/Laravel/
-magento=~/Code/PHP/Magento/
