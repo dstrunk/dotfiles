@@ -25,6 +25,7 @@ set hlsearch           " Highlight search
 set tags+=tags
 set tags+=tags.vendors
 set tags+=.git/tags
+set clipboard=unnamed
 
 syntax on              " Syntax highlighting
 filetype on            " Enable filetype detection

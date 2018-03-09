@@ -46,6 +46,8 @@ call minpac#add('christoomey/vim-tmux-runner')    " Send vim lines to tmux panes
 call minpac#add('koron/nyancat-vim')              " Nyancat - v important
 call minpac#add('skwp/greplace.vim')              " Global search and replace
 call minpac#add('dhruvasagar/vim-dotoo')          " org-mode like task logging
+call minpac#add('OmniSharp/omnisharp-vim')        " CSharp vim
+call minpac#add('tpope/vim-dispatch')             " Needed to automatically start Omnicomplete server
 
 " Colorschemes
 call minpac#add('acarapetis/vim-colors-github')                " GitHub light theme
