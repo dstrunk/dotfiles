@@ -21,7 +21,6 @@ call minpac#add('sheerun/vim-polyglot')           " Actively maintained language
 call minpac#add('w0rp/ale')                       " Async lint engine
 call minpac#add('kana/vim-textobj-user')          " Add text objects for block structures
 call minpac#add('janko-m/vim-test')               " General use TDD across languages
-call minpac#add('ervandew/supertab')              " Use tab for autocompletion; supports both UltiSnips and YouCompleteMe
 call minpac#add('jiangmiao/auto-pairs')           " Insert or delete parens or quotes in pairs
 call minpac#add('alvan/vim-closetag')             " Autoclose (X)HTML tags
 call minpac#add('mattn/emmet-vim')                " Emmet HTML auto generation
@@ -45,9 +44,9 @@ call minpac#add('christoomey/vim-tmux-navigator') " Navigate tmux and vim seamle
 call minpac#add('christoomey/vim-tmux-runner')    " Send vim lines to tmux panes
 call minpac#add('koron/nyancat-vim')              " Nyancat - v important
 call minpac#add('skwp/greplace.vim')              " Global search and replace
-call minpac#add('dhruvasagar/vim-dotoo')          " org-mode like task logging
-call minpac#add('OmniSharp/omnisharp-vim')        " CSharp vim
 call minpac#add('tpope/vim-dispatch')             " Needed to automatically start Omnicomplete server
+call minpac#add('ervandew/supertab')              " Supertab so UltiSnips and YCM play nice
+call minpac#add('Valloric/YouCompleteMe')         " Multi-language OmniComplete support
 
 " Colorschemes
 call minpac#add('acarapetis/vim-colors-github')                " GitHub light theme
