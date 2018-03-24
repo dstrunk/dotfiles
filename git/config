@@ -1,5 +1,5 @@
 [init]
-	templatedir = ~/.git_template
+  templatedir = ~/.git_template
 [push]
   default = current
 [core]
@@ -9,21 +9,21 @@
   fileMode = false
 [merge]
   ff = only
-	conflictstyle = merge
+  conflictstyle = merge
 [commit]
   template = ~/.gitmessage
-	gpgsign = true
+  gpgsign = true
 [fetch]
   prune = true
 [include]
   path = ~/.gitconfig.local
 [user]
-	email = daniel@strunk.me
-	name = Daniel Strunk
+  email = daniel@strunk.me
+  name = Daniel Strunk
 [gpg]
-	program = gpg
+  program = gpg
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true

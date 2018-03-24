@@ -7,10 +7,6 @@ alias ls='ls -a'
 alias n98='n98-magerun'
 alias g='git'
 
-# hub
-# brew install hub
-eval "$(hub alias -s)"
-
 git() {
   if [ "$1" = commit ]; then
     shift
@@ -18,3 +14,7 @@ git() {
   fi
   command git "$@" 
 }
+
+# hub
+# brew install hub
+eval "$(hub alias -s)"

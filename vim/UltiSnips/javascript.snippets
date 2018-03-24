@@ -1,13 +1,23 @@
-snippet createClass "React.createClass"
-var ${1} = React.createClass({
-	
-	render: function() {
-		return (
-			<div />
-		);
-	}
+snippet testcase "Vue spec" b
+import { wrapper } from '@vue/test-utils';
+import expect from 'expect';
+import ${1:Component} from '../components/${1}.vue';
 
+describe ('${1}', () => {
+    let wrapper;
+
+    beforeEach(() => {
+        wrapper = mount(${1});
+    })
+
+    ${0}
 });
+endsnippet
 
-React.render(<${1} />, document.body);
+snippet test "Test" b
+it('${1:does the thing}', () => {
+    let wrapper = mount(${2:Component});
+
+    ${3:// expect('Hamlet').toBe('orNotToBe');}
+});
 endsnippet
