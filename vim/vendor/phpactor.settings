@@ -1,0 +1,4 @@
+nmap <Leader>mm :call phpactor#ContextMenu<cr>
+nmap <Leader>n :call phpactor#UseAdd()<cr>
+nmap gf :call phpactor#GotoDefinition()<cr>
+nmap <Leader>xm :call phpactor#mxtractMethod()<cr>

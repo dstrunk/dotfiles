@@ -20,7 +20,7 @@ set wildignore+=*/media
 :UltiSnipsAddFiletypes php-symfony2
 
 " autocomplete
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType php set omnifunc=phpactor#Complete
 let g:phpcomplete_relax_static_constraint=1
 let g:phpcomplete_complete_for_unknown_classes=1
 let g:phpcomplete_search_tags_for_variables=1

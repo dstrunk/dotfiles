@@ -5,3 +5,24 @@ nmap <silent> <Leader>T :TestFile<CR>
 nmap <silent> <Leader>a :TestSuite<CR>
 nmap <silent> <Leader>l :TestLast<CR>
 nmap <silent> <Leader>g :TestVisit<CR>
+
+let test#javascript#mocha#executable = 'mocha-webpack'
+let test#javascript#mocha#options = {
+  \ 'nearest': '--webpack-config=node_modules/laravel-mix/setup/webpack.config.js --require tests/Vue/setup.js',
+  \ 'file': '--webpack-config=node_modules/laravel-mix/setup/webpack.config.js --require tests/Vue/setup.js',
+  \ 'suite': '--webpack-config=node_modules/laravel-mix/setup/webpack.config.js --require tests/Vue/setup.js',
+\}
+
+" @TODO replace hardcoded mocha setup with a `--laravel` modifier
+"       to run extra tags / different directory structure
+
+" function! VueMochaLaravelTransform(cmd) abort
+"   if matchstr(a:cmd, '\v^*mocha-webpack.*--laravel')
+"     return a:cmd . '--webpack-config=node_modules/laravel-mix/setup/webpack.config.js --require tests/**/*/setup.js'
+"   else
+"     return a:cmd
+"   end
+" endfunction
+
+" let g:test#custom_transformations = {'javascript': function('VueMochaLaravelTransform')}
+" let g:test#transformation = 'javascript'
