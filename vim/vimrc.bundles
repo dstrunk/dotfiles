@@ -51,6 +51,7 @@ call minpac#add('sirver/ultisnips')               " Snippets
 call minpac#add('posva/vim-vue')                  " Syntax highlighting for Vue
 call minpac#add('othree/html5.vim')               " HTML5 support
 call minpac#add('phpactor/phpactor')              " PHP introspection
+call minpac#add('jreybert/vimagit')               " Magit!
 
 " Colorschemes
 call minpac#add('acarapetis/vim-colors-github')                " GitHub light theme
