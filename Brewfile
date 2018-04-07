@@ -14,21 +14,16 @@ brew "autoconf"
 brew "bison@2.7"
 brew "cmake"
 brew "curl"
-brew "libgpg-error"
-brew "libassuan"
-brew "libgcrypt"
 brew "libksba"
 brew "pth"
 brew "dirmngr", link: true
-brew "dnsmasq", restart_service: true, link: false
-brew "docker"
+brew "dnsmasq", restart_service: true
+brew "docker", link: false
 brew "freetype"
 brew "fzf"
 brew "gettext"
 brew "git"
 brew "git-lfs"
-brew "libusb"
-brew "pinentry"
 brew "gnupg"
 brew "gpg-agent", link: true
 brew "hub"
@@ -45,13 +40,14 @@ brew "macvim"
 brew "mariadb", restart_service: true
 brew "mcrypt"
 brew "mono"
+brew "nginx", restart_service: true
+brew "node", link: false
 brew "openssl@1.1"
-brew "nginx", args: ["with-http2"], restart_service: true
-brew "node"
 brew "openvpn", restart_service: true
 brew "phantomjs"
+brew "php@7.1"
 brew "pinentry-mac"
-brew "qt", link: true
+brew "qt"
 brew "qt@5.5", link: true
 brew "reattach-to-user-namespace"
 brew "redis", restart_service: true
@@ -62,7 +58,6 @@ brew "stunnel"
 brew "tmate"
 brew "tmux"
 brew "tree"
-brew "unixodbc"
 brew "vim"
 brew "watchman"
 brew "wget"
@@ -72,8 +67,6 @@ brew "zlib"
 brew "zsh"
 brew "codekitchen/dinghy/dinghy"
 brew "heroku/brew/heroku"
-brew "homebrew/php/php71"
-brew "homebrew/php/php71-mcrypt"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 cask "1password"
 cask "alfred"

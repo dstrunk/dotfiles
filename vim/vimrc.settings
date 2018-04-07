@@ -26,8 +26,8 @@ set completeopt=longest,menuone " OmniComplete settings
 set tags+=tags
 set tags+=tags.vendors
 set tags+=.git/tags
-set clipboard=unnamed
-set encoding=utf-8
+set clipboard=unnamed  " Needed to copy / paste from system
+set encoding=utf-8     " all of the characters
 
 syntax on              " Syntax highlighting
 filetype on            " Enable filetype detection
