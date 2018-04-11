@@ -8,6 +8,8 @@ setlocal copyindent
 setlocal smarttab
 setlocal iskeyword+=-
 setlocal iskeyword+=_
+setlocal comments=s1:/*,mb:*,ex:*/,://,:#
+setlocal formatoptions+=cro
 
 " Ignore certain files for CtrlP
 set wildignore+=*/public/forum/**
@@ -32,7 +34,6 @@ function! TrimWhiteSpace()
 endfunction
 
 autocmd! BufWritePre *.php :call TrimWhiteSpace()
-set indentkeys=0{,0},:,0#,!^F,o,O,e,*,<>>,,end,:
 
 " <3 PHP namespaces
 set tags+=.git/tags,.git/tags.vendors
