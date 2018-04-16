@@ -57,8 +57,10 @@ call minpac#add('jreybert/vimagit')               " Magit!
 call minpac#add('acarapetis/vim-colors-github')                " GitHub light theme
 call minpac#add('whatyouhide/vim-gotham')                      " Cool dark blue theme
 call minpac#add('daylerees/colour-schemes', { 'rtp': 'vim/' }) " Dayle Rees colorschemes
+call minpac#add('rainglow/vim')                                " New Dayle Rees
 call minpac#add('altercation/vim-colors-solarized')            " Solarized light and dark
 call minpac#add('rakr/vim-one')                                " Atom colorscheme
+call minpac#add('tomasiser/vim-code-dark')                     " VS Code dark scheme
 call minpac#add('morhetz/gruvbox')                             " @current
 
 command! PackUpdate call minpac#update()

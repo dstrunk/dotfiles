@@ -45,6 +45,7 @@ brew "node", link: false
 brew "openssl@1.1"
 brew "openvpn", restart_service: true
 brew "phantomjs"
+brew "php", restart_service: true
 brew "php@7.1"
 brew "pinentry-mac"
 brew "qt"
