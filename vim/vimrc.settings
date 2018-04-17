@@ -28,6 +28,8 @@ set tags+=tags.vendors
 set tags+=.git/tags
 set clipboard=unnamed  " Needed to copy / paste from system
 set encoding=utf-8     " all of the characters
+set list               " Show hidden characters
+set listchars=tab:▸\ ,eol:¬ " Good characters instead of `$` and `^M`
 
 syntax on              " Syntax highlighting
 filetype on            " Enable filetype detection
