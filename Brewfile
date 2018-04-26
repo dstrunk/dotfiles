@@ -2,7 +2,6 @@ tap "heroku/brew"
 tap "codekitchen/dinghy"
 tap "homebrew/dupes"
 tap "homebrew/core"
-tap "homebrew/php"
 tap "homebrew/versions"
 tap "homebrew/bundle"
 tap "homebrew/services"
@@ -13,6 +12,7 @@ brew "asciinema"
 brew "autoconf"
 brew "bison@2.7"
 brew "cmake"
+brew "composer"
 brew "curl"
 brew "libksba"
 brew "pth"
@@ -21,6 +21,7 @@ brew "dnsmasq", restart_service: true
 brew "docker", link: false
 brew "freetype"
 brew "fzf"
+brew "geoip"
 brew "gettext"
 brew "git"
 brew "git-lfs"
@@ -37,17 +38,19 @@ brew "libxml2"
 brew "libyaml"
 brew "lolcat"
 brew "macvim"
+brew "mailhog", restart_service: true
 brew "mariadb", restart_service: true
 brew "mcrypt"
 brew "mono"
+brew "mysql-utilities"
 brew "nginx", restart_service: true
 brew "node", link: false
 brew "openssl@1.1"
 brew "openvpn", restart_service: true
 brew "phantomjs"
-brew "php", restart_service: true
-brew "php@7.1"
+brew "php@7.1", restart_service: true, link: true
 brew "pinentry-mac"
+brew "pv"
 brew "qt"
 brew "qt@5.5", link: true
 brew "reattach-to-user-namespace"
@@ -62,6 +65,7 @@ brew "tree"
 brew "vim"
 brew "watchman"
 brew "wget"
+brew "wp-cli", link: false
 brew "wxmac"
 brew "xhyve"
 brew "zlib"
