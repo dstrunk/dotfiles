@@ -8,6 +8,7 @@
 - link:
     ~/.vim: vim/
     ~/.vimrc: vim/vimrc
+    ~/.config/nvim: nvim/
     ~/.ideavimrc: vim/ideavimrc
     ~/.tmux.conf: tmux/tmux.conf
     ~/.emacs.d: emacs/
@@ -41,8 +42,6 @@
 - shell:
     - git submodule update --init --recursive
     - git config --global init.templatedir '~/.git_template'
-    - mkdir -p $HOME/.vim/pack/minpac/opt
-    - git -C $HOME/.vim/pack/minpac/opt/minpac pull || git clone https://github.com/k-takata/minpac.git $HOME/.vim/pack/minpac/opt/minpac
     - . $(pwd)/powerline/fonts/install.sh
     - rm -rf $HOME/.asdf && git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.2.0
     - sudo sed -i '/XKBOPTIONS="/c\XKBOPTIONS="ctrl:nocaps,ctrl:swap_lalt_lctl,altwin:meta_alt"' /etc/default/keyboard
