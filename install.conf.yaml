@@ -36,6 +36,7 @@
     ~/.Xmodmap: xorg/xmodmap
     ~/.xinitrc: xorg/xinitrc
     ~/.asdfrc: asdf/asdfrc
+    ~/.mutt/muttrc: mutt/muttrc
 
 - shell:
     - git submodule update --init --recursive
