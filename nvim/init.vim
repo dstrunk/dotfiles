@@ -55,6 +55,7 @@
 	set relativenumber     " Count line numbers based on cursor
 	set scrolloff=999      " Keep cursor in the middle of the screen
 	set wm=0               " Don't wrap based on terminal size
+	set clipboard=unnamed  " Needed to copy / paste from system
 
 
 " ----------------------------------------
@@ -137,6 +138,8 @@
 " 3. FZF for fuzzy finding files
 "    <https://github.com/junegunn/fzf>
 "
+"    @dependency 'fzf'
+"
 	call minpac#add('junegunn/fzf')
 	nnoremap <C-p> :<C-u>FZF<CR>
 
@@ -182,6 +185,8 @@
 
 " 7. Grepper for searching async
 "    <https://github.com/mhinz/vim-grepper>
+"
+"    @dependency 'fzf'
 "
 	call minpac#add('mhinz/vim-grepper')
 	let g:grepper = {}
@@ -282,6 +287,9 @@
 "     <https://github.com/christoomey/vim-tmux-runner>
 "
 	call minpac#add('christoomey/vim-tmux-runner')
+	map <Leader>fr :VtrFocusRunner<CR>
+	nmap <C-f> :VtrSendLinesToRunner<CR>
+	vmap <C-f> :VtrSendLinesToRunner<CR>
 
 
 " ### Language-specific
