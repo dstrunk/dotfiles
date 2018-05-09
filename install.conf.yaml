@@ -38,6 +38,7 @@
     ~/.xinitrc: xorg/xinitrc
     ~/.asdfrc: asdf/asdfrc
     ~/.mutt/muttrc: mutt/muttrc
+    ~/.editorconfig: editorconfig
 
 - shell:
     - git submodule update --init --recursive
