@@ -2,6 +2,30 @@
 " Editor settings
 " ----------------------------------------
 "
+" General settings
+"
+	let mapleader=","      " Let's set a mapleader
+	set nocompatible       " Use Vim, not Vi
+	set backspace=2        " Backspace deletes like most programs in insert mode
+	set nobackup
+	set nowritebackup
+	set noswapfile
+	set history=50
+	set ruler              " show cursor position all the time
+	set showcmd            " display incomplete commands
+	set number             " Show line numbers
+	set undofile           " Persist undo across vim sessions
+	set undodir=~/.config/nvim/undo " Undo directory temp files
+	set winminheight=0     " completely hide split on buffer focus
+	set winminwidth=0      " completely hide split on buffer focus
+	set nowinfixheight     " Allow for <C-w>= for equalizing splits
+	set nowinfixwidth      " Allow for <C-w>= for equalizing splits
+	set relativenumber     " Count line numbers based on cursor
+	set scrolloff=999      " Keep cursor in the middle of the screen
+	set wm=0               " Don't wrap based on terminal size
+	set clipboard=unnamed  " Needed to copy / paste from system
+
+
 " Zoom a vim pane, <C-w> to rebalance
 "
 	nnoremap <Leader>- :wincmd _<CR>:wincmd \|<CR>
@@ -30,32 +54,8 @@
 
 " Exit out of insert mode for terminal
 "
-	tmap <C-c> <C-\><C-n>
-	nnoremap <Leader>te :terminal<CR>
-
-
-" General settings
-"
-	let mapleader=','      " Let's set a mapleader
-	set nocompatible       " Use Vim, not Vi
-	set backspace=2        " Backspace deletes like most programs in insert mode
-	set nobackup
-	set nowritebackup
-	set noswapfile
-	set history=50
-	set ruler              " show cursor position all the time
-	set showcmd            " display incomplete commands
-	set number             " Show line numbers
-	set undofile           " Persist undo across vim sessions
-	set undodir=~/.config/nvim/undo " Undo directory temp files
-	set winminheight=0     " completely hide split on buffer focus
-	set winminwidth=0      " completely hide split on buffer focus
-	set nowinfixheight     " Allow for <C-w>= for equalizing splits
-	set nowinfixwidth      " Allow for <C-w>= for equalizing splits
-	set relativenumber     " Count line numbers based on cursor
-	set scrolloff=999      " Keep cursor in the middle of the screen
-	set wm=0               " Don't wrap based on terminal size
-	set clipboard=unnamed  " Needed to copy / paste from system
+	tnoremap <Esc> <C-\><C-n>
+	nnoremap <Leader><Leader>t :terminal<CR>
 
 
 " ----------------------------------------
@@ -74,7 +74,7 @@
 	command! PackClean call minpac#clean()
 
 " ----------------------------------------
-" Plugin index (23 total plugins installed including 'minpac')
+" Plugin index (25 total plugins installed including 'minpac')
 " ----------------------------------------
 "
 "  ## Index of plugins installed
@@ -107,8 +107,11 @@
 "      1. 'tpope/vim-endwise'
 "      2. 'andyl/vim-textobj-elixir'
 "      3. 'slashmili/alchemist.vim'
+"      4. 'elixir-editors/vim-elixir'
 "
 "  #### PHP
+"
+"      1. 'roxma/LanguageServer-php-neovim'
 "
 "  #### JavaScript
 "
@@ -224,11 +227,10 @@
 	let g:deoplete#enable_smart_case=1
 	let b:deoplete_disable_auto_complete=1
 	let g:deoplete_disable_auto_complete=1
-
-	" Where the dependency is
+	let g:deoplete#auto_complete_delay=0
 	let g:deoplete#sources = {}
 	let g:deoplete#sources.php = ['LanguageClient']
-	let g:deoplete#sources.c = ['LanguageClient']
+	autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 
 " 10. Language client for supporting autocomplete / omnicompletion for languages
@@ -236,7 +238,14 @@
 "
 "     @setup `./install.sh`
 "
-	call minpac#add('autozimu/LanguageClient-neovim')
+	call minpac#add('autozimu/LanguageClient-neovim', {
+		\ 'do': '!./install.sh'
+	\ })
+	set hidden
+	let g:LanguageClient_autoStart = 1
+	let g:LanguageClient_serverCommands = {
+		\ 'php': ['php', '~/.language-servers/intelephense/bin/php_doc_scrape.php'],
+		\ }
 
 
 " 11. Autopairs for auto-inserting or -removing parenthesis, squiggly
@@ -262,6 +271,12 @@
 "     <https://github.com/ludovicchabant/vim-gutentags>
 "
 	call minpac#add('ludovicchabant/vim-gutentags')
+	let g:gutentags_generate_on_empty_buffer = 1
+	let g:gutentags_cache_dir = '~/.gutentags'
+
+	let g:gutentags_project_info = []
+	call add(g:gutentags_project_info, {'type': 'php', 'file': 'composer.json'})
+	let g:gutentags_ctags_executable_php = 'ctags -R --language-force=php --php-kinds=cfit --output-format=u-ctags'
 
 
 " 15. A pure vimscript editorconfig for setting file preferences in JSON
@@ -296,6 +311,10 @@
 "
 " #### Elixir
 "
+	au BufRead,BufNewFile *.ex,*.exs set filetype=elixir
+	au BufRead,BufNewFile *.eex set filetype=eelixir
+
+
 " 1. Endwise for auto-closing `do-end` methods
 "    <https://github.com/tpope/vim-endwise>
 "
@@ -316,8 +335,31 @@
 	call minpac#add('slashmili/alchemist.vim')
 
 
+" 4. Syntax highlighting and additional support for Elixir
+"    <https://github.com/elixir-editors/vim-elixir>
+"
+	call minpac#add('elixir-editors/vim-elixir')
+
+
 " #### PHP
 "
+" 1. Language server for PHP
+"    <https://github.com/roxma/LanguageServer-php-neovim>
+"
+"    @external-depencency 'felixfbecker/php-language-server'
+"
+"        ```sh
+"        git clone https://github.com/felixfbecker/php-language-server.git ~/.tooling/php-language-server
+"        cd ~/.tooling/php-language-server
+"        composer install
+"        composer parse-stubs
+"        ```
+"
+"    @setup '!composer install && composer run-script parse-stubs'
+"
+	call minpac#add('roxma/LanguageServer-php-neovim', {
+		\ 'do': '!composer install && composer run-script parse-stubs'
+	\ })
 
 
 " #### JavaScript
