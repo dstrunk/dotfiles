@@ -1,0 +1,25 @@
+snippet testcase "Testcase" b
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace ${1:`!p
+relpath = os.path.relpath(path)
+m = re.search(r'[A-Z].+(?=/)', relpath)
+if m:
+    snip.rv = m.group().replace('/', '\.')
+`};
+{
+    [TestClass]
+    public class ${2:`!p snip.rv = re.match(r'.*?(?=\.)', fn).group()`}
+    {
+        $0
+    }
+}
+endsnippet
+
+snippet test "Test" b
+[TestMethod]
+public void ${1:TheOneWhere}()
+{
+    $0
+}
+endsnippet

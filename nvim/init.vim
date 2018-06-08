@@ -58,6 +58,17 @@
 	nnoremap <Leader><Leader>t :terminal<CR>
 
 
+" Automatically create directories if they don't exist
+"
+        augroup Mkdir
+            autocmd!
+            autocmd BufWritePre *
+                \ if !isdirectory(expand("<afile>:p:h")) |
+	        \     call mkdir(expand("<afile>:p:h"), "p") |
+                \ endif
+        augroup END
+
+
 " ----------------------------------------
 " Housecleaning
 " ----------------------------------------
@@ -95,10 +106,10 @@
 "      12. 'sirver/ultisnips'
 "      13. 'airblade/vim-gitgutter'
 "      14. 'ludovicchabant/vim-gutentags'
-"      15. 'sgur/vim-editorconfig'
-"      16. 'kana/vim-textobj-user'
-"      17. 'christoomey/vim-tmux-navigator'
-"      18. 'christoomey/vim-tmux-runner'
+"      15. 'kana/vim-textobj-user'
+"      16. 'christoomey/vim-tmux-navigator'
+"      17. 'christoomey/vim-tmux-runner'
+"      18. 'jreybert/magit'
 "
 "  ### Language-specific
 "
@@ -259,6 +270,9 @@
 "     <https://github.com/sirver/ultisnips>
 "
 	call minpac#add('sirver/ultisnips')
+	let g:UltiSnipsExpandTrigger="<tab>"
+	let g:UltiSnipsJumpForwardTrigger="<c-n>"
+	let g:UltiSnipsJumpBackwardTrigger="<c-p>"
 
 
 " 13. Gitgutter for a gutter notification of changes
@@ -279,25 +293,19 @@
 	let g:gutentags_ctags_executable_php = 'ctags -R --language-force=php --php-kinds=cfit --output-format=u-ctags'
 
 
-" 15. A pure vimscript editorconfig for setting file preferences in JSON
-"     <https://github.com/sgur/vim-editorconfig>
-"
-	call minpac#add('sgur/vim-editorconfig')
-
-
-" 16. Create your own text objects! Used in Elixir and other deps
+" 15. Create your own text objects! Used in Elixir and other deps
 "     <https://github.com/kana/vim-textobj-user>
 "
 	call minpac#add('kana/vim-textobj-user')
 
 
-" 17. Navigate tmux and vim seamlessly
+" 16. Navigate tmux and vim seamlessly
 "     <https://github.com/christoomey/vim-tmux-navigator>
 "
 	call minpac#add('christoomey/vim-tmux-navigator')
 
 
-" 18. Send vim lines to tmux panes. Useful for testing within 'vim-test' using
+" 17. Send vim lines to tmux panes. Useful for testing within 'vim-test' using
 "     the 'vtr' strategy.
 "     <https://github.com/christoomey/vim-tmux-runner>
 "
@@ -305,6 +313,12 @@
 	map <Leader>fr :VtrFocusRunner<CR>
 	nmap <C-f> :VtrSendLinesToRunner<CR>
 	vmap <C-f> :VtrSendLinesToRunner<CR>
+
+
+" 18. Magit for easing git workflow within vim. Based on Magit for Emacs.
+"     <https://github.com/jreybert/vimagit>
+"
+	call minpac#add('jreybert/vimagit')
 
 
 " ### Language-specific
