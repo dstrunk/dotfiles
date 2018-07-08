@@ -24,6 +24,7 @@
 	set scrolloff=999      " Keep cursor in the middle of the screen
 	set wm=0               " Don't wrap based on terminal size
 	set clipboard=unnamed  " Needed to copy / paste from system
+	set cot+=preview       " Completion preview support
 
 
 " Zoom a vim pane, <C-w> to rebalance
@@ -85,7 +86,7 @@
 	command! PackClean call minpac#clean()
 
 " ----------------------------------------
-" Plugin index (25 total plugins installed including 'minpac')
+" Plugin index (26 total plugins installed including 'minpac')
 " ----------------------------------------
 "
 "  ## Index of plugins installed
@@ -115,20 +116,24 @@
 "
 "  #### Elixir
 "
-"      1. 'tpope/vim-endwise'
-"      2. 'andyl/vim-textobj-elixir'
-"      3. 'slashmili/alchemist.vim'
-"      4. 'elixir-editors/vim-elixir'
+"      19. 'tpope/vim-endwise'
+"      20. 'andyl/vim-textobj-elixir'
+"      21. 'slashmili/alchemist.vim'
+"      22. 'elixir-editors/vim-elixir'
 "
 "  #### PHP
 "
-"      1. 'roxma/LanguageServer-php-neovim'
-"
 "  #### JavaScript
+"
+"      23. 'posva/vim-vue'
+"
+"  #### LESS
+"
+"      24. 'groenewege/vim-less'
 "
 "  #### Colorschemes
 "
-"      1. 'tomasiser/vim-code-dark'
+"      25. 'tomasiser/vim-code-dark'
 "
 "
 " ----------------------------------------
@@ -252,11 +257,6 @@
 	call minpac#add('autozimu/LanguageClient-neovim', {
 		\ 'do': '!./install.sh'
 	\ })
-	set hidden
-	let g:LanguageClient_autoStart = 1
-	let g:LanguageClient_serverCommands = {
-		\ 'php': ['php', '~/.language-servers/intelephense/bin/php_doc_scrape.php'],
-		\ }
 
 
 " 11. Autopairs for auto-inserting or -removing parenthesis, squiggly
@@ -329,13 +329,13 @@
 	au BufRead,BufNewFile *.eex set filetype=eelixir
 
 
-" 1. Endwise for auto-closing `do-end` methods
+" 19. Endwise for auto-closing `do-end` methods
 "    <https://github.com/tpope/vim-endwise>
 "
 	call minpac#add('tpope/vim-endwise')
 
 
-" 2. Add text object support for Elixir blocks
+" 20. Add text object support for Elixir blocks
 "    <https://github.com/andyl/vim-textobj-elixir>
 "
 "    @dependency 'kana/vim-textobj-user'
@@ -343,13 +343,13 @@
 	call minpac#add('andyl/vim-textobj-elixir')
 
 
-" 3. Alchemist for insider info about Elixir projects using ElixirSense
+" 21. Alchemist for insider info about Elixir projects using ElixirSense
 "    <https://github.com/slashmili/alchemist.vim>
 "
 	call minpac#add('slashmili/alchemist.vim')
 
 
-" 4. Syntax highlighting and additional support for Elixir
+" 22. Syntax highlighting and additional support for Elixir
 "    <https://github.com/elixir-editors/vim-elixir>
 "
 	call minpac#add('elixir-editors/vim-elixir')
@@ -357,32 +357,27 @@
 
 " #### PHP
 "
-" 1. Language server for PHP
-"    <https://github.com/roxma/LanguageServer-php-neovim>
-"
-"    @external-depencency 'felixfbecker/php-language-server'
-"
-"        ```sh
-"        git clone https://github.com/felixfbecker/php-language-server.git ~/.tooling/php-language-server
-"        cd ~/.tooling/php-language-server
-"        composer install
-"        composer parse-stubs
-"        ```
-"
-"    @setup '!composer install && composer run-script parse-stubs'
-"
-	call minpac#add('roxma/LanguageServer-php-neovim', {
-		\ 'do': '!composer install && composer run-script parse-stubs'
-	\ })
 
 
 " #### JavaScript
 "
+" 23. Syntax for Vue component files
+"    <https://github.com/posva/vim-vue>
+"
+	call minpac#add('posva/vim-vue')
+
+
+" #### LESS
+"
+" 24. Vim syntax for LESS
+"    <https://github.com/groenewege/vim-less>
+"
+	call minpac#add('groenewege/vim-less')
 
 
 " #### Colorschemes
 "
-" 1. Vim Code Dark Colorscheme, a riff on Visual Studio's colorscheme
+" 25. Vim Code Dark Colorscheme, a riff on Visual Studio's colorscheme
 "    <https://github.com/tomasiser/vim-code-dark>
 "
 	call minpac#add('tomasiser/vim-code-dark')

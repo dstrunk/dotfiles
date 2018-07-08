@@ -12,6 +12,14 @@ snippet itag "Inline tag" b
 <${1:tag}>${2:content}</${1/([\w:._-]+).*/$1/}>
 endsnippet
 
+snippet module "m2 module" b
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3c.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="${1:name}" setup_version="1.0.0"/>
+</config>
+
+endsnippet
+
 snippet page "m2 page object" b
 <page xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd"
     layout="${1:layout}">
