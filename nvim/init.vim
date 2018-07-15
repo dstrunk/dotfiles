@@ -26,6 +26,15 @@
 	set clipboard=unnamed  " Needed to copy / paste from system
 	set cot+=preview       " Completion preview support
 
+	" Attempt to take care of UltiSnips errors.
+	" For more information, see:
+	"
+	" <https://github.com/SirVer/ultisnips/issues/763>
+	" <http://ricostacruz.com/til/neovim-with-python-on-osx>
+	"
+	let g:python2_host_prog = '/usr/local/bin/python'
+	let g:python3_host_prog = '/usr/local/bin/python3'
+
 
 " Zoom a vim pane, <C-w> to rebalance
 "
@@ -86,7 +95,7 @@
 	command! PackClean call minpac#clean()
 
 " ----------------------------------------
-" Plugin index (26 total plugins installed including 'minpac')
+" Plugin index (40 total plugins installed including 'minpac')
 " ----------------------------------------
 "
 "  ## Index of plugins installed
@@ -101,40 +110,57 @@
 "      6. 'w0rp/ale'
 "      7. 'mhinz/vim-grepper'
 "      8. 'janko-m/vim-test'
-"      9. 'Shougo/deoplete.nvim'
-"      10. 'autozimu/LanguageClient-neovim'
-"      11. 'jiangmiao/auto-pairs'
-"      12. 'sirver/ultisnips'
-"      13. 'airblade/vim-gitgutter'
-"      14. 'ludovicchabant/vim-gutentags'
-"      15. 'kana/vim-textobj-user'
-"      16. 'christoomey/vim-tmux-navigator'
-"      17. 'christoomey/vim-tmux-runner'
-"      18. 'jreybert/magit'
+"      9. 'jiangmiao/auto-pairs'
+"      10. 'airblade/vim-gitgutter'
+"      11. 'ludovicchabant/vim-gutentags'
+"      12. 'kana/vim-textobj-user'
+"      13. 'christoomey/vim-tmux-navigator'
+"      14. 'christoomey/vim-tmux-runner'
+"      15. 'jreybert/magit'
+"      16. 'mattn/emmet-vim'
 "
 "  ### Language-specific
 "
 "  #### Elixir
 "
-"      19. 'tpope/vim-endwise'
-"      20. 'andyl/vim-textobj-elixir'
-"      21. 'slashmili/alchemist.vim'
-"      22. 'elixir-editors/vim-elixir'
+"      17. 'tpope/vim-endwise'
+"      18. 'andyl/vim-textobj-elixir'
+"      19. 'slashmili/alchemist.vim'
+"      20. 'elixir-editors/vim-elixir'
 "
 "  #### PHP
 "
+"      21. 'noahfrederick/vim-composer'
+"      22. 'tpope/vim-projectionist'
+"      23. 'noahfrederick/vim-laravel'
+"
 "  #### JavaScript
 "
-"      23. 'posva/vim-vue'
+"      24. 'posva/vim-vue'
 "
 "  #### LESS
 "
-"      24. 'groenewege/vim-less'
+"      25. 'groenewege/vim-less'
 "
 "  #### Colorschemes
 "
-"      25. 'tomasiser/vim-code-dark'
+"      26. 'tomasiser/vim-code-dark'
 "
+"  #### ncm2
+"
+"      27. ncm2
+"      28. roxma/nvim-yarp
+"      29. ncm2/ncm2-bufword
+"      30. autozimu/LanguageClient-neovim
+"      31. ncm2/ncm2-ultisnips
+"      32. sirver/ultisnips
+"      33. ncm2/ncm2-path
+"      34. ncm2/ncm2-tmux
+"      35. ncm2/ncm2-tagprefix
+"      36. ncm2/ncm2-cssomni
+"      37. ncm2/ncm2-tern
+"      38. ncm2/ncm2-html-subscope
+"      39. ncm2/ncm2-abbrfuzzy
 "
 " ----------------------------------------
 " Plugin settings
@@ -187,8 +213,8 @@
 	"
 	call minpac#add('w0rp/ale')
 	let g:ale_linters = {
-	\	'javascript': ['eslint'],
-	\ }
+		\ 'javascript': ['eslint'],
+		\ }
 	nmap <silent> [W <Plug>(ale_first)
 	nmap <silent> [w <Plug>(ale_previous)
 	nmap <silent> ]w <Plug>(ale_next)
@@ -233,55 +259,21 @@
 	nmap <silent> <Leader>l :TestLast<CR>
 	nmap <silent> <Leader>g :TestVisit<CR>
 
-" 9. Deoplete for autocompletion
-"    <https://github.com/Shougo/deoplete.nvim>
-"
-"    @dependency 'autozimu/LanguageClient-neovim'
-"
-	call minpac#add('Shougo/deoplete.nvim')
-	let g:deoplete#enable_at_startup=1
-	let g:deoplete#enable_smart_case=1
-	let b:deoplete_disable_auto_complete=1
-	let g:deoplete_disable_auto_complete=1
-	let g:deoplete#auto_complete_delay=0
-	let g:deoplete#sources = {}
-	let g:deoplete#sources.php = ['LanguageClient']
-	autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
-
-" 10. Language client for supporting autocomplete / omnicompletion for languages
-"     <https://github.com/autozimu/LanguageClient-neovim>
-"
-"     @setup `./install.sh`
-"
-	call minpac#add('autozimu/LanguageClient-neovim', {
-		\ 'do': '!./install.sh'
-	\ })
-
-
-" 11. Autopairs for auto-inserting or -removing parenthesis, squiggly
+" 9. Autopairs for auto-inserting or -removing parenthesis, squiggly
 "     brackets, etc.
 "     <https://github.com/jiangmiao/auto-pairs>
 "
 	call minpac#add('jiangmiao/auto-pairs')
 
 
-" 12. Ultisnips for snippets
-"     <https://github.com/sirver/ultisnips>
-"
-	call minpac#add('sirver/ultisnips')
-	let g:UltiSnipsExpandTrigger="<tab>"
-	let g:UltiSnipsJumpForwardTrigger="<c-n>"
-	let g:UltiSnipsJumpBackwardTrigger="<c-p>"
-
-
-" 13. Gitgutter for a gutter notification of changes
+" 10. Gitgutter for a gutter notification of changes
 "     <https://github.com/airblade/vim-gitgutter>
 "
 	call minpac#add('airblade/vim-gitgutter')
 
 
-" 14. Gutentags for keeping tags files up-to-date
+" 11. Gutentags for keeping tags files up-to-date
 "     <https://github.com/ludovicchabant/vim-gutentags>
 "
 	call minpac#add('ludovicchabant/vim-gutentags')
@@ -293,19 +285,19 @@
 	let g:gutentags_ctags_executable_php = 'ctags -R --language-force=php --php-kinds=cfit --output-format=u-ctags'
 
 
-" 15. Create your own text objects! Used in Elixir and other deps
+" 12. Create your own text objects! Used in Elixir and other deps
 "     <https://github.com/kana/vim-textobj-user>
 "
 	call minpac#add('kana/vim-textobj-user')
 
 
-" 16. Navigate tmux and vim seamlessly
+" 13. Navigate tmux and vim seamlessly
 "     <https://github.com/christoomey/vim-tmux-navigator>
 "
 	call minpac#add('christoomey/vim-tmux-navigator')
 
 
-" 17. Send vim lines to tmux panes. Useful for testing within 'vim-test' using
+" 14. Send vim lines to tmux panes. Useful for testing within 'vim-test' using
 "     the 'vtr' strategy.
 "     <https://github.com/christoomey/vim-tmux-runner>
 "
@@ -315,10 +307,16 @@
 	vmap <C-f> :VtrSendLinesToRunner<CR>
 
 
-" 18. Magit for easing git workflow within vim. Based on Magit for Emacs.
+" 15. Magit for easing git workflow within vim. Based on Magit for Emacs.
 "     <https://github.com/jreybert/vimagit>
 "
 	call minpac#add('jreybert/vimagit')
+
+
+" 16. Emmet for expanding abbreviations
+"     <https://github.com/mattn/emmet-vim>
+"
+	call minpac#add('mattn/emmet-vim')
 
 
 " ### Language-specific
@@ -329,13 +327,13 @@
 	au BufRead,BufNewFile *.eex set filetype=eelixir
 
 
-" 19. Endwise for auto-closing `do-end` methods
+" 17. Endwise for auto-closing `do-end` methods
 "    <https://github.com/tpope/vim-endwise>
 "
 	call minpac#add('tpope/vim-endwise')
 
 
-" 20. Add text object support for Elixir blocks
+" 18. Add text object support for Elixir blocks
 "    <https://github.com/andyl/vim-textobj-elixir>
 "
 "    @dependency 'kana/vim-textobj-user'
@@ -343,13 +341,13 @@
 	call minpac#add('andyl/vim-textobj-elixir')
 
 
-" 21. Alchemist for insider info about Elixir projects using ElixirSense
+" 19. Alchemist for insider info about Elixir projects using ElixirSense
 "    <https://github.com/slashmili/alchemist.vim>
 "
 	call minpac#add('slashmili/alchemist.vim')
 
 
-" 22. Syntax highlighting and additional support for Elixir
+" 20. Syntax highlighting and additional support for Elixir
 "    <https://github.com/elixir-editors/vim-elixir>
 "
 	call minpac#add('elixir-editors/vim-elixir')
@@ -357,11 +355,30 @@
 
 " #### PHP
 "
+" 21. Vim composer for navigating files via composer autoload
+"     <https://github.com/noahfrederick/vim-composer>
+"
+	call minpac#add('noahfrederick/vim-composer')
+	autocmd User Composer nmap <buffer> nf <Plug>(composer-find)
+	autocmd User Composer nmap <Leader>n <Plug>(composer-use)<CR>
+
+
+" 22. Projectionist for project configuration (specifically used for
+"     vim-laravel)
+"     <https://github.com/tpope/vim-projectionist>
+"
+	call minpac#add('tpope/vim-projectionist')
+
+
+" 23. Vim laravel for running artisan commands in-editor
+"     <https://github.com/noahfrederick/vim-laravel>
+"
+	call minpac#add('noahfrederick/vim-laravel')
 
 
 " #### JavaScript
 "
-" 23. Syntax for Vue component files
+" 24. Syntax for Vue component files
 "    <https://github.com/posva/vim-vue>
 "
 	call minpac#add('posva/vim-vue')
@@ -369,7 +386,7 @@
 
 " #### LESS
 "
-" 24. Vim syntax for LESS
+" 25. Vim syntax for LESS
 "    <https://github.com/groenewege/vim-less>
 "
 	call minpac#add('groenewege/vim-less')
@@ -377,7 +394,7 @@
 
 " #### Colorschemes
 "
-" 25. Vim Code Dark Colorscheme, a riff on Visual Studio's colorscheme
+" 26. Vim Code Dark Colorscheme, a riff on Visual Studio's colorscheme
 "    <https://github.com/tomasiser/vim-code-dark>
 "
 	call minpac#add('tomasiser/vim-code-dark')
@@ -395,3 +412,79 @@
 	highlight Comment cterm=italic
 	let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 	set termguicolors
+
+
+" #### ncm2
+"
+" 27. ncm2
+" 28. roxma/nvim-yarp
+" 29. ncm2/ncm2-bufword
+" 30. autozimu/LanguageClient-neovim
+" 31. ncm2/ncm2-ultisnips
+" 32. sirver/ultisnips
+" 33. ncm2/ncm2-path
+" 34. ncm2/ncm2-tmux
+" 35. ncm2/ncm2-tagprefix
+" 36. ncm2/ncm2-cssomni
+" 37. ncm2/ncm2-tern
+" 38. ncm2/ncm2-html-subscope
+" 39. ncm2/ncm2-abbrfuzzy
+"
+    
+	" assuming you're using vim-plug: https://github.com/junegunn/vim-plug
+	call minpac#add('ncm2/ncm2')
+	" ncm2 requires nvim-yarp
+	call minpac#add('roxma/nvim-yarp')
+
+	autocmd BufEnter * call ncm2#enable_for_buffer()
+	set completeopt=noinsert,menuone,noselect
+	set shortmess+=c
+
+	au TextChangedI * call ncm2#auto_trigger()
+
+	inoremap <c-c> <ESC>
+
+	" inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+	inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+	inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+	call minpac#add('ncm2/ncm2-bufword')
+
+	call minpac#add('autozimu/LanguageClient-neovim')
+	let g:LanguageClient_serverCommands = {
+		\ 'go': ['go-langserver'],
+		\ 'rust': ['rls'],
+		\ }
+	let g:LanguageClient_loggingFile = '/tmp/lc.log'
+	let g:LanguageClient_loggingLevel = 'DEBUG'
+
+	" a json file with settings for go-langserver:
+	" {
+	" 	"initializationOptions": {
+	" 		"gocodeCompletionEnabled": true,
+	" 		"funcSnippetEnabled": true
+	" 	}
+	" }
+	let g:LanguageClient_settingsPath = $WORKSPACE_DIR . '/.vim/settings.json'
+
+	call minpac#add('ncm2/ncm2-ultisnips')
+	call minpac#add('SirVer/ultisnips')
+
+	" inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+
+	" c-j c-k for moving in snippet
+	imap <c-u> <Plug>(ultisnips_expand)
+	" let g:UltiSnipsExpandTrigger		= "<Plug>(ultisnips_expand)"
+	let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
+	let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
+	let g:UltiSnipsRemoveSelectModeMappings = 0
+
+	call minpac#add('ncm2/ncm2-path')
+	call minpac#add('ncm2/ncm2-tmux')
+	call minpac#add('ncm2/ncm2-tagprefix')
+	call minpac#add('ncm2/ncm2-cssomni')
+	call minpac#add('ncm2/ncm2-tern')
+	call minpac#add('ncm2/ncm2-html-subscope')
+	call minpac#add('ncm2/ncm2-abbrfuzzy')
+
+
