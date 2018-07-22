@@ -26,15 +26,6 @@
 	set clipboard=unnamed  " Needed to copy / paste from system
 	set cot+=preview       " Completion preview support
 
-	" Attempt to take care of UltiSnips errors.
-	" For more information, see:
-	"
-	" <https://github.com/SirVer/ultisnips/issues/763>
-	" <http://ricostacruz.com/til/neovim-with-python-on-osx>
-	"
-	let g:python2_host_prog = '/usr/local/bin/python'
-	let g:python3_host_prog = '/usr/local/bin/python3'
-
 
 " Zoom a vim pane, <C-w> to rebalance
 "
@@ -45,6 +36,11 @@
 " Clear search results until the next search
 "
 	nnoremap <C-c><C-c> :noh<CR>
+
+
+" Switch between the last two files
+"
+	nnoremap <Leader><Leader> <C-^>
 
 
 " Embrace the vim
@@ -116,7 +112,7 @@
 "      12. 'kana/vim-textobj-user'
 "      13. 'christoomey/vim-tmux-navigator'
 "      14. 'christoomey/vim-tmux-runner'
-"      15. 'jreybert/magit'
+"      15. 'tpope/vim-fugitive'
 "      16. 'mattn/emmet-vim'
 "
 "  ### Language-specific
@@ -133,34 +129,33 @@
 "      21. 'noahfrederick/vim-composer'
 "      22. 'tpope/vim-projectionist'
 "      23. 'noahfrederick/vim-laravel'
+"      24. 'jwalton512/vim-blade'
 "
 "  #### JavaScript
 "
-"      24. 'posva/vim-vue'
+"      25. 'posva/vim-vue'
 "
 "  #### LESS
 "
-"      25. 'groenewege/vim-less'
+"      26. 'groenewege/vim-less'
 "
 "  #### Colorschemes
 "
-"      26. 'tomasiser/vim-code-dark'
+"      27. 'tomasiser/vim-code-dark'
 "
 "  #### ncm2
 "
-"      27. ncm2
-"      28. roxma/nvim-yarp
-"      29. ncm2/ncm2-bufword
-"      30. autozimu/LanguageClient-neovim
-"      31. ncm2/ncm2-ultisnips
-"      32. sirver/ultisnips
-"      33. ncm2/ncm2-path
-"      34. ncm2/ncm2-tmux
-"      35. ncm2/ncm2-tagprefix
-"      36. ncm2/ncm2-cssomni
-"      37. ncm2/ncm2-tern
-"      38. ncm2/ncm2-html-subscope
-"      39. ncm2/ncm2-abbrfuzzy
+"     28. ncm2
+"     29. roxma/nvim-yarp
+"     30. ncm2/ncm2-bufword
+"     31. autozimu/LanguageClient-neovim
+"     32. ncm2/ncm2-ultisnips
+"     33. sirver/ultisnips
+"     34. ncm2/ncm2-path
+"     35. ncm2/ncm2-tagprefix
+"     36. ncm2/ncm2-cssomni
+"     37. ncm2/ncm2-tern
+"     38. ncm2/ncm2-html-subscope
 "
 " ----------------------------------------
 " Plugin settings
@@ -307,10 +302,12 @@
 	vmap <C-f> :VtrSendLinesToRunner<CR>
 
 
-" 15. Magit for easing git workflow within vim. Based on Magit for Emacs.
-"     <https://github.com/jreybert/vimagit>
+" 15. Fugitive, mainly for git diffs and blames (but also other things)
+"     <https://github.com/tpope/vim-fugitive>
 "
-	call minpac#add('jreybert/vimagit')
+	call minpac#add('tpope/vim-fugitive')
+	noremap <Leader>gb :Gblame<CR>
+	noremap <Leader>gd :Gdiff<CR>
 
 
 " 16. Emmet for expanding abbreviations
@@ -345,6 +342,7 @@
 "    <https://github.com/slashmili/alchemist.vim>
 "
 	call minpac#add('slashmili/alchemist.vim')
+	let g:alchemist#elixir_erlang_src = "~/.asdf/shims/elixir"
 
 
 " 20. Syntax highlighting and additional support for Elixir
@@ -376,9 +374,15 @@
 	call minpac#add('noahfrederick/vim-laravel')
 
 
+" 24. Indentation and syntax highlighting for blade templates
+"    <https://github.com/jwalton512/vim-blade>
+"
+	call minpac#add('jwalton512/vim-blade')
+
+
 " #### JavaScript
 "
-" 24. Syntax for Vue component files
+" 25. Syntax for Vue component files
 "    <https://github.com/posva/vim-vue>
 "
 	call minpac#add('posva/vim-vue')
@@ -386,7 +390,7 @@
 
 " #### LESS
 "
-" 25. Vim syntax for LESS
+" 26. Vim syntax for LESS
 "    <https://github.com/groenewege/vim-less>
 "
 	call minpac#add('groenewege/vim-less')
@@ -394,7 +398,7 @@
 
 " #### Colorschemes
 "
-" 26. Vim Code Dark Colorscheme, a riff on Visual Studio's colorscheme
+" 27. Vim Code Dark Colorscheme, a riff on Visual Studio's colorscheme
 "    <https://github.com/tomasiser/vim-code-dark>
 "
 	call minpac#add('tomasiser/vim-code-dark')
@@ -416,75 +420,59 @@
 
 " #### ncm2
 "
-" 27. ncm2
-" 28. roxma/nvim-yarp
-" 29. ncm2/ncm2-bufword
-" 30. autozimu/LanguageClient-neovim
-" 31. ncm2/ncm2-ultisnips
-" 32. sirver/ultisnips
-" 33. ncm2/ncm2-path
-" 34. ncm2/ncm2-tmux
+" 28. ncm2
+" 29. roxma/nvim-yarp
+" 30. ncm2/ncm2-bufword
+" 31. autozimu/LanguageClient-neovim
+" 32. ncm2/ncm2-ultisnips
+" 33. sirver/ultisnips
+" 34. ncm2/ncm2-path
 " 35. ncm2/ncm2-tagprefix
 " 36. ncm2/ncm2-cssomni
 " 37. ncm2/ncm2-tern
 " 38. ncm2/ncm2-html-subscope
-" 39. ncm2/ncm2-abbrfuzzy
 "
-    
-	" assuming you're using vim-plug: https://github.com/junegunn/vim-plug
-	call minpac#add('ncm2/ncm2')
-	" ncm2 requires nvim-yarp
+	let $NVIM_PYTHON_LOG_FILE="/tmp/nvim_log"
+	let $NVIM_PYTHON_LOG_LEVEL="DEBUG"
+	let g:python2_host_prog = '/usr/local/bin/python2'
+	let g:python3_host_prog = '/usr/local/bin/python3'
+
 	call minpac#add('roxma/nvim-yarp')
+	call minpac#add('ncm2/ncm2')
 
 	autocmd BufEnter * call ncm2#enable_for_buffer()
-	set completeopt=noinsert,menuone,noselect
 	set shortmess+=c
+	inoremap <C-c> <ESC>
 
-	au TextChangedI * call ncm2#auto_trigger()
+	au User Ncm2PopupOpen set completeopt=noinsert,menuone,noselect
+	au User Ncm2PopupClose set completeopt=menuone
 
-	inoremap <c-c> <ESC>
+	" JakeBecker/elixir-ls                 " Elixir
+	" vuejs/vetur                          " Vue
+	" felixbecker/php-language-server      " PHP
+	" microsoft/vscode-css-languageserver  " CSS
 
-	" inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
-	inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-	inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-	call minpac#add('ncm2/ncm2-bufword')
-
-	call minpac#add('autozimu/LanguageClient-neovim')
+	call minpac#add('autozimu/LanguageClient-neovim', {
+		\ 'branch': 'next',
+		\ 'do': '!bash install.sh',
+		\ })
 	let g:LanguageClient_serverCommands = {
-		\ 'go': ['go-langserver'],
-		\ 'rust': ['rls'],
+		\ 'elixir': ['sh', '~/.language-servers/elixir/language_server.sh'],
+		\ 'vue': ['sh', '~/.language-servers/vue/vetur/server/bin/vls'],
+		\ 'php': ['php', '~/.language-servers/php/vendor/felixfbecker/language-server/bin/php-language-server.php'],
+		\ 'css': ['~/.language-servers/css/node_modules/.bin/css-languageserver --stdio'],
 		\ }
-	let g:LanguageClient_loggingFile = '/tmp/lc.log'
-	let g:LanguageClient_loggingLevel = 'DEBUG'
-
-	" a json file with settings for go-langserver:
-	" {
-	" 	"initializationOptions": {
-	" 		"gocodeCompletionEnabled": true,
-	" 		"funcSnippetEnabled": true
-	" 	}
-	" }
-	let g:LanguageClient_settingsPath = $WORKSPACE_DIR . '/.vim/settings.json'
 
 	call minpac#add('ncm2/ncm2-ultisnips')
 	call minpac#add('SirVer/ultisnips')
 
-	" inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
-
-	" c-j c-k for moving in snippet
-	imap <c-u> <Plug>(ultisnips_expand)
-	" let g:UltiSnipsExpandTrigger		= "<Plug>(ultisnips_expand)"
 	let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
 	let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
 	let g:UltiSnipsRemoveSelectModeMappings = 0
 
+	call minpac#add('ncm2/ncm2-bufword')
 	call minpac#add('ncm2/ncm2-path')
-	call minpac#add('ncm2/ncm2-tmux')
 	call minpac#add('ncm2/ncm2-tagprefix')
 	call minpac#add('ncm2/ncm2-cssomni')
 	call minpac#add('ncm2/ncm2-tern')
 	call minpac#add('ncm2/ncm2-html-subscope')
-	call minpac#add('ncm2/ncm2-abbrfuzzy')
-
-
