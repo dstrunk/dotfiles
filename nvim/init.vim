@@ -114,48 +114,49 @@
 "      14. 'christoomey/vim-tmux-runner'
 "      15. 'tpope/vim-fugitive'
 "      16. 'mattn/emmet-vim'
+"      17. 'yssl/QFEnter'
 "
 "  ### Language-specific
 "
 "  #### Elixir
 "
-"      17. 'tpope/vim-endwise'
-"      18. 'andyl/vim-textobj-elixir'
-"      19. 'slashmili/alchemist.vim'
-"      20. 'elixir-editors/vim-elixir'
+"      18. 'tpope/vim-endwise'
+"      19. 'andyl/vim-textobj-elixir'
+"      20. 'slashmili/alchemist.vim'
+"      21. 'elixir-editors/vim-elixir'
 "
 "  #### PHP
 "
-"      21. 'noahfrederick/vim-composer'
-"      22. 'tpope/vim-projectionist'
-"      23. 'noahfrederick/vim-laravel'
-"      24. 'jwalton512/vim-blade'
+"      22. 'noahfrederick/vim-composer'
+"      23. 'tpope/vim-projectionist'
+"      24. 'noahfrederick/vim-laravel'
+"      25. 'jwalton512/vim-blade'
 "
 "  #### JavaScript
 "
-"      25. 'posva/vim-vue'
+"      26. 'posva/vim-vue'
 "
 "  #### LESS
 "
-"      26. 'groenewege/vim-less'
+"      27. 'groenewege/vim-less'
 "
 "  #### Colorschemes
 "
-"      27. 'tomasiser/vim-code-dark'
+"      28. 'tomasiser/vim-code-dark'
 "
 "  #### ncm2
 "
-"     28. ncm2
-"     29. roxma/nvim-yarp
-"     30. ncm2/ncm2-bufword
-"     31. autozimu/LanguageClient-neovim
-"     32. ncm2/ncm2-ultisnips
-"     33. sirver/ultisnips
-"     34. ncm2/ncm2-path
-"     35. ncm2/ncm2-tagprefix
-"     36. ncm2/ncm2-cssomni
-"     37. ncm2/ncm2-tern
-"     38. ncm2/ncm2-html-subscope
+"     29. ncm2
+"     30. roxma/nvim-yarp
+"     31. ncm2/ncm2-bufword
+"     32. autozimu/LanguageClient-neovim
+"     33. ncm2/ncm2-ultisnips
+"     34. sirver/ultisnips
+"     35. ncm2/ncm2-path
+"     36. ncm2/ncm2-tagprefix
+"     37. ncm2/ncm2-cssomni
+"     38. ncm2/ncm2-tern
+"     39. ncm2/ncm2-html-subscope
 "
 " ----------------------------------------
 " Plugin settings
@@ -316,6 +317,17 @@
 	call minpac#add('mattn/emmet-vim')
 
 
+" 17. QFEnter for opening items from the quickfix window similar to FZF
+"     <https://github.com/yssl/QFEnter>
+"
+	call minpac#add('yssl/QFEnter')
+	let g:qfenter_keymap = {}
+	let g:qfenter_keymap.open = ['<CR>']
+	let g:qfenter_keymap.vopen = ['<C-v>']
+	let g:qfenter_keymap.hopen = ['<C-x>', '<C-CR>', '<C-s>']
+	let g:qfenter_keymap.topen = ['<C-t>']
+
+
 " ### Language-specific
 "
 " #### Elixir
@@ -324,13 +336,13 @@
 	au BufRead,BufNewFile *.eex set filetype=eelixir
 
 
-" 17. Endwise for auto-closing `do-end` methods
+" 18. Endwise for auto-closing `do-end` methods
 "    <https://github.com/tpope/vim-endwise>
 "
 	call minpac#add('tpope/vim-endwise')
 
 
-" 18. Add text object support for Elixir blocks
+" 19. Add text object support for Elixir blocks
 "    <https://github.com/andyl/vim-textobj-elixir>
 "
 "    @dependency 'kana/vim-textobj-user'
@@ -338,14 +350,14 @@
 	call minpac#add('andyl/vim-textobj-elixir')
 
 
-" 19. Alchemist for insider info about Elixir projects using ElixirSense
+" 20. Alchemist for insider info about Elixir projects using ElixirSense
 "    <https://github.com/slashmili/alchemist.vim>
 "
 	call minpac#add('slashmili/alchemist.vim')
 	let g:alchemist#elixir_erlang_src = "~/.asdf/shims/elixir"
 
 
-" 20. Syntax highlighting and additional support for Elixir
+" 21. Syntax highlighting and additional support for Elixir
 "    <https://github.com/elixir-editors/vim-elixir>
 "
 	call minpac#add('elixir-editors/vim-elixir')
@@ -353,7 +365,7 @@
 
 " #### PHP
 "
-" 21. Vim composer for navigating files via composer autoload
+" 22. Vim composer for navigating files via composer autoload
 "     <https://github.com/noahfrederick/vim-composer>
 "
 	call minpac#add('noahfrederick/vim-composer')
@@ -361,20 +373,20 @@
 	autocmd User Composer nmap <Leader>n <Plug>(composer-use)<CR>
 
 
-" 22. Projectionist for project configuration (specifically used for
+" 23. Projectionist for project configuration (specifically used for
 "     vim-laravel)
 "     <https://github.com/tpope/vim-projectionist>
 "
 	call minpac#add('tpope/vim-projectionist')
 
 
-" 23. Vim laravel for running artisan commands in-editor
+" 24. Vim laravel for running artisan commands in-editor
 "     <https://github.com/noahfrederick/vim-laravel>
 "
 	call minpac#add('noahfrederick/vim-laravel')
 
 
-" 24. Indentation and syntax highlighting for blade templates
+" 25. Indentation and syntax highlighting for blade templates
 "    <https://github.com/jwalton512/vim-blade>
 "
 	call minpac#add('jwalton512/vim-blade')
@@ -382,7 +394,7 @@
 
 " #### JavaScript
 "
-" 25. Syntax for Vue component files
+" 26. Syntax for Vue component files
 "    <https://github.com/posva/vim-vue>
 "
 	call minpac#add('posva/vim-vue')
@@ -390,7 +402,7 @@
 
 " #### LESS
 "
-" 26. Vim syntax for LESS
+" 27. Vim syntax for LESS
 "    <https://github.com/groenewege/vim-less>
 "
 	call minpac#add('groenewege/vim-less')
@@ -398,7 +410,7 @@
 
 " #### Colorschemes
 "
-" 27. Vim Code Dark Colorscheme, a riff on Visual Studio's colorscheme
+" 28. Vim Code Dark Colorscheme, a riff on Visual Studio's colorscheme
 "    <https://github.com/tomasiser/vim-code-dark>
 "
 	call minpac#add('tomasiser/vim-code-dark')
@@ -420,17 +432,17 @@
 
 " #### ncm2
 "
-" 28. ncm2
-" 29. roxma/nvim-yarp
-" 30. ncm2/ncm2-bufword
-" 31. autozimu/LanguageClient-neovim
-" 32. ncm2/ncm2-ultisnips
-" 33. sirver/ultisnips
-" 34. ncm2/ncm2-path
-" 35. ncm2/ncm2-tagprefix
-" 36. ncm2/ncm2-cssomni
-" 37. ncm2/ncm2-tern
-" 38. ncm2/ncm2-html-subscope
+" 29. ncm2
+" 30. roxma/nvim-yarp
+" 31. ncm2/ncm2-bufword
+" 32. autozimu/LanguageClient-neovim
+" 33. ncm2/ncm2-ultisnips
+" 34. sirver/ultisnips
+" 35. ncm2/ncm2-path
+" 36. ncm2/ncm2-tagprefix
+" 37. ncm2/ncm2-cssomni
+" 38. ncm2/ncm2-tern
+" 39. ncm2/ncm2-html-subscope
 "
 	let $NVIM_PYTHON_LOG_FILE="/tmp/nvim_log"
 	let $NVIM_PYTHON_LOG_LEVEL="DEBUG"
