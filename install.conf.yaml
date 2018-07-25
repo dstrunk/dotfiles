@@ -39,6 +39,7 @@
     ~/.asdfrc: asdf/asdfrc
     ~/.mutt/muttrc: mutt/muttrc
     ~/.editorconfig: editorconfig
+    ~/.tern-config: language-servers/javascript/tern-config
 
 - shell:
     - git submodule update --init --recursive
