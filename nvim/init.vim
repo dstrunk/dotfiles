@@ -137,28 +137,30 @@
 "  #### JavaScript
 "
 "      28. 'posva/vim-vue'
+"      29. 'pangloss/vim-javascript'
+"      30. 'mxw/vim-jsx'
 "
 "  #### LESS
 "
-"      29. 'groenewege/vim-less'
+"      31. 'groenewege/vim-less'
 "
 "  #### Colorschemes
 "
-"      30. 'tomasiser/vim-code-dark'
+"      32. 'tomasiser/vim-code-dark'
 "
 "  #### ncm2
 "
-"     31. ncm2
-"     32. roxma/nvim-yarp
-"     33. ncm2/ncm2-bufword
-"     34. autozimu/LanguageClient-neovim
-"     35. ncm2/ncm2-ultisnips
-"     36. sirver/ultisnips
-"     37. ncm2/ncm2-path
-"     38. ncm2/ncm2-tagprefix
-"     39. ncm2/ncm2-cssomni
-"     40. ncm2/ncm2-tern
-"     41. ncm2/ncm2-html-subscope
+"     33. ncm2
+"     34. roxma/nvim-yarp
+"     35. ncm2/ncm2-bufword
+"     36. autozimu/LanguageClient-neovim
+"     37. ncm2/ncm2-ultisnips
+"     38. sirver/ultisnips
+"     39. ncm2/ncm2-path
+"     40. ncm2/ncm2-tagprefix
+"     41. ncm2/ncm2-cssomni
+"     42. ncm2/ncm2-tern
+"     43. ncm2/ncm2-html-subscope
 "
 " ----------------------------------------
 " Plugin settings
@@ -415,9 +417,22 @@
 	call minpac#add('posva/vim-vue')
 
 
+" 29. Base JavaScript syntax highlighting--used for JSX highlighting
+"    <https://github.com/pangloss/vim-javascript>
+"
+	call minpac#add('pangloss/vim-javascript')
+	let g:javascript_plugin_jsdoc = 1
+
+
+" 30. JSX syntax highlighting and indenting
+"    <https://github.com/mxw/vim-jsx>
+"
+	call minpac#add('mxw/vim-jsx')
+
+
 " #### LESS
 "
-" 29. Vim syntax for LESS
+" 31. Vim syntax for LESS
 "    <https://github.com/groenewege/vim-less>
 "
 	call minpac#add('groenewege/vim-less')
@@ -425,7 +440,7 @@
 
 " #### Colorschemes
 "
-" 30. Vim Code Dark Colorscheme, a riff on Visual Studio's colorscheme
+" 32. Vim Code Dark Colorscheme, a riff on Visual Studio's colorscheme
 "    <https://github.com/tomasiser/vim-code-dark>
 "
 	call minpac#add('tomasiser/vim-code-dark')
@@ -447,17 +462,17 @@
 
 " #### ncm2
 "
-" 31. ncm2
-" 32. roxma/nvim-yarp
-" 33. ncm2/ncm2-bufword
-" 34. autozimu/LanguageClient-neovim
-" 35. ncm2/ncm2-ultisnips
-" 36. sirver/ultisnips
-" 37. ncm2/ncm2-path
-" 38. ncm2/ncm2-tagprefix
-" 39. ncm2/ncm2-cssomni
-" 40. ncm2/ncm2-tern
-" 41. ncm2/ncm2-html-subscope
+" 33. ncm2
+" 34. roxma/nvim-yarp
+" 35. ncm2/ncm2-bufword
+" 36. autozimu/LanguageClient-neovim
+" 37. ncm2/ncm2-ultisnips
+" 38. sirver/ultisnips
+" 39. ncm2/ncm2-path
+" 40. ncm2/ncm2-tagprefix
+" 41. ncm2/ncm2-cssomni
+" 42. ncm2/ncm2-tern
+" 43. ncm2/ncm2-html-subscope
 "
 	let $NVIM_PYTHON_LOG_FILE="/tmp/nvim_log"
 	let $NVIM_PYTHON_LOG_LEVEL="DEBUG"
