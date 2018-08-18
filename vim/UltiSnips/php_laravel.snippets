@@ -70,3 +70,11 @@ public function ${1:relationship}()
     return \$this->hasManyThrough(${1/^(.+)s$/\u$1/g}::class, ${2}::class);
 }
 endsnippet
+
+snippet poly "Polymorphism" b
+
+public function ${1:relationship}()
+{
+    return \$this->morphTo();
+}
+endsnippet
