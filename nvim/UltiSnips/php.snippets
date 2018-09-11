@@ -245,3 +245,15 @@ endsnippet
 snippet dd "Die and dump" b
 die(var_dump($0));
 endsnippet
+
+snippet registration "Magento 2 registration" b
+<?php
+
+use Magento\Framework\Component\ComponentRegistrar;
+
+ComponentRegistrar::register(
+    ComponentRegistrar::MODULE,
+    '${1:Module_Name}',
+    __DIR__
+);
+endsnippet
