@@ -31,6 +31,7 @@ brew "gnupg"
 brew "gpg-agent", link: true
 brew "libtool"
 brew "graphviz", args: ["with-pango"]
+brew "highlight"
 brew "hub"
 brew "kubernetes-helm"
 brew "libusb-compat"
@@ -52,12 +53,10 @@ brew "zlib"
 brew "notmuch"
 brew "openssl@1.1"
 brew "openvpn", restart_service: true
-brew "phantomjs"
 brew "php@7.1", restart_service: true, link: true
 brew "pinentry-mac"
 brew "pv"
 brew "qt"
-brew "qt@5.5", link: true
 brew "reattach-to-user-namespace"
 brew "redis", restart_service: true
 brew "redshift", restart_service: true
