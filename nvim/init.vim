@@ -278,6 +278,8 @@
 	nmap <silent> <Leader>l :TestLast<CR>
 	nmap <silent> <Leader>g :TestVisit<CR>
 
+	let test#javascript#mocha#options = '--webpack-config=node_modules/laravel-mix/setup/webpack.config.js --require tests/JavaScript/setup.js'
+
 
 " 9. Autopairs for auto-inserting or -removing parenthesis, squiggly
 "     brackets, etc.
