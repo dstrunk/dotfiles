@@ -1,23 +1,19 @@
 snippet testcase "Vue spec" b
-import { mount } from '@vue/test-utils';
-import expect from 'expect';
-import ${1:`!p snip.rv = re.match(r'.*?(?=\.)', fn).group()`} from '../../resources/assets/js/components/$1.vue';
+import { mount } from '@vue/test-utils'
+import expect from 'expect'
+import ${1:`!p snip.rv = re.match(r'.*?(?=\.)', fn).group().title()`} from '${2:components/}$1.vue'
 
 describe('$1', () => {
-    let wrapper;
-
-    beforeEach(() => {
-        wrapper = mount($1);
-    });
-
-    ${0}
-});
+  ${0}
+})
 endsnippet
 
 snippet test "Test" b
-it('${1:does the thing}', () => {
-    ${2:// expect('Hamlet').toBe('orNotToBe');}
-});
+it('${1:is the one where}', () => {
+  let wrapper = mount(${2:`!p snip.rv = re.match(r'.*?(?=\.)', fn).group().title()`})
+
+  ${0}
+})
 endsnippet
 
 snippet component "Vue component" b
