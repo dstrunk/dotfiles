@@ -138,38 +138,39 @@
 "      30. 'jwalton512/vim-blade'
 "      31. 'vim-vdebug/vdebug'
 "      32. 'phpactor/phpactor'
+"      33. 'lumiliet/vim-twig'
 "
 "  #### JavaScript
 "
-"      33. 'posva/vim-vue'
-"      34. 'jparise/vim-graphql'
-"      35. 'pangloss/vim-javascript'
-"      36. 'mxw/vim-jsx'
-"      37. 'leafgarland/typescript-vim'
-"      38. 'Quramy/tsuquyomi'
+"      34. 'posva/vim-vue'
+"      35. 'jparise/vim-graphql'
+"      36. 'pangloss/vim-javascript'
+"      37. 'mxw/vim-jsx'
+"      38. 'leafgarland/typescript-vim'
+"      39. 'Quramy/tsuquyomi'
 "
 "  #### LESS
 "
-"      39. 'groenewege/vim-less'
+"      40. 'groenewege/vim-less'
 "
 "  #### Colorschemes
 "
-"      40. 'tomasiser/vim-code-dark'
+"      41. 'tomasiser/vim-code-dark'
 "
 "  #### ncm2
 "
-"      41. ncm2
-"      42. roxma/nvim-yarp
-"      43. ncm2/ncm2-bufword
-"      44. autozimu/LanguageClient-neovim
-"      45. ncm2/ncm2-ultisnips
-"      46. sirver/ultisnips
-"      47. ncm2/ncm2-path
-"      48. ncm2/ncm2-tagprefix
-"      49. ncm2/ncm2-cssomni
-"      50. ncm2/ncm2-tern
-"      51. ncm2/ncm2-html-subscope
-"      52. phpactor/ncm2-phpactor
+"      42. ncm2
+"      43. roxma/nvim-yarp
+"      44. ncm2/ncm2-bufword
+"      45. autozimu/LanguageClient-neovim
+"      46. ncm2/ncm2-ultisnips
+"      47. sirver/ultisnips
+"      48. ncm2/ncm2-path
+"      49. ncm2/ncm2-tagprefix
+"      50. ncm2/ncm2-cssomni
+"      51. ncm2/ncm2-tern
+"      52. ncm2/ncm2-html-subscope
+"      53. phpactor/ncm2-phpactor
 "
 " ----------------------------------------
 " Plugin settings
@@ -477,9 +478,15 @@
 	nnoremap <Leader><Leader><CR> :call phpactor#Transform()<CR>i<CR>
 	nnoremap <Leader><Leader>u :call phpactor#UseAdd()<CR>
 
+" 33.  Twig for working with Craft CMS templates
+"      <https://github.com/lumiliet/vim-twig>
+"
+	call minpac#add('lumiliet/vim-twig')
+
+
 " #### JavaScript
 "
-" 33. Syntax for Vue component files
+" 34. Syntax for Vue component files
 "    <https://github.com/posva/vim-vue>
 "
 	call minpac#add('posva/vim-vue')
@@ -490,32 +497,32 @@
 	autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css.less
 
 
-" 34. GraphQL syntax highlighting
+" 35. GraphQL syntax highlighting
 "     <https://github.com/jparise/vim-graphql>
 "
 	call minpac#add('jparise/vim-graphql')
 
 
-" 35. Base JavaScript syntax highlighting--used for JSX highlighting
+" 36. Base JavaScript syntax highlighting--used for JSX highlighting
 "    <https://github.com/pangloss/vim-javascript>
 "
 	call minpac#add('pangloss/vim-javascript')
 	let g:javascript_plugin_jsdoc = 1
 
 
-" 36. JSX syntax highlighting and indenting
+" 37. JSX syntax highlighting and indenting
 "    <https://github.com/mxw/vim-jsx>
 "
 	call minpac#add('mxw/vim-jsx')
 
 
-" 37. Typescript syntax highlighting
+" 38. Typescript syntax highlighting
 "     <https://github.com/leafgarland/typescript-vim>
 "
 	call minpac#add('leafgarland/typescript-vim')
 
 
-" 38. Typescript auto-completion
+" 39. Typescript auto-completion
 "     <https://github.com/Quramy/tsuquyomi>
 "
 	call minpac#add('Quramy/tsuquyomi')
@@ -523,7 +530,7 @@
 
 " #### LESS
 "
-" 39. Vim syntax for LESS
+" 40. Vim syntax for LESS
 "    <https://github.com/groenewege/vim-less>
 "
 	call minpac#add('groenewege/vim-less')
@@ -531,7 +538,7 @@
 
 " #### Colorschemes
 "
-" 40. Vim Code Dark Colorscheme, a riff on Visual Studio's colorscheme
+" 41. Vim Code Dark Colorscheme, a riff on Visual Studio's colorscheme
 "    <https://github.com/tomasiser/vim-code-dark>
 "
 	call minpac#add('tomasiser/vim-code-dark')
@@ -553,18 +560,18 @@
 
 " #### ncm2
 "
-" 41. ncm2
-" 42. roxma/nvim-yarp
-" 43. ncm2/ncm2-bufword
-" 44. autozimu/LanguageClient-neovim
-" 45. ncm2/ncm2-ultisnips
-" 46. sirver/ultisnips
-" 47. ncm2/ncm2-path
-" 48. ncm2/ncm2-tagprefix
-" 49. ncm2/ncm2-cssomni
-" 50. ncm2/ncm2-tern
-" 51. ncm2/ncm2-html-subscope
-" 52. phpactor/ncm2-phpactor
+" 42. ncm2
+" 43. roxma/nvim-yarp
+" 44. ncm2/ncm2-bufword
+" 45. autozimu/LanguageClient-neovim
+" 46. ncm2/ncm2-ultisnips
+" 47. sirver/ultisnips
+" 48. ncm2/ncm2-path
+" 49. ncm2/ncm2-tagprefix
+" 50. ncm2/ncm2-cssomni
+" 51. ncm2/ncm2-tern
+" 52. ncm2/ncm2-html-subscope
+" 53. phpactor/ncm2-phpactor
 "
 	let $NVIM_PYTHON_LOG_FILE="/tmp/nvim_log"
 	let $NVIM_PYTHON_LOG_LEVEL="DEBUG"
