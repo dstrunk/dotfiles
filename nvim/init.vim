@@ -137,37 +137,39 @@
 "      29. 'noahfrederick/vim-laravel'
 "      30. 'jwalton512/vim-blade'
 "      31. 'vim-vdebug/vdebug'
+"      32. 'phpactor/phpactor'
 "
 "  #### JavaScript
 "
-"      32. 'posva/vim-vue'
-"      33. 'jparise/vim-graphql'
-"      34. 'pangloss/vim-javascript'
-"      35. 'mxw/vim-jsx'
-"      36. 'leafgarland/typescript-vim'
-"      37. 'Quramy/tsuquyomi'
+"      33. 'posva/vim-vue'
+"      34. 'jparise/vim-graphql'
+"      35. 'pangloss/vim-javascript'
+"      36. 'mxw/vim-jsx'
+"      37. 'leafgarland/typescript-vim'
+"      38. 'Quramy/tsuquyomi'
 "
 "  #### LESS
 "
-"      38. 'groenewege/vim-less'
+"      39. 'groenewege/vim-less'
 "
 "  #### Colorschemes
 "
-"      39. 'tomasiser/vim-code-dark'
+"      40. 'tomasiser/vim-code-dark'
 "
 "  #### ncm2
 "
-"     40. ncm2
-"     41. roxma/nvim-yarp
-"     42. ncm2/ncm2-bufword
-"     43. autozimu/LanguageClient-neovim
-"     44. ncm2/ncm2-ultisnips
-"     45. sirver/ultisnips
-"     46. ncm2/ncm2-path
-"     47. ncm2/ncm2-tagprefix
-"     48. ncm2/ncm2-cssomni
-"     49. ncm2/ncm2-tern
-"     50. ncm2/ncm2-html-subscope
+"      41. ncm2
+"      42. roxma/nvim-yarp
+"      43. ncm2/ncm2-bufword
+"      44. autozimu/LanguageClient-neovim
+"      45. ncm2/ncm2-ultisnips
+"      46. sirver/ultisnips
+"      47. ncm2/ncm2-path
+"      48. ncm2/ncm2-tagprefix
+"      49. ncm2/ncm2-cssomni
+"      50. ncm2/ncm2-tern
+"      51. ncm2/ncm2-html-subscope
+"      52. phpactor/ncm2-phpactor
 "
 " ----------------------------------------
 " Plugin settings
@@ -227,13 +229,13 @@
 		\ 'sass': ['stylelint'],
 		\ 'json': ['prettier'],
 		\ 'graphql': ['prettier'],
-		\ 'vue': ['stylelint', 'eslint', 'prettier'],
+		\ 'vue': ['stylelint', 'eslint'],
 		\ }
 	let g:ale_fixers = {}
 	let g:ale_fixers.less = ['stylelint']
 	let g:ale_fixers.css = ['stylelint']
 	let g:ale_fixers.sass = ['stylelint']
-	let g:ale_fixers.vue = ['stylelint', 'eslint', 'prettier']
+	let g:ale_fixers.vue = ['stylelint', 'eslint']
 
 	nmap <silent> [W <Plug>(ale_first)
 	nmap <silent> [w <Plug>(ale_previous)
@@ -281,7 +283,12 @@
 	nmap <silent> <Leader>l :TestLast<CR>
 	nmap <silent> <Leader>g :TestVisit<CR>
 
-	let test#javascript#mocha#options = '--webpack-config=node_modules/laravel-mix/setup/webpack.config.js --require tests/JavaScript/setup.js'
+	let test#javascript#jest#options = {
+	\ 'nearest': '--webpack-config=node_modules/laravel-mix/setup/webpack.config.js',
+	\ 'file': '--webpack-config=node_modules/laravel-mix/setup/webpack.config.js',
+	\ 'suite': '--webpack-config=node_modules/laravel-mix/setup/webpack.config.js --recursive tests/JavaScript/',
+	\ 'last': '--webpack-config=node_modules/laravel-mix/setup/webpack.config.js'
+	\ }
 
 
 " 9. Autopairs for auto-inserting or -removing parenthesis, squiggly
@@ -457,42 +464,58 @@
 "     <https://github.com/vim-vdebug/vdebug>
 "
 	call minpac#add('vim-vdebug/vdebug')
+	let g:vdebug_options = {'id_key': 'VSCODE'}
+	let g:vdebug_options = {'port': '9001'}
 
+" 32. PHP Actor for better function autocompletes and auto class imports
+"     <https://github.com/phpactor/phpactor>
+"
+	call minpac#add('phpactor/phpactor', {
+		\ 'for': 'php',
+		\ 'do': '!composer install'
+		\ })
+	nnoremap <Leader><Leader><CR> :call phpactor#Transform()<CR>i<CR>
+	nnoremap <Leader><Leader>u :call phpactor#UseAdd()<CR>
 
 " #### JavaScript
 "
-" 32. Syntax for Vue component files
+" 33. Syntax for Vue component files
 "    <https://github.com/posva/vim-vue>
 "
 	call minpac#add('posva/vim-vue')
+	let g:html_indent_tags = "i18n"
+	let g:html_indent_tags = "transition"
+
+	autocmd FileType vue syntax sync fromstart
+	autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css.less
 
 
-" 33. GraphQL syntax highlighting
+" 34. GraphQL syntax highlighting
 "     <https://github.com/jparise/vim-graphql>
 "
 	call minpac#add('jparise/vim-graphql')
 
 
-" 34. Base JavaScript syntax highlighting--used for JSX highlighting
+" 35. Base JavaScript syntax highlighting--used for JSX highlighting
 "    <https://github.com/pangloss/vim-javascript>
 "
 	call minpac#add('pangloss/vim-javascript')
 	let g:javascript_plugin_jsdoc = 1
 
 
-" 35. JSX syntax highlighting and indenting
+" 36. JSX syntax highlighting and indenting
 "    <https://github.com/mxw/vim-jsx>
 "
 	call minpac#add('mxw/vim-jsx')
 
 
-" 36. Typescript syntax highlighting
+" 37. Typescript syntax highlighting
 "     <https://github.com/leafgarland/typescript-vim>
 "
 	call minpac#add('leafgarland/typescript-vim')
 
 
-" 37. Typescript auto-completion
+" 38. Typescript auto-completion
 "     <https://github.com/Quramy/tsuquyomi>
 "
 	call minpac#add('Quramy/tsuquyomi')
@@ -500,7 +523,7 @@
 
 " #### LESS
 "
-" 38. Vim syntax for LESS
+" 39. Vim syntax for LESS
 "    <https://github.com/groenewege/vim-less>
 "
 	call minpac#add('groenewege/vim-less')
@@ -508,7 +531,7 @@
 
 " #### Colorschemes
 "
-" 39. Vim Code Dark Colorscheme, a riff on Visual Studio's colorscheme
+" 40. Vim Code Dark Colorscheme, a riff on Visual Studio's colorscheme
 "    <https://github.com/tomasiser/vim-code-dark>
 "
 	call minpac#add('tomasiser/vim-code-dark')
@@ -530,17 +553,18 @@
 
 " #### ncm2
 "
-" 40. ncm2
-" 41. roxma/nvim-yarp
-" 42. ncm2/ncm2-bufword
-" 43. autozimu/LanguageClient-neovim
-" 44. ncm2/ncm2-ultisnips
-" 45. sirver/ultisnips
-" 46. ncm2/ncm2-path
-" 47. ncm2/ncm2-tagprefix
-" 48. ncm2/ncm2-cssomni
-" 49. ncm2/ncm2-tern
-" 50. ncm2/ncm2-html-subscope
+" 41. ncm2
+" 42. roxma/nvim-yarp
+" 43. ncm2/ncm2-bufword
+" 44. autozimu/LanguageClient-neovim
+" 45. ncm2/ncm2-ultisnips
+" 46. sirver/ultisnips
+" 47. ncm2/ncm2-path
+" 48. ncm2/ncm2-tagprefix
+" 49. ncm2/ncm2-cssomni
+" 50. ncm2/ncm2-tern
+" 51. ncm2/ncm2-html-subscope
+" 52. phpactor/ncm2-phpactor
 "
 	let $NVIM_PYTHON_LOG_FILE="/tmp/nvim_log"
 	let $NVIM_PYTHON_LOG_LEVEL="DEBUG"
@@ -569,7 +593,7 @@
 		\ })
 	let g:LanguageClient_serverCommands = {
 		\ 'elixir': ['sh', '~/.language-servers/elixir/language_server.sh'],
-		\ 'vue': ['sh', '~/.language-servers/vue/vetur/server/bin/vls'],
+		\ 'vue': ['vls'],
 		\ 'php': ['php', '~/.language-servers/php/vendor/felixfbecker/language-server/bin/php-language-server.php'],
 		\ 'css': ['~/.language-servers/css/node_modules/.bin/css-languageserver --stdio'],
 		\ }
@@ -593,3 +617,4 @@
 		\ 'for': 'typescript',
 		\ 'do': './install.sh'
 		\ })
+	call minpac#add('phpactor/ncm2-phpactor')

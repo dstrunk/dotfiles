@@ -21,9 +21,3 @@ git() {
 # hub
 # brew install hub
 eval "$(hub alias -s)"
-
-# Homestead
-function homestead()
-{
-  ( cd ~/Homestead && vagrant $* )
-}

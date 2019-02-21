@@ -22,14 +22,18 @@ brew "libksba"
 brew "pth"
 brew "dirmngr", link: true
 brew "dnsmasq", restart_service: true
+brew "libtool"
 brew "fzf"
 brew "jpeg"
 brew "geoip"
 brew "git"
+brew "git-ftp"
 brew "git-lfs"
 brew "gnupg"
+brew "gpgme"
+brew "gmime"
 brew "gpg-agent", link: true
-brew "libtool"
+brew "icu4c"
 brew "graphviz", args: ["with-pango"]
 brew "highlight"
 brew "hub"
@@ -53,7 +57,9 @@ brew "zlib"
 brew "notmuch"
 brew "openssl@1.1"
 brew "openvpn", restart_service: true
+brew "php"
 brew "php@7.1", restart_service: true, link: true
+brew "php@7.2", restart_service: true
 brew "pinentry-mac"
 brew "pv"
 brew "qt"
@@ -70,7 +76,7 @@ brew "urlview"
 brew "vim"
 brew "watchman"
 brew "wget"
-brew "wp-cli", link: false
+brew "wp-cli"
 brew "wxmac"
 brew "xhyve"
 brew "zsh"

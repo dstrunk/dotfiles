@@ -40,6 +40,8 @@
     ~/.mutt/muttrc: mutt/muttrc
     ~/.editorconfig: editorconfig
     ~/.tern-config: language-servers/javascript/tern-config
+    ~/.cask/init.el: emacs/init.el
+    ~/.cask/cask.org: emacs/config.el
 
 - shell:
     - git submodule update --init --recursive

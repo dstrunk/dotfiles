@@ -18,7 +18,7 @@
   ci = commit -v
   cs = commit -S
   co = checkout
-  cob = !git checkout -b
+  cob = !sh -c 'git checkout -b $1 && git push -u' -
   uncommit = !git reset --soft head^
   nah = !git stash -u
   co-pr = !sh -c 'git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1' -
