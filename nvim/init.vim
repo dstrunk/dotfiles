@@ -152,25 +152,26 @@
 "  #### LESS
 "
 "      40. 'groenewege/vim-less'
+"      41. 'meain/vim-colorswitch'
 "
 "  #### Colorschemes
 "
-"      41. 'tomasiser/vim-code-dark'
+"      42. 'tomasiser/vim-code-dark'
 "
 "  #### ncm2
 "
-"      42. ncm2
-"      43. roxma/nvim-yarp
-"      44. ncm2/ncm2-bufword
-"      45. autozimu/LanguageClient-neovim
-"      46. ncm2/ncm2-ultisnips
-"      47. sirver/ultisnips
-"      48. ncm2/ncm2-path
-"      49. ncm2/ncm2-tagprefix
-"      50. ncm2/ncm2-cssomni
-"      51. ncm2/ncm2-tern
-"      52. ncm2/ncm2-html-subscope
-"      53. phpactor/ncm2-phpactor
+"      43. ncm2
+"      44. roxma/nvim-yarp
+"      45. ncm2/ncm2-bufword
+"      46. autozimu/LanguageClient-neovim
+"      47. ncm2/ncm2-ultisnips
+"      48. sirver/ultisnips
+"      49. ncm2/ncm2-path
+"      50. ncm2/ncm2-tagprefix
+"      51. ncm2/ncm2-cssomni
+"      52. ncm2/ncm2-tern
+"      53. ncm2/ncm2-html-subscope
+"      54. phpactor/ncm2-phpactor
 "
 " ----------------------------------------
 " Plugin settings
@@ -536,9 +537,15 @@
 	call minpac#add('groenewege/vim-less')
 
 
+" 41. Cycle between hex, rgb, hsl colors for the current line
+"     <https://github.com/meain/vim-colorswitch>
+"
+	call minpac#add('meain/vim-colorswitch')
+
+
 " #### Colorschemes
 "
-" 41. Vim Code Dark Colorscheme, a riff on Visual Studio's colorscheme
+" 42. Vim Code Dark Colorscheme, a riff on Visual Studio's colorscheme
 "    <https://github.com/tomasiser/vim-code-dark>
 "
 	call minpac#add('tomasiser/vim-code-dark')
@@ -560,18 +567,18 @@
 
 " #### ncm2
 "
-" 42. ncm2
-" 43. roxma/nvim-yarp
-" 44. ncm2/ncm2-bufword
-" 45. autozimu/LanguageClient-neovim
-" 46. ncm2/ncm2-ultisnips
-" 47. sirver/ultisnips
-" 48. ncm2/ncm2-path
-" 49. ncm2/ncm2-tagprefix
-" 50. ncm2/ncm2-cssomni
-" 51. ncm2/ncm2-tern
-" 52. ncm2/ncm2-html-subscope
-" 53. phpactor/ncm2-phpactor
+" 43. ncm2
+" 44. roxma/nvim-yarp
+" 45. ncm2/ncm2-bufword
+" 46. autozimu/LanguageClient-neovim
+" 47. ncm2/ncm2-ultisnips
+" 48. sirver/ultisnips
+" 49. ncm2/ncm2-path
+" 50. ncm2/ncm2-tagprefix
+" 51. ncm2/ncm2-cssomni
+" 52. ncm2/ncm2-tern
+" 53. ncm2/ncm2-html-subscope
+" 54. phpactor/ncm2-phpactor
 "
 	let $NVIM_PYTHON_LOG_FILE="/tmp/nvim_log"
 	let $NVIM_PYTHON_LOG_LEVEL="DEBUG"
