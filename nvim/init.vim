@@ -541,6 +541,7 @@
 "     <https://github.com/meain/vim-colorswitch>
 "
 	call minpac#add('meain/vim-colorswitch')
+	nnoremap <leader>c :ColorSwap<CR>
 
 
 " #### Colorschemes
