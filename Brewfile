@@ -1,4 +1,5 @@
 tap "codekitchen/dinghy"
+tap "henkrehorst/php"
 tap "heroku/brew"
 tap "homebrew/bundle"
 tap "homebrew/cask"
@@ -14,6 +15,7 @@ brew "autoconf"
 brew "bison@2.7"
 brew "freetype"
 brew "gettext"
+brew "cask"
 brew "cmake"
 brew "composer"
 brew "contacts"
@@ -57,9 +59,6 @@ brew "zlib"
 brew "notmuch"
 brew "openssl@1.1"
 brew "openvpn", restart_service: true
-brew "php"
-brew "php@7.1", restart_service: true, link: true
-brew "php@7.2", restart_service: true
 brew "pinentry-mac"
 brew "pv"
 brew "qt"
@@ -81,6 +80,8 @@ brew "wxmac"
 brew "xhyve"
 brew "zsh"
 brew "codekitchen/dinghy/dinghy"
+brew "henkrehorst/php/valet-php@7.1", link: true
+brew "henkrehorst/php/valet-php@7.2"
 brew "heroku/brew/heroku"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 cask "1password"
