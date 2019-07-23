@@ -7,6 +7,3 @@ setlocal copyindent
 setlocal smarttab
 setlocal iskeyword+=-
 setlocal iskeyword+=_
-
-:UltiSnipsAddFiletypes less
-:UltiSnipsAddFiletypes css

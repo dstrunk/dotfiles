@@ -1,0 +1,16 @@
+" Include use statement
+nmap <Leader>pu :call phpactor#UseAdd()<CR>
+
+" Go to the definition of the class or class member under the cursor
+nmap <Leader>poc :call phpactor#GoToDefinition<CR>
+
+" Generate a new class (replacing the current file)
+nmap <Leader>pnc :call phpactor#ClassNew()<CR>
+
+" Extract expression from the selection,
+" both in normal mode or visual
+nmap <silent><Leader>pee :call phpactor#ExtractExpression(v:false)<CR>
+vmap <silent><Leader>pee :<C-U>call phpactor#ExtractExpression(v:true)<CR>
+
+" Extract method from the selection
+vmap <silent><Leader>pem :<C-U>call phpactor#ExtractMethod()<CR>

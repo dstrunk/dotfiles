@@ -1,0 +1,3 @@
+map <Leader>fr :VtrFocusRunner<CR>
+nmap <C-f> :VtrSendLinesToRunner<CR>
+vmap <C-f> :VtrSendLinesToRunner<CR>

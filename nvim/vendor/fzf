@@ -1,0 +1,2 @@
+" Fuzzy find files
+nnoremap <C-p> :<C-u>FZF<CR>

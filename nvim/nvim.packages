@@ -1,0 +1,59 @@
+" Specify a directory for plugins
+call plug#begin('~/.vim/plugged')
+
+" General
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-vinegar'
+
+" Git
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'jreybert/vimagit'
+Plug 'rhysd/git-messenger.vim'
+Plug 'rbong/vim-flog'
+
+" Navigation
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-projectionist'
+
+" Code
+Plug 'neoclide/coc.nvim', { 'tag': '*', 'do': './install.sh' }
+Plug 'sheerun/vim-polyglot'
+Plug 'janko-m/vim-test'
+Plug 'christoomey/vim-tmux-runner'
+Plug 'tpope/vim-commentary'
+Plug 'vim-vdebug/vdebug'
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'branch': 'release/1.x',
+  \ 'for': [
+  \   'javascript',
+  \   'typescript',
+  \   'css',
+  \   'less',
+  \   'scss',
+  \   'json',
+  \   'graphql',
+  \   'markdown',
+  \   'vue',
+  \   'php',
+  \   'html',
+  \ ] }
+
+" PHP
+Plug 'phpactor/phpactor', { 'do': 'composer install', 'for': 'php' }
+Plug 'noahfrederick/vim-laravel'
+
+" JavaScript
+Plug 'leafgarland/typescript-vim'
+Plug 'ianks/vim-tsx'
+
+" Elixir
+Plug 'tpope/vim-endwise', { 'for': ['elixir', 'ruby'] }
+
+" Initialize plugin system
+call plug#end()

@@ -5,10 +5,6 @@ setlocal shiftwidth=2
 setlocal shiftround
 setlocal expandtab
 
-" Snippets
-:UltiSnipsAddFiletypes ruby
-:UltiSnipsAddFiletypes rails
-
 " trim white space
 function! TrimWhiteSpace()
   %s/\s\+$//e

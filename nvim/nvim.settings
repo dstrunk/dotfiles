@@ -1,0 +1,65 @@
+" General settings
+"
+let mapleader=","      " Let's set a mapleader
+set nocompatible       " Use Vim, not Vi
+set backspace=2        " Backspace deletes like most programs in insert mode
+set nobackup
+set nowritebackup
+set noswapfile
+set history=50
+set ruler              " show cursor position all the time
+set showcmd            " display incomplete commands
+set number             " Show line numbers
+set undofile           " Persist undo across vim sessions
+set undodir=~/.config/nvim/undo " Undo directory temp files
+set winminheight=0     " completely hide split on buffer focus
+set winminwidth=0      " completely hide split on buffer focus
+set nowinfixheight     " Allow for <C-w>= for equalizing splits
+set nowinfixwidth      " Allow for <C-w>= for equalizing splits
+set relativenumber     " Count line numbers based on cursor
+set scrolloff=999      " Keep cursor in the middle of the screen
+set wm=0               " Don't wrap based on terminal size
+set clipboard=unnamed  " Needed to copy / paste from system
+set cot+=preview       " Completion preview support
+
+" Zoom a vim pane, <C-w> to rebalance
+"
+nnoremap <Leader>- :wincmd _<CR>:wincmd \|<CR>
+nnoremap <Leader>= :wincmd =<CR>
+
+" Clear search results until the next search
+"
+nnoremap <C-c><C-c> :noh<CR>
+
+" Switch between the last two files
+"
+nnoremap <Leader><Leader> <C-^>
+
+" Embrace the vim
+"
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
+
+" Switch splits using C-navigation
+"
+nnoremap <C-h> <C-W><C-h>
+nnoremap <C-j> <C-W><C-j>
+nnoremap <C-k> <C-W><C-k>
+nnoremap <C-l> <C-W><C-l>
+
+" Exit out of insert mode for terminal
+"
+tnoremap <Esc> <C-\><C-n>
+nnoremap <Leader><Leader>t :terminal<CR>
+
+" Automatically create directories if they don't exist
+"
+augroup Mkdir
+    autocmd!
+    autocmd BufWritePre *
+        \ if !isdirectory(expand("<afile>:p:h")) |
+        \     call mkdir(expand("<afile>:p:h"), "p") |
+        \ endif
+augroup END

@@ -1,0 +1,6 @@
+" Show commits for every source line
+nnoremap <Leader>gb :Gblame<CR> " git blame
+nnoremap <Leader>gd :Gdiff<CR> " git diff
+
+" Add an entire file to the staging area
+nnoremap <Leader>gaf :Gw<CR> " git add file

@@ -1,0 +1,20 @@
+if !exists('g:vdebug_options')
+    let g:vdebug_options = {}
+endif
+
+let g:vdebug_options.break_on_open = 0
+let g:vdebug_options.watch_window_style = 'compact'
+
+let g:vdebug_keymap = {
+    \    "run" : "<Leader>dd",
+    \    "run_to_cursor" : "<F9>",
+    \    "step_over" : "<Leader>dss",
+    \    "step_into" : "<Leader>dsi",
+    \    "step_out" : "<Leader>dso",
+    \    "close" : "<Leader>dc",
+    \    "detach" : "<F7>",
+    \    "set_breakpoint" : "<Leader>dsb",
+    \    "get_context" : "<F11>",
+    \    "eval_under_cursor" : "<F12>",
+    \    "eval_visual" : "<Leader>de",
+    \}

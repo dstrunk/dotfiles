@@ -6,20 +6,14 @@ setlocal expandtab
 setlocal autoindent
 setlocal copyindent
 setlocal smarttab
-setlocal iskeyword+=-
-setlocal iskeyword+=_
+setlocal iskeyword-=-
+setlocal iskeyword-=_
 setlocal comments=s1:/*,mb:*,ex:*/,://,:#
 setlocal formatoptions+=cro
 
 " Ignore certain files for CtrlP
 set wildignore+=*/public/forum/**
 set wildignore+=*/media
-
-" Snippets
-:UltiSnipsAddFiletypes php
-:UltiSnipsAddFiletypes php-laravel
-:UltiSnipsAddFiletypes php-phpunit
-:UltiSnipsAddFiletypes php-symfony2
 
 " autocomplete
 autocmd FileType php set omnifunc=phpactor#Complete

@@ -9,9 +9,3 @@ setlocal copyindent
 setlocal smarttab
 setlocal iskeyword+=-
 setlocal iskeyword+=_
-
-" Snippets
-:UltiSnipsAddFiletypes javascript
-:UltiSnipsAddFiletypes html
-:UltiSnipsAddFiletypes html_minimal
-:UltiSnipsAddFiletypes xhtml
