@@ -84,8 +84,8 @@ brew "wxmac"
 brew "xhyve"
 brew "zsh"
 brew "codekitchen/dinghy/dinghy"
-brew "henkrehorst/php/valet-php@7.1", link: true
-brew "henkrehorst/php/valet-php@7.2"
+brew "henkrehorst/php/valet-php@7.1"
+brew "henkrehorst/php/valet-php@7.2", link: true
 brew "heroku/brew/heroku"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 cask "1password"
@@ -119,6 +119,7 @@ cask "sketch"
 cask "sketch-toolbox"
 cask "spectacle"
 cask "spotify"
+cask "steam"
 cask "sublime-text"
 cask "textual"
 cask "thunderbird"
