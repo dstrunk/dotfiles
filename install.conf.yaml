@@ -11,10 +11,6 @@
     ~/.config/nvim: nvim/
     ~/.ideavimrc: vim/ideavimrc
     ~/.tmux.conf: tmux/tmux.conf
-    ~/.gemrc: ruby/gemrc
-    ~/.irbrc: ruby/irbrc
-    ~/.railsrc: ruby/railsrc
-    ~/.rspec: ruby/rspec
     ~/.gitconfig: git/config
     ~/.gitconfig.local: git/config.local
     ~/.gitignore: git/ignore
