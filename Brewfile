@@ -16,7 +16,6 @@ brew "autoconf"
 brew "bfg"
 brew "bison"
 brew "bison@2.7"
-brew "icu4c"
 brew "freetype"
 brew "gettext"
 brew "cask"
@@ -35,19 +34,19 @@ brew "geoip"
 brew "git"
 brew "git-ftp"
 brew "git-lfs"
+brew "node"
+brew "gitmoji"
 brew "gnupg"
 brew "gpgme"
 brew "gmime"
 brew "gpg-agent", link: true
-brew "graphviz", args: ["with-pango"]
+brew "graphviz"
 brew "highlight"
 brew "hub"
 brew "kubernetes-helm"
 brew "libusb-compat"
 brew "libxml2"
-brew "libyaml"
 brew "lolcat"
-brew "macvim"
 brew "mailhog", restart_service: true
 brew "mariadb", restart_service: true
 brew "mcrypt"
@@ -57,17 +56,16 @@ brew "mutt"
 brew "mysql-utilities"
 brew "neovim"
 brew "nginx", restart_service: true
-brew "node"
 brew "zlib"
 brew "notmuch"
 brew "openssl@1.1"
 brew "openvpn", restart_service: true
+brew "php", restart_service: true
 brew "pinentry-mac"
 brew "pv"
 brew "qt"
 brew "reattach-to-user-namespace"
 brew "redis", restart_service: true
-brew "redshift", restart_service: true
 brew "ripgrep"
 brew "rsync"
 brew "stunnel"
@@ -84,8 +82,6 @@ brew "wxmac"
 brew "xhyve"
 brew "zsh"
 brew "codekitchen/dinghy/dinghy"
-brew "henkrehorst/php/valet-php@7.1"
-brew "henkrehorst/php/valet-php@7.2", link: true
 brew "heroku/brew/heroku"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 cask "1password"
