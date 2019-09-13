@@ -18,6 +18,10 @@ git() {
   command git "$@"
 }
 
+craftinit() {
+  command composer create-project nystudio107/craft "$@"
+}
+
 # hub
 # brew install hub
 eval "$(hub alias -s)"

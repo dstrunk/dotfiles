@@ -27,6 +27,7 @@ Plug 'janko-m/vim-test'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'tpope/vim-commentary'
 Plug 'vim-vdebug/vdebug'
+Plug 'mattn/emmet-vim'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'branch': 'release/1.x',

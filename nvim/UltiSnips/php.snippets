@@ -4,14 +4,15 @@ snippet testcase "TestCase" b
 namespace Tests\\${1:Feature};
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ${2:`!p snip.rv = re.match(r'.*?(?=\.)', fn).group()`} extends TestCase
 {
+    use RefreshDatabase;
+
     $0
 }
+
 endsnippet
 
 snippet test "Test" b
