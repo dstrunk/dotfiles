@@ -7,6 +7,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-eunuch'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -17,6 +18,7 @@ Plug 'rbong/vim-flog'
 
 " Navigation
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-projectionist'
 
