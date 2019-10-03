@@ -58,7 +58,6 @@ brew "neovim"
 brew "nginx", restart_service: true
 brew "zlib"
 brew "notmuch"
-brew "openssl@1.1"
 brew "openvpn", restart_service: true
 brew "php", restart_service: true
 brew "pinentry-mac"
