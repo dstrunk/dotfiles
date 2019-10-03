@@ -4,6 +4,8 @@
 .emacs.d/
 vim/bundle/**
 vim/bundles/**
+vim/plugged/
+nvim/autoload/plug.vim
 vim/pack/minpac/start/**
 vim/Trashed-Bundles/**
 vim/view/**
