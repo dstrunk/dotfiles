@@ -59,6 +59,7 @@ brew "nginx", restart_service: true
 brew "zlib"
 brew "notmuch"
 brew "openvpn", restart_service: true
+brew "optipng"
 brew "php", restart_service: true
 brew "pinentry-mac"
 brew "pv"
