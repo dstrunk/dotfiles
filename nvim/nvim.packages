@@ -57,6 +57,7 @@ Plug 'ianks/vim-tsx'
 
 " Elixir
 Plug 'tpope/vim-endwise', { 'for': ['elixir', 'ruby'] }
+Plug 'mhinz/vim-mix-format'
 
 " Initialize plugin system
 call plug#end()

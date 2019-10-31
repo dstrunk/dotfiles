@@ -30,6 +30,10 @@ export PATH="$HOME/.cargo/bin:$PATH"
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 
+# Add options when using `asdf` to install Erlang.
+# For more information, see <https://github.com/asdf-vm/asdf-erlang/issues/116#issuecomment-540430613>.
+export MACOSX_DEPLOYMENT_TARGET=10.14
+
 # Use `nvm` to manage node versions:
 # https://github.com/creationix/nvm
 export NVM_DIR="$HOME/.nvm"
