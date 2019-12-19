@@ -1,6 +1,0 @@
-nnoremap <Leader>gs :Magit<CR> " git status
-" Push to remote
-nnoremap <Leader>gP :! git push<CR> " git push
-
-" Enable deletion of untracked files in Magit
-let g:magit_discard_untracked_do_delete=1

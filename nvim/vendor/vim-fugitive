@@ -1,6 +1,9 @@
 " Show commits for every source line
+nnoremap <Leader>gw :Gwrite<CR> " git write
 nnoremap <Leader>gb :Gblame<CR> " git blame
-nnoremap <Leader>gd :Gdiff<CR> " git diff
+nnoremap <Leader>gac :Gcommit<CR> " git commit (unfortunately, `gc` is a commentary stroke)
+nnoremap <Leader>gd :Gvdiff<CR> " git diff
+nnoremap <Leader>gs :Gstatus<CR> " git status (interactive)
 
-" Add an entire file to the staging area
-nnoremap <Leader>gaf :Gw<CR> " git add file
+autocmd BufReadPost fugitive://* set bufhidden=delete
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P

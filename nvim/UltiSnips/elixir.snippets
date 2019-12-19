@@ -20,6 +20,12 @@ test "${1:the one where}" do
 end
 endsnippet
 
+snippet desc "Describe" !b
+describe "${1:The one where}" do
+  ${0}
+end
+endsnippet
+
 snippet def "defines a new function with a multiline block" !b
 @doc """
 $0
@@ -46,6 +52,22 @@ defmodule ${1:Project}.${2:`!p snip.rv = propercase(snip.basename)`} do
   """
 
   $0
+end
+endsnippet
+
+snippet struct "defines a new module with an Ecto schema" !b
+defmodule ${1:Project}.${2:`!p snip.rv = propercase(snip.basename)`} do
+  @moduledoc """
+  The ${2} module.
+  """
+  use Ecto.Schema
+  import Ecto.Changeset
+
+  schema "${3:schema}" do
+    $0
+
+    timestamps()
+  end
 end
 endsnippet
 
