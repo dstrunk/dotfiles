@@ -3,10 +3,6 @@
 
 - clean: ['~']
 
-- create:
-    - ~/.config
-    - ~/.oh-my-zsh/custom
-
 - link:
     ~/.vim:
         path: vim/
@@ -114,8 +110,8 @@
         relink: true
 
 - shell:
-    - git submodule update --init --recursive
-    - git config --global init.templatedir '~/.git_template'
+    - [git submodule update --init --recursive, Installing submodules]
+    - [git config --global init.templatedir '~/.git_template', Adding git template]
     - . $(pwd)/powerline/fonts/install.sh
     - rm -rf $HOME/.asdf && git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.2.0
     - sudo sed -i '/XKBOPTIONS="/c\XKBOPTIONS="ctrl:nocaps,ctrl:swap_lalt_lctl,altwin:meta_alt"' /etc/default/keyboard
