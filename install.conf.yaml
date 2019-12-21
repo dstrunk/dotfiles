@@ -1,40 +1,117 @@
 - defaults:
   link:
-    create: true
-    relink: true
 
 - clean: ['~']
 
+- create:
+    - ~/.config
+    - ~/.oh-my-zsh/custom
+
 - link:
-    ~/.vim: vim/
-    ~/.vimrc: vim/vimrc
-    ~/.config/nvim: nvim/
-    ~/.ideavimrc: vim/ideavimrc
-    ~/.tmux.conf: tmux/tmux.conf
-    ~/.gitconfig: git/config
-    ~/.gitconfig.local: git/config.local
-    ~/.gitignore: git/ignore
-    ~/.gitmessage: git/message
-    ~/.git_template: git/git_template
-    ~/.bash_profile: bash/bash_profile
-    ~/.bashrc: bash/bashrc
-    ~/.bashrc.local: bash/bashrc.local
-    ~/.bash_aliases: bash/bash_aliases
-    ~/.bash_exports: bash/bash_exports
-    ~/.zshrc: zsh/zshrc
-    ~/.oh-my-zsh/custom/00-exports.zsh: bash/bash_exports
-    ~/.oh-my-zsh/custom/01-aliases.zsh: bash/bash_aliases
-    ~/.oh-my-zsh/custom/themes/agnoster.zsh-theme: zsh/themes/agnoster.zsh-theme
-    ~/.oh-my-zsh/custom/02-ssh.zsh: zsh/custom/ssh
-    ~/.oh-my-zsh/custom/03-rand.zsh: zsh/custom/rand
-    ~/.bin: bin/
-    ~/.ctags: ctags/ctags
-    ~/.Xmodmap: xorg/xmodmap
-    ~/.xinitrc: xorg/xinitrc
-    ~/.asdfrc: asdf/asdfrc
-    ~/.mutt/muttrc: mutt/muttrc
-    ~/.editorconfig: editorconfig
-    ~/.tern-config: language-servers/javascript/tern-config
+    ~/.vim:
+        path: vim/
+        create: true
+        relink: true
+    ~/.vimrc:
+        path: vim/vimrc
+        create: true
+        relink: true
+    ~/.config/nvim:
+        path: nvim/
+        create: true
+        relink: true
+    ~/.ideavimrc:
+        path: vim/ideavimrc
+        create: true
+        relink: true
+    ~/.tmux.conf:
+        path: tmux/tmux.conf
+        create: true
+        relink: true
+    ~/.gitconfig:
+        path: git/config
+        create: true
+        relink: true
+    ~/.gitconfig.local:
+        path: git/config.local
+        create: true
+        relink: true
+    ~/.gitignore:
+        path: git/ignore
+        create: true
+        relink: true
+    ~/.gitmessage:
+        path: git/message
+        create: true
+        relink: true
+    ~/.git_template:
+        path: git/git_template
+        create: true
+        relink: true
+    ~/.bash_profile:
+        path: bash/bash_profile
+        create: true
+        relink: true
+    ~/.bashrc:
+        path: bash/bashrc
+        create: true
+        relink: true
+    ~/.bashrc.local:
+        path: bash/bashrc.local
+        create: true
+        relink: true
+    ~/.bash_aliases:
+        path: bash/bash_aliases
+        create: true
+        relink: true
+    ~/.bash_exports:
+        path: bash/bash_exports
+        create: true
+        relink: true
+    ~/.zshrc:
+        path: zsh/zshrc
+        create: true
+        relink: true
+    ~/.oh-my-zsh/custom/00-exports.zsh:
+        path: bash/bash_exports
+        create: true
+        relink: true
+    ~/.oh-my-zsh/custom/01-aliases.zsh:
+        path: bash/bash_aliases
+        create: true
+        relink: true
+    ~/.oh-my-zsh/custom/themes/agnoster.zsh-theme:
+        path: zsh/themes/agnoster.zsh-theme
+        create: true
+        relink: true
+    ~/.oh-my-zsh/custom/02-ssh.zsh:
+        path: zsh/custom/ssh
+        create: true
+        relink: true
+    ~/.oh-my-zsh/custom/03-rand.zsh:
+        path: zsh/custom/rand
+        create: true
+        relink: true
+    ~/.bin:
+        path: bin/
+        create: true
+        relink: true
+    ~/.ctags:
+        path: ctags/ctags
+        create: true
+        relink: true
+    ~/.asdfrc:
+        path: asdf/asdfrc
+        create: true
+        relink: true
+    ~/.editorconfig:
+        path: editorconfig
+        create: true
+        relink: true
+    ~/.tern-config:
+        path: language-servers/javascript/tern-config
+        create: true
+        relink: true
 
 - shell:
     - git submodule update --init --recursive

@@ -63,3 +63,7 @@ augroup Mkdir
         \     call mkdir(expand("<afile>:p:h"), "p") |
         \ endif
 augroup END
+
+" Set python support
+let g:python2_host_prog = '/usr/local/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
