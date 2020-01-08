@@ -3,3 +3,8 @@ nmap <silent> <Leader>t :TestNearest<CR>
 nmap <silent> <Leader>T :TestFile<CR>
 nmap <silent> <Leader>a :TestSuite<CR>
 nmap <silent> <Leader>l :TestLast<CR>
+
+let test#php#phpunit#options = {
+    \ 'nearest': '--exclude-group external',
+    \ 'file': '--exclude-group external',
+    \ }
