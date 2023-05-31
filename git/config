@@ -1,5 +1,6 @@
 [init]
   templatedir = ~/.git_template
+  defaultBranch = main
 [push]
   default = current
 [core]
@@ -21,7 +22,7 @@
   email = daniel@strunk.me
   name = Daniel Strunk
 [gpg]
-  program = gpg
+  program = /usr/local/MacGPG2/bin/gpg
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f

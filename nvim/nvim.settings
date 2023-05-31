@@ -21,6 +21,8 @@ set scrolloff=999      " Keep cursor in the middle of the screen
 set wm=0               " Don't wrap based on terminal size
 set clipboard=unnamed  " Needed to copy / paste from system
 set cot+=preview       " Completion preview support
+set t_ZH=[3m
+set t_ZR=[23m
 
 " Zoom a vim pane, <C-w> to rebalance
 "
@@ -65,5 +67,5 @@ augroup Mkdir
 augroup END
 
 " Set python support
-let g:python2_host_prog = '/usr/local/bin/python'
-let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python_host_prog = '~/.asdf/installs/python/3.10.0/bin/python'
+let g:python3_host_prog = '~/.asdf/installs/python/3.10.0/bin/python3'

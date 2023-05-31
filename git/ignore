@@ -121,9 +121,23 @@ app/code/Danielstrunk/
 # Elixir
 .elixir_ls
 
+# PHP
+lsp/
+lsp/*.log
+_ide_helper_models.php
+_ide_helper.php
+.phpstorm.meta.php
+
 # VSCode
 .vscode
+
+# VSCode Extensions
+.testrc.json
 
 # Other
 config.codekit3
 *.code-workspace
+TODO.md
+
+# Netlify
+.netlify

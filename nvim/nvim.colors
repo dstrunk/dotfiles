@@ -4,4 +4,4 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors
 set colorcolumn=+1
 set background=dark
-colorscheme palenight
+colorscheme gruvbox

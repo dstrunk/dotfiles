@@ -31,6 +31,9 @@ set encoding=utf-8     " all of the characters
 set list               " Show hidden characters
 set listchars=tab:▸\ ,eol:¬ " Good characters instead of `$` and `^M`
 
+let g:python_host_prog = '~/.asdf/installs/python/3.10.0/bin/python'
+let g:python3_host_prog = '~/.asdf/installs/python/3.10.0/bin/python3'
+
 syntax on              " Syntax highlighting
 filetype on            " Enable filetype detection
 filetype indent on     " Enable filetype-specific indenting

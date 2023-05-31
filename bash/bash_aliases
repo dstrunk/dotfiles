@@ -22,8 +22,10 @@ craftinit() {
   command composer create-project nystudio107/craft "$@"
 }
 
-# hub
-# brew install hub
-eval "$(hub alias -s)"
-
 alias vapor='php vendor/bin/vapor'
+
+artisan() {
+  command php artisan "$@"
+}
+
+alias art='artisan'
